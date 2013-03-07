@@ -2,7 +2,7 @@
 confirm("I am ready")
 var age=prompt ("you're age bro")
 if (age<18){
-	console.log("you can play but I aint responsible")
+	console.log("you can play but I am not responsible")
 }
 else {
 	console.log("have at it")
