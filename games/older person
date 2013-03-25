@@ -5,7 +5,7 @@ function Person (name, age) {
 }
 
 // We can make a function which takes persons as arguments
-// This one computes the difference in ages between two people
+// This one computes the difference in ages between the two people
 var ageDifference = function(person1, person2) {
     return person1.age - person2.age;
 };
