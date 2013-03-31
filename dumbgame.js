@@ -1,5 +1,5 @@
 //Check if the user is ready to play!
-confirm("I am ready")
+var yes=confirm("I am ready")
 var age=prompt ("you're age bro")
 if (age<18){
 	console.log("you can play but I am not responsible")
