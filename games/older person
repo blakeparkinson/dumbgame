@@ -12,7 +12,7 @@ var ageDifference = function(person1, person2) {
 
 // Make a new function, olderAge, to return the age of
 // the older of two people
-
+function olderAge (
 
 // Let's bring back alice and billy to test our new function
 var alice = new Person("Alice", 30);
