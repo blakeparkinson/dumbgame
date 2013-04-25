@@ -10,7 +10,6 @@
           class Cat {
              public $isAlive=true;
              public $numLegs=4;
-             
              public function __construct ($name) {
                  $this->name = $name;
              }
