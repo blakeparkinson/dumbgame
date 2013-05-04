@@ -1,0 +1,37 @@
+
+var deal = function() {
+  card = Math.floor(Math.random()*52+1);
+  return card;
+};
+
+
+var card1 = deal() %13;
+var card2 = deal()% 13;
+
+
+var getValue = function(card) 
+    {
+      // if its a face card, number should be set to 10        
+        if (card % 13 === 0 || card % 13 === 11 || card % 13 === 12) 
+        {
+            return 10;
+        }
+      // ace
+        else if (card % 13 === 1)
+        {
+            return 11;
+        }
+      // Otherwise, we just want its number value
+        else
+        {
+            return card % 13;
+        }  
+    };
+        
+
+function score() {
+  return getValue(card1) + getValue(card2);
+}
+
+console.log("You have cards " + card1 + " and " + card2 +
+        " for a score of " + score(card1, card2));
