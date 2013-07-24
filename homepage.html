@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-  	<header class="row"> 
+		<header class="row"> 
 			<div class="span12">
 				<nav class ="navbar">
 					<div class = "navbar-inner">
@@ -61,8 +61,10 @@
 						<label class="checkbox">
 						<input type ="checkbox">Remember Me
 						</label>
+						<div class="pull-right">
 						<input type="submit" class="btn btn-primary" value="login">
-						<a class="btn btn-info">register</a>
+						<a class="btn btn-info" href="#register" role="button" data-toggle="modal">register</a>
+						</div>
 					</fieldset>
 				
 				</form>
@@ -73,10 +75,58 @@
 		
 		
 		<footer class="row"></footer>
+	</div><!--end of container---->
 	
+	<div id="register" class="model hide fade" aria-labelledby="modalLabel" aria-hidden="true">
+		
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+				<h3 id="modalLabel">Register</h3>
+		</div>
+		<div class="modal-body">
+		<form>
+			<a class="label label-info">required</a>
+			<div class="controls controls-row">
+				<input type="text" class="span2" placeholder="first name">
+				<input type="text" class="span2" placeholder="last name">
+				<select class ="span1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+
+			</div>
+			<div class="controls control-group warning">
+			<input type="text" class="span5" placeholder="username" id="inputwarning">
+			<input type="text" class="span5" placeholder="email" id="inputwarning">
+			<input type="text" class="span5" placeholder="confirm email" id="inputwarning">
+			</div>
+			<a class="help-block">Hello There:
+			 <a href='#' id='tip' rel='tooltip' data-animation='true' data-original-title='Cool Tip' data-placement='right'>Tip</a></a>
+			<label class="checkbox inline">
+				<input type ="checkbox">HTML/CSS
+			</label>
+			<label class="checkbox inline">
+				<input type ="checkbox">Javascript
+			</label>
+			<label class="checkbox inline">
+				<input type ="checkbox">PHP
+			</label>
+			
+		</form>
+
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">cancel</button>
+			<button class="btn btn-success">register</button>
+		</div>
+	</div>
 	
 	</div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$("#tip").tooltip();
+    </script>
   </body>
 </html>
