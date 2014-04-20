@@ -50,7 +50,6 @@ modo.define('common.Footer', function Footer(){
     var switchLanguage = function(e){
 
         e.preventDefault();
-        console.log(e);
 
         var url      = location.href,
             language = _$(this).attr('language');
