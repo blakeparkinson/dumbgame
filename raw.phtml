@@ -1,0 +1,68 @@
+            <div id="tpl-widget-suggestions" class="hidden">
+                <?
+                $response = new stdClass();
+                $response->payload = null;
+                $response->message_keys = array();
+                $lighthouse_recos = NagBarHandler::getInstance()->_getLighthouseRecommendations($this->account_info, NagBarHandler::MAX_LIGHTHOUSE_SUGGESTIONS);
+
+                if (!empty($lighthouse_recos)) {
+                    array_push($response->message_keys, NagBarHandler::LIGHTHOUSE_SUGGESTIONS);
+                    $response->payload = $lighthouse_recos;
+                }
+                error_log(' $response: ' . print_r($response, true));
+
+                return $response;
+
+
+
+                ?>
+
+                <div class="suggestions-container clearfix">
+
+                    <p class="banner-title">Build Your Network</p>
+
+                    <ul class="suggestions">
+
+                        <? $i = 0; ?>
+
+                        <? foreach ($response->payload[Users::TYPE_TEACHER] as &$teacher) {
+                            {
+
+                                if (strlen($teacher['name']) > 27) $displayed_name = substr($displayed_name, 0 ,25) . '...';
+
+                            }?>
+
+                            <li>
+
+                                <div class="network-mask loading"></div>
+                                <?= $this->partial('/templates/tpl-network-connection.phtml', array('translator' => $this->layout_translator, 'name' => $teacher['name'], 'avatar' => $teacher['avatar'], 'user_id' => $teacher['user_id'])); ?>
+
+                            </li>
+
+                            <? $teacher['visible'] = 1; ?>
+
+                            <? if($i >= 4) break; ?>
+                            <? $i++; ?>
+
+                        <? } ?>
+
+                        <li id="byn-invite-teachers" class="invite-teachers-link cf">
+
+                            <div>
+                                <div class="byn-invite-teachers-icon"></div>
+                                <p class="teacher-name"><?= $translator->_('invite-teachers'); ?></p>
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <script>
+
+                    <?= TemplateHelper::writeJsTemplate('network-connection',  $this->partial('/templates/tpl-network-connection.phtml', array('translator' => $translator3)) ); ?>
+
+                </script>
+
+            </div>
