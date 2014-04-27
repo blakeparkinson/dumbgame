@@ -80,7 +80,7 @@ modo.define('common.Footer', function Footer(){
 
         //modal footer links management
         if (_$('.languages-t5').hasClass('hidden')){
-            _$('.languages-t5').removeClass('hidden');
+            //_$('.languages-t5').removeClass('hidden');
         }
         else{
             _$('.languages-t5').addClass('hidden');
