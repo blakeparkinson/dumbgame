@@ -53,6 +53,7 @@
         $reccomended_suggestions = ConnectionsHandler::getInstance()->getRecommendedUsers($account_info, $limit);
         error_log(' $reccomended_suggestions: ' . print_r($reccomended_suggestions, true));
 
+    <?= $this->partial(PATH2_PARTIALS.'build-network.phtml', array('translator2' => $translator2, 'recommended_connections' => $recommended_connections)); ?>
 
 
     }
