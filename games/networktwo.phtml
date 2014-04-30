@@ -1,0 +1,48 @@
+<?
+$avatar = isset($this->avatar) ? $this->avatar : '{{avatar}}';
+$name   = isset($this->name) ? $this->name : '{{name}}';
+if (!empty($this->user_id)){
+    $user_id = $this->user_id;
+    $icon_text = $translator->_('connect', (string)$name);
+}
+else if (!empty($this->taxonomy_id)){
+    $user_id = $this->taxonomy_id;
+    $icon_text = $translator->_('invite-to-join', (string)$name);
+}
+else{
+    $user_id = '{{user_id}}';
+}
+
+//$user_id = isset($this->user_id) ? $this->user_id : '{{user_id}}';
+$taxonomy_id = isset($this->taxonomy_id) ? $this->taxonomy_id : '{{taxonomy_id}}';
+$connection_class = 'connection';
+$translator = TranslationHelper::getInstance(PATH2_LANGUAGES . 'referrals.tmx', $this->language);
+$icon_text = $translator->_('connect', (string)$name);
+if (AppsApiRequest::IsValidValueByType($taxonomy_id, ApiRequest::ALPHA_NUMERIC_TYPE) || AppsApiRequest::IsValidValueByType('{{taxonomy_id}}', ApiRequest::ALPHA_NUMERIC_TYPE)){
+    $icon_text = $translator->_('invite-to-join', (string)$name);
+    $connection_class = 'referral';
+    $valid_taxonomy_id = true;
+}
+if (empty($avatar) && strlen(($avatar) < 1)){
+    $avatar = "https://u.ph.edim.co/default-avatars/44.jpg";
+}
+error_log(' $taxid: ' . print_r($taxonomy_id, true));
+
+?>
+
+
+<div id="connection-<?= $user_id; ?>" class="suggestion-teacher {{new}}" data-uid="<?= $user_id; ?>" data-tid="<?=$taxonomy_id; ?>">
+
+    <div class="icon"></div>
+    <div class="add-icon" title="<?= $icon_text ?>"></div>
+    <img src="<?= $avatar; ?>"  />
+    <p class="teacher-name">
+        <? if ($valid_taxonomy_id): ?>
+            <p class="referral-name"><?= $name; ?></p>
+        <? else: ?>
+            <a class="user-link" title="<?= $translator->_('view-profile'); ?>" target="_BLANK" href="/profile/<?= $user_id; ?>"><?= $name; ?></a>
+        <? endif; ?>
+    </p>
+    <p class="request-sent"><span></span><?= $translator->_('request-sent'); ?></p>
+</div>
+
