@@ -1,0 +1,21 @@
+<ul id="rightside" class="menu pull-right">
+
+            <li class="arrow dd ttip" data-ttip="<?= $translator->_('account'); ?>">
+                <span class="dd-arrow"></span>
+
+            </li>
+           
+           <? //profile and settings // ?>
+
+                <li class="account ttip" data-ttip="<?= $translator->_('profile'); ?>">
+
+                    <a href="home#/profile/<?=$account_info['user_id']?>"
+
+                        <img id="small-profile-avatar" class="border3 pull-left" src="<?= Profiles::getInstance()->getUserThumbnail($account_info['user_id'], $account_info['username']); ?>" alt="<?= $nav_username ?>"/>
+                        <span class="inner-text-shadow"><?= $nav_username ?></span>
+
+                    </a>
+
+                </li>
+
+            <?
