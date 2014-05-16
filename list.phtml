@@ -1,0 +1,9 @@
+<li class="message-reaction message-icon dd subtext pull-left <? if($iconCls == 'default-react' || $iconCls == 'has-react'):?>default<?endif;?>">
+                            <? if($reactionCount > 0):?>
+                            <a href="javascript:;" class="<?= $baseCls;?> <?= $iconCls; ?>" title="<?= $reactionText; ?>"></a>
+                            <?endif;?>
+                        </li>
+                        <? if($reactionCount > 0):?><li class="reaction-total subtext pull-left"><span><?= $reactionCount; ?></span> <?= $reactionText; ?>
+                            <a href="javascript:;" class="<?= $baseCls;?> <?= $iconCls; ?>" title="<?= $reactionText; ?>"></a>
+                            </li><?endif;?>
+                    <?endif;?>
