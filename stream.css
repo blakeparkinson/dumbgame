@@ -1,0 +1,423 @@
+.message {padding: 20px 0 0 0;background-color: #fff;box-shadow: 0 1px 5px 0 rgba(56, 61, 72, 0.21);margin:14px 0;border-radius:2px;}
+body.ie8 .message { border: 1px solid #dfe4e8; }
+.feed-container > li:first-child {margin-top: 0px !important; border-top: 0px !important; border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; }
+.message .has-replies-before {border-radius: 0 0 2px 2px;}
+.message .has-replies-after {border-radius: 2px 2px 0 0;}
+.message .avatar {margin: 0 0 0 20px; overflow: hidden; height: 50px; width: 50px;}
+.message .avatar.system-avatar {cursor: default;}
+
+.message .last-post-in-stream{margin-bottom: 0px;}
+
+.stream-content-wrap {background-color: #e9ecef;border: none;border-radius: 0px;box-shadow: none;}
+.message .message-content {margin: 0 0 0 20px; width: 599px;}
+.message .sender-and-recipients p {display: inline;}
+.sender-and-recipients a { display: inline-block; height: 20px; }
+.sender-representative { background: #3c86d0; display: inline-block; width: 17px; height: 17px; border-radius: 2px; margin-right: 5px; }
+.sender-representative img { position: relative; top: 1px; left: 2px; }
+.comment-header .sender-representative img { top: 2px; }
+.message .receiver-square {display: inline-block;width: 10px;height: 10px;margin-right: 3px;border-radius: 2px;}
+.message .msg-content-container {padding: 5px 20px 20px 0; word-wrap: break-word;}
+.message .message-footer {clear: both; overflow: hidden; background:#f3f5f6; border-top: 1px solid #e0e3e7; margin-top: 17px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; padding: 10px 20px 8px 90px; height: 24px;}
+.message .message-footer > li {min-height: 20px; cursor: pointer;}
+.message .message-footer li.time-ago {padding-left: 23px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-site.png) 0 -310px no-repeat; cursor: text;}
+.message .message-footer li.time-ago-no-icon {cursor: text;}
+.message .message-footer li.msg-reply {padding-left: 34px; background-position: 10px -254px;}
+.message .message-footer li.share-stream {padding-left: 34px; background-position: 10px -919.2px;}
+.message .message-footer li.msg-reply:hover {background-position: -174px -254px;}
+.message .message-footer li.no-reaction {background: url(//assets.edmodo.com/images_v2/sprites/sprite-arrows.png) 32px -176px no-repeat; padding-right: 16px;padding-left:6px;}
+.message .message-footer li.message-reaction.default {padding-left:10px;}
+.message .message-footer li.message-reaction-single-icon {background:0;}
+.message .message-footer li.message-reaction-single-icon.default {padding-left:10px;}
+.message .message-footer li.message-reaction-single-icon > a {position: relative; display: inline-block; margin: 0 0 -12px 0;}
+.message .message-footer .message-reaction-single-icon .reaction-icon {padding-left: 24px;padding-right: 20px}
+.message .message-footer li.message-reaction-single-icon > a.default-react, .message .message-footer li.message-reaction > a.has-react {background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) no-repeat 0 -190px;width: 16px;height: 22px;}
+.message .message-footer li.message-reaction > a {position: relative; display: inline-block; top: -8px; margin: 0 0 -12px 0;}
+.message .message-footer li.bullet { color: #b9bec8; margin-left: 9px;font-size: 10px; }
+.message .message-footer li.message-reaction > a.default-react, .message .message-footer li.message-reaction > a.has-react {background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) no-repeat 0 -192px;width: 16px;height: 16px;}
+.message .message-footer li.message-reaction-single-icon > a.default-react, .message .message-footer li.message-reaction-single-icon > a.has-react {background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) no-repeat 0 -190px;width: 16px;height: 22px;}
+.message .message-footer li.message-reaction > a.has-react {background-position:-92px -192px;}
+.message .message-footer li.message-reaction-single-icon > a.has-react {background-position:-92px -190px;}
+.message .message-footer li.reaction-total > span{padding-left: 6px;}
+.message .message-footer li.reaction-total > a.has-react {
+    background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) no-repeat -92px -192px;
+    width: 18px;
+    height: 16px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin: 10px 0px 0 0;
+}
+.message .message-footer li.reaction-total span.reaction-total {
+    background: url(//assets.edmodo.com/images_v2/sprites/sprite-arrows.png) 7px -178px no-repeat;
+    height: 19px;
+    width: 12px;
+    margin-top: -18px;
+    float: right;
+}
+
+.options-btn, .message-options.dd-visible .options-btn {display: block; height: 15px; width: 14px; padding: 3px; background: white url("/images_v2/sprites/sprite-site.png") 1px -125px no-repeat;}
+.msg-content-text {transition-property: height; transition-duration: .5s; -webkit-transition-property: height; -webkit-transition-duration: .5s;}
+
+.message .long-post {display: none;}
+.message.long .long-post {display: inline;}
+.message.long .summary {display: none;}
+
+.sender-to-receiver {
+  padding: 0 1px;
+}
+
+.small-avatar {width:100%; height:100%;}
+
+.group-color {
+    height: 62px;
+    width: 82px;
+    background-color: #336699;
+}
+/* thumbnails */
+
+.stream_thumb, .share_thumb, .link_thumb {
+  max-height:62px;
+}
+
+/* assignment/quiz */
+
+.assignment-message-title, .quiz-message-title {padding: 0 0 10px 0;}
+.assignment-message-container, .quiz-message-container {border: 1px solid #dfe4e8;}
+.assignment-message-header, .quiz-message-header {padding: 10px; border-bottom: 1px solid #dfe4e8;}
+.assignment-message-header > p, .quiz-message-header > p {margin: 7px 0 0 10px;}
+.assignment-message-content, .quiz-message-content {padding: 10px;}
+
+/* poll */
+
+.poll-question {padding: 0 0 10px 0;}
+.poll-answers {padding: 10px; border: 1px solid #dfe4e8;}
+.poll-answer-text strong {color: #383D48;}
+.poll-percentage {background: #eceeef; margin: 0 0 5px 0;}
+.poll-percentage > div {background: #3784d3; height: 8px; transition-property: width; transition-duration: .5s; -webkit-transition-property: width; -webkit-transition-duration: .5s;}
+.poll-totals {padding: 10px 0 0 0;}
+.show-more-poll-answers {padding: 5px; text-align: center; cursor: pointer; border: 1px solid #dfe4e8; border-top: 0;}
+.more-poll-answers-container {overflow:hidden;height:0}
+.poll-vote-btn-container {padding: 10px 0 0 0;}
+.poll-question-container {padding: 0 0 8px 0;}
+.poll-answer-container strong {color: #444;}
+
+/* end-poll */
+
+.moderated-warning-container {padding: 10px;}
+
+.message-options.loading #options-list {height: 100px; background: white url(//assets.edmodo.com/images_v2/loading.gif) center no-repeat;}
+#options-list {min-width: 150px; margin: 7px 0 0 -5px; }
+#options-list li.first {border-top: 0;}
+
+.submenu li.post-added-to-lib > a, .submenu li.post-added-to-lib > a:hover {color: #839096;}
+
+.message-icon {background-image: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png); background-repeat: no-repeat;}
+
+.filter-header {background: #f3f5f7; padding: 0px 10px; overflow: hidden; height: 0px; -moz-transition-property: height, padding; -moz-transition-duration: .25s; -webkit-transition-property: height, padding; -webkit-transition-duration: .25s; transition-property: height, padding; transition-duration: .25s;border:1px solid #dfe4e8;border-width:0 0 1px 0; box-shadow: 0 1px 5px 0 rgba(56, 61, 72, 0.21)}
+.filter-header.open {height: 34px; padding: 5px 10px;}
+.filter-header > p {margin: 7px 0 0 10px;}
+.filter-header .assignment-filter-options {display: none;}
+.filter-header.assignments .assignment-filter-options, .filter-header.assignment .assignment-filter-options, .filter-header.due_assignment .assignment-filter-options {display: block;}
+.filter-header .filter-close-link {height: 15px; width: 15px; margin: 6px 0 0 0; background-image: url(//assets.edmodo.com/images_v2/sprites/sprite-close.png); background-position: 8px 5px; background-repeat: no-repeat; padding: 3px;}
+.filter-header .assignment-filter-options > a {display: inline-block; padding: 0 10px;}
+.filter-header .assignment-filter-options > a.selected {color:#8890A2;}
+.filter-header .assignment-filter-options > a:active {}
+
+#new-message-bar {background: #ebf2fb; font-weight: bold; cursor: pointer; text-align: center; overflow: hidden; height: 0; -moz-transition-property: height, padding; -moz-transition-duration: .25s; -webkit-transition-property: height, padding; -webkit-transition-duration: .25s; transition-property: height, padding; transition-duration: .25s; border-bottom: 1px solid #b5d1ef; box-shadow: 0 3px 5px 0 rgba(56, 61, 72, 0.21); }
+#new-message-bar:hover {background: #dde9f8;}
+#new-message-bar.open {height: 34px; padding: 5px 10px 8px;}
+#new-message-bar > a {position: relative; top: 9px;}
+
+.message-comments-container {box-shadow: 0px 0px 1px 1px #fff inset; }
+.message-comments-container, .reply-container { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; }
+
+.comments .show-more-comments {padding: 10px 0px 10px 92px; border-top: 1px solid #d5d9df; cursor: pointer; color: #3784D3;}
+.comments .show-more-comments.loading{background:none;color:#839096;cursor:default}
+.comment {clear: both; border-top: 1px solid #d5d9df; padding: 14px 0 11px 0px;}
+.comment .avatar {margin: 0 0 0 35px;}
+.comment.editting .comment-content, .comment.editting .reply-options {display: none;}
+.comment .comment-right {margin: 0 0 0 20px; width: 574px;}
+.comment .comment-header { line-height: 13px; padding-bottom: 3px}
+.comment .comment-header span.subtext span { color: #b1b9bd; font-size: 11px; display: inline-block; padding: 0 2px; }
+.comment .comment-content, .comment-content-short {padding: 5px 20px 0 0;}
+.comment .reply-options-btn {height: 15px; width: 14px; display: block; padding: 3px; background: #F3F5F7 url(//assets.edmodo.com/images_v2/sprites/sprite-site.png) 1px -125px no-repeat; cursor: pointer;}
+.comment .small-avatar, .comment .avatar {height: 35px; width: 35px;}
+.comment.new {background: url(//assets.edmodo.com/images_v2/backgrounds/bg-new-comment.png) repeat-y;}
+
+.reply-container {overflow: hidden; position: relative; padding: 17px 0; border-top: 1px solid #d5d9df;}
+.reply-container.no-comments { box-shadow: inset 0px 0px 1px 1px #fff; } 
+.reply-container .placeholder-container {z-index: 1;background: white;float: left; width: 580px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0; line-height: 0; }
+.reply-container .placeholder-container.focused, .reply-container .placeholder-container.active {width: 482px;}
+.reply-container .placeholder-container, .reply-container .postbox-attach {margin: 0 0 0 89px;}
+.reply-container.short .placeholder-container {height: 32px;}
+.reply-container.short .reply-options {display: none;}
+.reply-container ul.attachments {
+    margin: 0px 20px 0 80px;
+}
+.reply-container a.reply-btn { position: absolute; right: 31px; top: 17px;opacity:0;filter: alpha(opacity: 0); -webkit-transition: opacity 0.3s;-o-transition: opacity 0.3s;-moz-transition: opacity 0.3s;-ms-transition: opacity 0.3s;
+width: 53px;
+}
+.reply-container .placeholder-container.focused + a, .reply-container .placeholder-container.active + a { opacity: 1; filter: alpha(opacity:100);}
+.reply-options {clear: both; padding: 10px 0 0 0; margin: 0 -10px 0 0;}
+.reply-options > p {margin: 0 32px 0 0;}
+.reply-options a {margin: 0 4px;}
+.reply-mask {position: absolute; width: 696px; opacity: .5; filter: alpha(opacity=50); background-color: white; margin: -20px 0 0 0; z-index: 2;}
+.reply-list {margin: 0 0 0 11px;}
+
+.more-posts-container .no-messages-text, .more-posts-container .no-search-results {padding: 13px 0; display: none;}
+.more-posts-container.no-messages .no-messages-text, .more-posts-container.no-search .no-search-results {display: block; padding: 30px 0;}
+.more-posts-container.no-messages > a, .more-posts-container.no-search > a {display: none;}
+
+.edit-comment-container {padding: 10px 0 0 0;}
+.edit-container textarea, .edit-container input, .edit-comment-container textarea {width: 90%; margin: 0 0 10px 0;}
+.edit-container .placeholder-container input {margin: 0; width: 91px;}
+.edit-container-options {padding: 0 0 10px 0; clear: both;}
+.edit-container-options > a {margin: 0 10px 0 0;}
+.edit-container .placeholder-container {padding: 0; margin: 0 0 10px 0;}
+.edit-container .placeholder-container .dp-choose-date {border-left: 1px solid #dfe4e8; float: right; height: 22px; width: 22px;  background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 3px -453px no-repeat;}
+.edit-container .placeholder-container:hover .dp-choose-date {background-position: -181px -453px;}
+
+.link-to-post-container {padding: 10px;}
+.link-to-post-container input {width: 300px; cursor: default;}
+
+/* share */
+
+.share-post-container.loading {height: 150px; width: 370px;}
+.share-post-container.loading * {display: none;}
+.share-post {padding: 10px;}
+.share-post .share-content-container {padding: 10px; margin: 10px 0; border: 1px solid #dfe4e8; overflow: hidden;}
+.share-post .share-img {overflow: hidden; height: 42px; width: 42px; }
+.share-post .share-content-right {margin: 0 0 0 10px; width: 274px;}
+.share-post .share-content {padding: 5px; background: white;}
+.share-post .share-sender {color: #3784D3; margin: 0 0 5px 0;}
+.share-receiver-placeholder.has-receivers label {top: -999em;}
+.share-receiver-placeholder > input {width: 90px;}
+
+.share-suggest {width: 344px; max-height: 150px; overflow-y: auto; position: absolute; top: -999em; background-color: white; border: 1px solid #dfe4e8; margin: 0 0 0 1px;}
+.share-suggest.loading {height: 100px;}
+.share-suggest.loading * {display: none;}
+.share-suggest li {overflow: hidden; border-top: 1px solid #dfe4e8; cursor: pointer; padding: 5px 10px;}
+.share-suggest li:first-child {border-top: 0;}
+.share-suggest li img {margin: 0 10px 0 0;}
+.share-suggest li span {position: relative; left: 8px;}
+
+.share-receiver {border-radius: 2px; color: white; display: inline-block; margin: 0 5px 5px 0; padding: 5px;}
+.share-receiver img {position: relative; margin:0 0 0 5px; top: 3px; cursor: pointer;}
+
+/* attachments */
+
+.more-attachments, .more-images {clear: both; overflow: hidden;}
+.toggle-attachments, .hide-more-images {padding: 10px 0 0 0;}
+
+.link-shared-content {max-height: 40px; overflow: hidden;}
+.link-shared-content-link{padding-top: 5px;}
+
+.link-attachment, .embed-attachment, .file-alternate-attachment {border-radius: 3px; border: 1px solid #dfe4e8; padding: 10px; overflow: hidden; margin: 10px 0 0 0;}
+.link-attachment img, .embed-attachment img, .file-alternate-attachment img {max-height: 60px; border: 1px solid #dfe4e8; }
+.attachment-info {margin: 0 0 0 10px; max-width: 450px;}
+.embed-attachment .embed-btn {position: relative; cursor: pointer;}
+.embed-attachment .embed-btn span {top:12px;left:21px;}
+
+.embed-viewport {height: 0px; overflow: hidden; clear: both; float: left; margin: 10px 0 0 0;}
+
+.file-attachment {overflow: hidden; max-width: 190px; max-height: 158px; margin: 20px 10px 10px 0; background: white;}
+.file-attachment .file-attachment-more-mask {display: none;}
+.file-attachment .thumb-file-link {display: inline-block;}
+.file-attachment.masked {background: black; position: relative;}
+.file-attachment img {display: block;}
+.file-attachment.masked img {opacity: .45; filter: alpha(opacity=45);}
+.file-attachment.masked .file-attachment-more-mask {color: white; position: relative; cursor: pointer; z-index: 2; font-size: 39px; display: table-cell; vertical-align: middle; margin: 31% 0 -50% 0; float: left; line-height: 0; text-align: center; width: 100%;}
+
+.facebox-image {float: left; text-align: center; position: relative; background-color: #222; min-height: 600px; min-width: 600px; }
+.facebox-image.loading { background-image: url(/images_v2/loading-facebox-image.gif); }
+.facebox-image * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; }
+.facebox-image.image-loading { min-width: 250px; height: 150px; background: white url(//assets.edmodo.com/images_v2/loading.gif) center no-repeat;}
+.facebox-image.image-loading * {display: none;}
+.facebox-image img {display: block; margin: 0 auto; }
+.facebox-image > img { position: absolute; }
+
+.facebox-image .surf-div-left, .facebox-image .surf-div-right { position: absolute; top: 50%; }
+.facebox-image .surf-div-left img, .facebox-image .surf-div-right img { opacity: 0; -webkit-transition: opacity 0.2s; -moz-transition: opacity 0.2s; -o-transition: opacity 0.2s; -ms-transition: opacity 0.2s; }
+.facebox-image .surf-div-left { left: 20px; margin-top: -19px; z-index:100;}
+.facebox-image .surf-div-right { right: 20px; margin-top: -19px; z-index:100;}
+.facebox-image:hover .surf-div-left img, .facebox-image:hover .surf-div-right img { opacity: 0.5; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter: alpha(opacity=50); }
+#fb-image-hover-left img:hover, #fb-image-hover-right img:hover { opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); }
+#fb-image-hover-left:hover img, #fb-image-hover-right:hover img { opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); }
+
+#facebox .header.fb-header { border-bottom: none; padding: 8px 9px 0 15px; }
+#facebox .header.fb-header a { margin-top: 0; }
+.toggle-more-photo-post { display:block; padding-top: 10px; }
+.toggle-more-photo-post:hover { text-decoration: underline; }
+.thumbnail-nav { float: right; width: 310px; min-height: 600px; background: #fff; border-left: 1px solid #444; position: relative; border-bottom-right-radius: 2px; border-top-right-radius: 2px; }
+.thumbnail-nav .thumbnails { margin-top: 5px; }
+.thumbnail-nav .thumbnails .thumbnail { position: relative; text-align: center; margin-top: 18px; padding: 0; width: 110px; height: 100px; background: #fff; overflow: hidden; float: left; border: 1px solid #e0e0e0; border-radius: 2px; cursor: pointer; -webkit-transition: border 0.15s; -moz-transition: border 0.15s; -o-transition: 0.15s; -ms-transition: 0.15s;}
+.thumbnail-nav .thumbnails .thumbnail.active { border: 1px solid #6CABEC; }
+.thumbnail-nav .thumbnails .thumbnail.first { margin-right: 18px; }
+.thumbnail-nav .thumbnails .thumbnail img { max-width: 100%; position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0;}
+
+.thumbnail-nav .message-copy { border-bottom: 1px solid #eee; margin: 3px 0 0 0; padding: 0 25px 15px 25px; }
+.thumbnail-nav .message-copy a.avatar { width: 35px; height: 35px; }
+.thumbnail-nav .message-copy .message-content { margin: 0 0 0 10px; width: 190px; }
+.thumbnail-nav .msg-content-container { margin-top: 17px; }
+.thumbnail-nav .msg-content-container p { font-size: 13px; line-height: 16px; }
+.thumbnail-nav .msg-content-container p.blurb-text { display: none; }
+.thumbnail-nav .msg-content-container.blurb p.blurb-text { display: block; }
+.thumbnail-nav .msg-content-container p.full-text { display: block; }
+.thumbnail-nav .msg-content-container.blurb p.full-text { display: none; }
+.thumbnail-nav .scrollable { padding: 0 25px 35px 25px; overflow: auto; position: absolute; top: 82px; bottom: 0px; }
+#fb-image-hover-left, #fb-image-hover-right { position: absolute; top: 0px; bottom: 0px; cursor: pointer;cursor: pointer;  }
+#fb-image-hover-left { left: 0px; right: 86%; }
+#fb-image-hover-right { left: 14%; right: 0px; }
+
+.activity-history-btn {display: inline-block; height: 20px; width: 20px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 2px -407px no-repeat; margin: 0 3px 0 0;}
+.activity-history-btn:hover {background-position: -182px -407px;}
+
+.file-download-btn {display: inline-block; height: 20px; width: 20px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 2px -286px no-repeat; margin: 0 3px 0 0;}
+.file-download-btn:hover {background-position: -182px -286px;}
+
+.file-preview-btn {display: inline-block; height: 20px; width: 20px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 2px -491px no-repeat; margin: 0 3px 0 0;}
+.file-preview-btn:hover {background-position: -182px -491px;}
+
+.annotate-btn {display: inline-block; height: 20px; width: 20px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 2px -125px no-repeat; margin: 0 3px 0 0;}
+.annotate-btn:hover {background-position: -182px -125px;}
+
+#act-history {height: 185px; width: 385px; padding: 5px;}
+#act-history.loader {background-image: url(//assets.edmodo.com/images_v2/loading.gif); background-repeat: no-repeat; background-position: center;}
+#act-history .no-content {padding-top: 70px; text-align: center;}
+
+.mp3-player embed, .mp3-player object {position: relative; top: 1px;}
+.audio-option-btns {padding: 3px 0 0 0;}
+
+/* REACTIONS */
+
+.stream-reactions-container { margin-right: 10px; width: 160px; }
+.stream-reactions-container .panelarrow { margin: 0 0 0 19px; }
+.stream-reactions-container .inner {min-height: 40px;background-color: white; padding: 10px; width: 160px; border-radius:2px;}
+.stream-reactions-container.loading {height: 75px;}
+.stream-reactions-container li {width: 53px; height: 45px; float: left;}
+.stream-reactions-container ul.reactions li a {display: block; opacity: .3; filter: alpha(opacity=30);}
+.stream-reactions-container ul.reactions li:hover a {opacity: 1; filter: alpha(opacity=100);}
+.stream-reactions-container ul.reactions li:hover a.disabled {opacity: .3; filter: alpha(opacity=30);}
+.stream-reactions-container .inner.submenu li:hover { background: none; }
+.stream-reactions-container ul.reactions li a.selected-reaction {opacity: 1; filter: alpha(opacity=100);}
+.stream-reactions-container ul.reactions li div {min-width: 55px; margin: -5px 0 0 0; position: absolute; z-index: 10; background: url(//assets.edmodo.com/images/icons/ico-tt.png) top center no-repeat; padding: 5px 0 0 0; left: -999em; }
+.stream-reactions-container ul.reactions li div p {background: url(//assets.edmodo.com/images/backgrounds/bg-tt.png); border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; font-weight: bold; text-align: center; padding: 8px; z-index: 10;}
+.stream-reactions-container ul.reactions li:hover div {left: auto;}
+.stream-reactions-container ul.reactions li:hover div:hover {left: -999em;}
+
+#reacted-container .reactions-summary {padding: 10px;overflow: hidden;}
+#reaction-popular-icon {margin: 3px 10px 0 0; background-position: 0px 0px; }
+#reaction-popular-count {height: 36px; width: 36px; background: url(//assets.edmodo.com/images_v2/sprites/sprite-diagonals.png) no-repeat; position: absolute; margin: -10px 0 0 114px; border-radius: 0 2px 0 0; -moz-border-radius: 0 2px 0 0; -webkit-border-radius: 0 2px 0 0; }
+#reaction-popular-count p {color: white; float: right; font-weight: bold; margin: 2px 3px 0 0; text-align: center; width: 15px;}
+#reaction-description {width: 100px; word-wrap: break-word; float: left;}
+#view-all-reactions {padding: 10px; text-align: center; margin: 10px 0 0 0;}
+.no-reactions {text-align:center;}
+
+#all-reactions, #reactions-toggle, #individual-reactions {width: 380px; overflow: hidden;}
+#all-reactions { border-bottom: 1px solid #e3eaf0; overflow-x: auto; overflow-y: hidden; max-height: 101px; }
+#all-reactions ul { height: 101px; }
+#all-reactions li {float: left; text-align: center; background-color: #EEE; width: 70px; padding: 40px 5px 5px 5px; margin: 10px; position: relative; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; max-height: 38px; height: 38px; }
+#all-reactions li .reaction-count-container {position: absolute; top: 0; left: 44px; width: 36px; height: 36px; background: url(//assets.edmodo.com/images/backgrounds/bg-diagonal-green.png) no-repeat; border-radius: 0 2px 0 0; -moz-border-radius: 0 2px 0 0; -webkit-border-radius: 0 2px 0 0; }
+#all-reactions li .reaction-count-container p {float: right; color: white; font-weight: bold; text-align: center; width: 15px; margin: 3px 3px 0 0;}
+#all-reactions li .all-reactions-icon {top: 15px; left: 25px; position:absolute;}
+#all-reactions li.no-reactions {float: none; padding: 15px 5px; background: white; margin: 0; position: static; width: auto;}
+#all-reactions li p {word-wrap: break-word;margin-top:13px;font-size: 11px; line-height: 12px; }
+#all-reactions li.clear {position: static; width: auto; height: 1px; padding: 0;float: none;clear: both; background: white;}
+body.ie7 #all-reactions.hidden li {display: none;}
+
+#individual-reactions {height: 250px; overflow-x: hidden; overflow-y: auto; -moz-transition-property: height; -moz-transition-duration: .3s; -webkit-transition-property: height; -webkit-transition-duration: .3s; transition-property: height; transition-duration: .3s;}
+#individual-reactions.hidden {height: 0;}
+#individual-reactions div {float: left; margin: 0 7px 0 0;}
+#individual-reactions img {float: left; margin: 0 10px 0 0;}
+#individual-reactions div.reaction-activity-info {max-width: 294px;}
+#individual-reactions div.reaction-activity-info p {font-size: 13px; line-height: 13px; white-space: nowrap; max-width: 290px; overflow: hidden; text-overflow: ellipsis; }
+#individual-reactions img {border-radius:2px;}
+#individual-reactions span.reaction-text-rel {font-style: italic; position: relative; top: 8px; color: #777; }
+#individual-reactions li {overflow: hidden; padding: 10px; border-bottom: 1px solid #EEE; text-align: left; }
+#individual-reactions li:last-child { border-bottom: none; }
+#individual-reactions div.all-reactions-icon { position: relative; left: -2px; margin-right: 5px; }
+#individual-reactions p.reaction-last-view {font-size: 11px;}
+
+/* groups no messages */
+
+.group-no-messages > p {font-size: 16px; font-weight: 600; padding: 15px; text-align: center;}
+
+.group-no-messages {overflow: hidden; padding: 10px 73px; background: #fff; border-radius: 0px 0px 2px 2px; box-shadow: 0px 1px 5px 0px rgba(56, 61, 72, 0.21);}
+body.ie8 .group-no-messages { border: 1px solid #dfe4e8; }
+.group-no-messages > p {font-size: 16px; font-weight: 600; padding: 15px; text-align: center;}
+.group-no-messages .group-no-messages-container {padding: 10px 0; clear: both; overflow: hidden;}
+.group-no-messages .group-no-messages-container > p {float: right; font-size: 15px; width: 261px; }
+.group-no-messages .group-no-messages-container > div {float: left;}
+ .group-no-messages .group-no-step {background: #EEE; font-size: 18px; padding: 5px 13px; border-radius: 100px; border: 1px solid #dfe4e8; font-weight: bold;position: absolute;}
+
+#group-deactivated {margin: 50px 100px; padding: 15px; background: white url(//assets.edmodo.com/images/icons/ico-padlock.png) center 20px no-repeat; text-align: center; border: 1px solid #dfe4e8; border-radius: 8px; width: 366px;}
+.deactivated-message {font-size: 17px; margin: 123px 0 13px 0;}
+.deactivated-requirement {margin: 17px 0 0 0;}
+
+.col3-2.deactivated {background: #f8f8f8; min-height: 830px;}
+    .col3-2.deactivated #hpHeaderRt, .col3-2.deactivated #group-content-wrap, .col3-2.deactivated #stream-content {display: none;}
+    .col3-2.deactivated #group-deactivated {display: block;}
+
+#group-deleted-message {border: 1px solid #dfe4e8; border-radius: 2px; background: white; margin: 50px 125px; padding: 15px; text-align: center;}
+
+#group-no-messages-1 > div.group-no-img {width: 197px; height: 122px; background: url(//assets.edmodo.com/images_v2/backgrounds/stream/noSgroup-2.jpg) no-repeat scroll center 10px transparent;}
+#group-no-messages-1 span {display: inline-block; background: #336699; color: white; padding: 3px 8px; border-radius: 5px;}
+#group-no-messages-1 > p {margin: 33px 0 0 0;}
+#group-no-messages-1 .group-no-step {margin: 35px 0 0 219px;}
+
+#group-no-messages-2 > div.group-no-img {width: 100px; height: 100px; background: url(//assets.edmodo.com/images_v2/backgrounds/stream/ico-padlock.png) no-repeat; margin: 0 0 0 47px;}
+#group-no-messages-2 > p {margin: 17px 0 0 0;}
+#group-no-messages-2 .group-no-step {margin: 28px 0 0 219px;}
+
+#group-no-messages-3 > div.group-no-img {width: 178px; height: 135px; background: url(//assets.edmodo.com/images_v2/backgrounds/stream/noSgroup-1.jpg) no-repeat scroll center 0 transparent; margin: 0 0 0 10px;}
+#group-no-messages-3 > p {margin: 46px 0 0 0; }
+#group-no-messages-3 .group-no-step {margin: 47px 0 0 219px;}
+
+/* hide message */
+
+.hide-messages-container {padding: 10px; text-align: center;}
+.hide-messages-container input {margin: 0 3px 0 0;}
+
+/* delete message */
+
+.delete-msg-container {width: 400px; text-align: center;} 
+.delete-msg-container p {margin: 5px 0;}
+.delete-msg-container .assignment-title {font-weight: 600;}
+
+/* load more container overrides */
+.load-more-container{background-color:#fff;text-align:center;box-shadow: 0 1px 5px 0 rgba(56, 61, 72, 0.21);border-radius:2px;}
+.load-more-container.no-messages { border-top-left-radius: 0px; border-top-right-radius: 0px; }
+
+/* archive */
+#archivedGroupsView .section-header { padding: 15px 20px; background-color: #fff; border-bottom: 1px solid #dfe4e8; border-radius: 2px 2px 0 0; box-shadow: 0 1px 5px 0 rgba(56, 61, 72, 0.21); font-size: 24px; font-weight: 200; line-height: 32px; }
+
+/* single post page */
+#post-container .center-container, #content-container .center-container{margin:0 auto;width:698px;}
+
+/* snapshot */
+
+.application-title {padding: 5px 20px 0 0; font-weight: 700;}
+.application-description {padding: 0 0 20px 0;}
+
+.application-message-container {float: left; border: 1px solid #DFE4E8; border-radius: 3px; background: #fbfcfe; margin-top: 10px;}
+.application-message-container .ico {height: 68px; background: url(/images_v2/sprites/sprite-snapshot-message.png) center 0 no-repeat; margin: 11px 0 0 0;}
+.application-message-container .subtext span {color: #c2cacd;}
+
+.application-message-left {float: left; width: 120px; height: 120px; text-align: center;}
+.application-message-left.dont-miss .ico {background-position: center -64px;}
+.application-message-left.dont-miss p {color: #df8585; font-weight: 700;}
+.application-message-left.assigned p {color: #84b1e8; font-weight: 700;}
+.application-message-left .turned-in-count {font-size: 30px; margin: 42px 0 3px 0; font-weight: bold;} 
+.application-message-left.turned-in p {color :#757b87;}
+
+.application-right {background: white; min-height: 120px; border-left:1px solid #DFE4E8;}
+.application-message-center {float: left; width: 225px; padding: 25px; }
+.application-message-center .subtext {padding: 5px 0px; border-top: 1px solid #f4f5f7;}
+.application-message-center .subtext:first-child {border-top: none}
+
+.application-message-right {float: left; width: 175px; text-align: center; padding: 39px 0 0 0;}
+.application-message-right.turned-in { padding-top: 52px;}
+
+
+
+
