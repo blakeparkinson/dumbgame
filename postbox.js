@@ -17,7 +17,7 @@ modo.classes.PostBox.components.UI = function(rootNode, superClass){
         string = 'numbers',
         match = [];
 
-    /*var suggestions = rootNode.find('div.snapshot-suggest-container');
+    var suggestions = rootNode.find('div.snapshot-suggest-container');
     //var standards =$.getJSON("js_v2/libraries/standards.json");
     //console.log(standards);
     $.getJSON("js_v2/libraries/standards.json", function(data) {
