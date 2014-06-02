@@ -1,0 +1,899 @@
+<?
+	$type = $this->account_info['type'];
+
+	if(isset($_COOKIE['stream_filters_'.$this->account_info['user_id']])){
+	    $cookie=json_decode($_COOKIE['stream_filters_'.$this->account_info['user_id']]);
+	}else{
+	    $cookie = new stdClass();
+	    $cookie->group_id=NULL;
+	    $cookie->msgs_type=NULL;
+	}
+
+
+	$translate = new Zend_Translate('tmx', PATH2_LANGUAGES . 'postbox.tmx', $this->language);
+	$is_community = isset($this->is_community);
+	$context = $this->context;
+	$is_assignment = isset($this->is_assignment);
+	$is_group = isset($this->is_group);
+	$is_topic = isset($this->is_topic);
+  $profile_note = isset($this->profile_note);
+	$is_admin = isset($this->is_admin) && $this->is_admin;
+    $is_publisher = isset($this->is_publisher) && $this->is_publisher;
+    $show_reactions = $this->show_reactions;
+	$is_comment = isset($this->is_comment);
+	$account_info = AccountHandler::getInstance()->getAccountInfo();
+    $form_url = '/message/ajax-send-message';
+
+
+    if($is_assignment){
+
+        $form_url = '/assignment/ajax-upload-assignment';
+
+    }else if($is_comment){
+
+        $form_url = '/assignment/ajax-comment-assignment';
+
+    }
+
+    $is_default = $context != 'alert' && $context != 'assignments' && $context != 'polls' && $context != 'quizzes';
+    $show_disabled_mask = $context == 'feeds' || $context == 'by_me' || $context == 'by_studnets' || $context == 'direct' || $context == 'connections' || $context == 'recent_replies' || $context == 'by_teachers';
+
+
+
+?>
+<div id="<? if($is_group):?>group-<?endif;?><? if($is_community):?>community-<?endif;?><? if($is_assignment):?>assignment-<?endif;?><? if($is_topic):?>topic-<?endif;?><? if($is_comment):?>comment-<?endif;?>postbox" class="<? if($type == 'PUBLISHER') echo 'publisher-login ';?> standard-postbox <? if($type == 'STUDENT' && isset($this->read_only) && $this->read_only):?>readonly<?endif;?>">
+
+    <? if($show_disabled_mask):?><div class="disabled-mask"></div><? endif;?>
+
+	<div id="<? if($is_community):?>community-<?endif;?><? if($is_assignment):?>assignment-<?endif;?><? if($is_comment):?>comment-<?endif;?><? if($is_topic):?>topic-<?endif;?>postbox-content" class="sunken">
+
+		<? if(!$is_admin && !$is_community && !$is_assignment && !$is_comment && !$is_topic && $type != 'STUDENT'): ?>
+
+			<ul id="postbox-options" class="open <? if(!$is_default):?>disabled<?endif;?>" >
+
+				<? if ($type == 'PUBLISHER') { ?>
+
+				<li id="postbox-note" <? if($is_default):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('text-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('text-js'); ?></a></li>
+				<li id="postbox-poll" <? if($context == 'poll'):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('poll-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('poll-js'); ?></a></li>
+
+				<? } else { ?>
+
+                    <li id="postbox-note" <? if($is_default):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('text-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('text-js'); ?></a></li>
+                    <li id="postbox-alert" <?if($context =='alert'):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('alert-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('alert-js'); ?></a></li>
+                    <li id="postbox-assignment" <?if($context =='assignments'):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('assignment-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('assignment-js'); ?></a></li>
+                    <li id="postbox-quiz" <?if($context =='quizzes'):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('quiz-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('quiz-js'); ?></a></li>
+                    <li id="postbox-poll" <?if($context =='polls'):?>class="selected"<?endif;?>><span class="bolded-title"><?= $translate->_('poll-js'); ?></span><a class="message-icon" href="javascript:;"><?= $translate->_('poll-js'); ?></a></li>
+            <?if ($account_info['snapshot_enabled']):?>
+                    <li id="postbox-snapshot"><span class="bolded-title">Snapshot</span>
+                        <a class="message-icon" href="javascript:;">Snapshot</a>
+                    </li>
+            <? endif;?>
+        <? } ?>
+			</ul>
+
+            <? if($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment):?>
+
+                <a class="scheduled-message-count pull-right trans-bg border2 subtext <? if($this->scheduled_message_count == 0 || $context == 'alert' || $context == 'assignments' || $context == 'polls' || $context == 'quizzes'):?>hidden<?endif;?>" href="/home#/spotlight/scheduled-posts"><span><?= $this->scheduled_message_count; ?></span> <?= $translate->_('scheduled'); ?></a>
+
+            <? endif;?>
+
+		<? endif; ?>
+
+		<div id="<? if($is_community):?>community-<?endif;?><? if($is_assignment):?>assignment-<?endif;?><? if($is_comment):?>comment-<?endif;?><? if($is_topic):?>topic-<?endif;?><? if($type == 'STUDENT'):?>student-<?endif;?>selected-content" class="postbox-selected-content">
+
+			<div type="note" id="postbox-note-content" class="clearfix pb-content <? if(!$is_default && $type != 'STUDENT'):?>hidden<?endif;?> <? if(!$is_admin && !$is_topic && !$is_community && !$is_assignment && !$is_comment && $context != 'alert' && $context != 'assignments' && $context != 'polls' && $context != 'quizzes' || $type == 'STUDENT' && $context != '' || $is_publisher || $is_community): ?>short<? endif; ?>" <? if($is_admin || $is_community || $is_assignment || $is_comment || $is_topic):?>style="display: block"<? endif;?>>
+
+                <div class="multi-error hidden">
+
+                    <p class="hidden content-error"><?= $translate->_('empty-msg-error'); ?></p>
+                    <p class="hidden receiver-error"><?= $translate->_('no-receiver-error'); ?></p>
+
+                </div>
+
+                <div class="multi-warning hidden">
+
+                    <p class="hidden wait-for-uploads"><?= $translate->_('wait-for-uploads'); ?></p>
+
+                </div>
+
+                <div class="postbox-content-input placeholder-container">
+
+                    <textarea <?if($is_assignment):?>id="assignment-textarea" tabindex="10"<?endif;?><? if($is_comment):?>id="commentbox-textarea" tabindex="20" <?endif;?><? if($is_topic):?>id="topic-textarea"<?endif;?> resize_override="true" <? if($is_community):?>default_height="18"<? endif;?> class="placeholder-input" aria-required="true" aria-label="<? echo $is_assignment ? $translate->_('text-resp-js') : $translate->_('text-desc-js'); ?>"></textarea>
+                    <label class="placeholder-text"><? echo $is_assignment ? $translate->_('text-resp-js') : $translate->_('text-desc-js'); ?></label>
+
+                </div>                
+
+                <? if(!$is_community && !$is_comment && !$is_assignment && $type !== Users::TYPE_PUBLISHER):?>
+
+                <div class="recipients-container clearfix">
+
+                    <?= $this->partial(PATH2_PARTIALS.'invite-others.phtml', array()); ?>
+
+                    <div <? if($is_admin):?>id="admin-post-box-send" <?endif;?><? if($is_community):?>id="community-post-box-send" <?endif;?><? if($is_assignment):?>id="assignment-post-box-send" <?endif;?><? if($is_comment):?>id="commentbox-post-box-send" <?endif;?><? if($is_topic):?>id="topic-post-box-send" <?endif;?>class="post-box-send dd">
+
+                        <? if ($type == 'TEACHER') { ?><i class="search"></i><? } ?>
+
+                        <div class="postbox-send-input-container placeholder-container <? if($type == 'STUDENT'):?>student-send-container<?endif;?>" <? if($type == 'STUDENT'):?>data-direction="right"<?endif;?>>
+
+                            <? if($type != 'STUDENT'):?>
+
+                                <input id="postbox-note-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+                            <? else:?>
+
+                                <div class="student-input-placeholder"></div>
+
+                            <? endif;?>
+     
+                            <? if($type == 'STUDENT'):?>
+
+                                <a href="javascript:;" class="student-postbox-send-btn"></a>
+                                <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                            <? else:?>
+
+                                <label class="placeholder-text"><?= ($type != Users::TYPE_ADMINISTRATOR) ? $translate->_('type-peer-js') : $translate->_('type-admin-peer-js'); ?></label>
+                            
+                            <? endif;?>
+     
+                        </div>
+                        
+                        <? if(!$is_community && !$is_assignment && !$is_comment && $type != 'PUBLISHER'):?>
+
+                                <div class="suggestion-container">
+
+                                    <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+                                    <ul>
+                                        <div class="primary_connections"></div>
+                                        <div class="secondary_connections"></div>
+                                    </ul>
+
+                                    <div class="stage2-search-indicator">
+                                        <img src="/images_v2/loading.gif" width="16" height="16" />
+                                        <span><?= $translate->_('searching-extended-network'); ?></span>
+                                    </div>
+
+                                </div>
+
+                        <? endif;?>
+                    </div>
+
+                </div>
+
+                <? endif;?>
+
+                <? if($is_assignment && $show_reactions): ?>
+
+                    <div id="postbox-assignment-reactions" class="reactions-bar-wrap">
+
+                        <div class="assignment-multi-error multi-error hidden">
+
+                            <p class="hidden reaction-error"><?= $translate->_('select-reaction'); ?></p>
+
+                        </div>
+
+                        <p tabindex="11"><?= $translate->_('what-did-you-think-of-this-assignment'); ?></p>
+
+                        <?= $this->partial(PATH2_PARTIALS.'reactions-bar.phtml', array('type' => 'STUDENT')); ?>
+
+                    </div>
+
+                <? endif; ?>
+
+                <ul class="attachments"></ul>
+
+                <? if ($is_assignment): ?>
+                    <p id="assignment-empty-content-error" class="hidden multi-error"><?= $translate->_('gentle-empty-msg-error'); ?></p>
+                <? endif; ?>
+
+                <form class="postbox-bottom-content" target="upload_iframe" action="<?= $form_url; ?>" enctype="multipart/form-data" method="post" <? if($is_community):?>style="hidden"<? endif; ?>>
+
+
+                    <div class="postbox-send-options pull-right">
+                        <? if (!$is_assignment || empty($profile_note)): ?>
+                            <a href="javascript:;" class="postbox-close"><?= $translate->_('cancel'); ?></a>
+                            <span class="subtext postbox-send-or"><?= $translate->_('or'); ?></span>
+                        <? endif; ?>
+                        <a href="javascript:;" <? if($is_community):?>id="community-send-btn" <? endif; ?><? if($is_assignment):?>id="assignment-send-btn" tabindex="13" <?endif;?><? if($is_comment):?>id="comment-send-btn"  tabindex="25" <? endif; ?><? if($is_topic):?>id="topic-send-btn" <? endif; ?>class="postbox-send btn<? if(!$is_comment):?> blue-btn<? endif; ?>"
+                        <?
+                        if($is_assignment){
+                            echo ' aria-label="';
+                            echo $translate->_('turn-in-assignment-js');
+                            echo '"';
+
+                        }else if($is_comment){
+                            echo ' aria-label="';
+                            echo $translate->_('add-comment-js');
+                            echo '"';
+                        }else{
+                            echo ' aria-label="';
+                            echo $translate->_('send');
+                            echo '"';
+                        }?>
+                        >
+                        <?
+                        if($is_assignment){
+                            echo $translate->_('turn-in-assignment-js');
+                        }else if($is_comment){
+                            echo $translate->_('add-comment-js');
+                        }else{
+                            echo $translate->_('send');
+                        }?>
+                        </a>
+
+                    </div>
+                    <? if($type == 'TEACHER' && !$is_topic || $type == 'STUDENT' && !$is_topic || $type == 'PUBLISHER'):?>
+                        <? $show_schedule_message_option = ($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment); ?>
+                        <?= $this->partial(PATH2_PARTIALS.'post-box-attach.phtml', array(
+                                'language' => $this->language,
+                                'account_info' => $account_info,
+                                'show_schedule_message' => $show_schedule_message_option,
+                                'include_file_input' => !$is_topic,
+                        )); ?>
+                    <? endif;?>
+
+					<? if($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment):?>
+
+						<input type="hidden" class="scheduled" name="scheduled" value="false" />
+						<input type="hidden" class="posting_date" name="posting_date" value="" />						
+
+					<? endif;?>
+
+					<? if($is_assignment):?>
+
+						<input class="selected-receivers-input" type="hidden" name="all-selected-receivers" value="1" />
+						<input class="creator-id-input" type="hidden" name="creator_id" value="<?= $this->user_id; ?>" />
+						<input class="assignment-id-input" type="hidden" name="assignment_id" value="<?= $this->assignment_id; ?>" />
+						<input class="assignment-reaction" type="hidden" name="reaction" value="" />
+
+					<?endif;?>
+
+					<? if($is_comment): ?>
+
+						<input type="hidden" name="assignment_id" value="<?= $this->assignment_id; ?>"/>
+						<input type="hidden" name="user_id" value="<?= $this->user_id; ?>" />
+						<input class="selected-receivers-input" type="hidden" name="all-selected-receivers" value="1" />
+                        <input class="using-s3" type="hidden" name="using_s3" value="0" />
+
+					<? endif;?>
+
+					<? if($is_community):?>
+
+						<input class="permissions-input" type="hidden" name="permissions" value="" />
+
+					<? endif; ?>
+
+					<? if(!$is_assignment && !$is_comment):?>
+
+						<input class="selected-receivers-input" type="hidden" name="all-selected-receivers" value="[]" />
+
+					<? endif;?>
+
+					<input class="new-links-input" type="hidden" name="new-links" value="[]" />
+                    <input class="lib-items-input" type="hidden" name="lib-items" value="[]" />
+					<input class="tag-id-input" type="hidden" name="tag_id" value="0" />
+					<input class="content-input" type="hidden" name="content" value="" />
+					<input class="message-type-input" type="hidden" name="message-type" value="text" />
+					<input class="gdocs-input" type="hidden" name="gdocs" value="" />
+
+				</form>
+
+            </div>
+
+			<? 
+			// Displays for Teachers and Publishers.
+			// Never show on the Community. Assignment, Comments or Topics pages
+			if((!$is_community && !$is_assignment && !$is_comment && !$is_topic) && ($type == 'TEACHER' || $type == 'PUBLISHER')): ?>
+
+			<div type="alert" id="postbox-alert-content" class="pb-content short <? if($context != 'alert'):?>hidden<?endif;?> clearfix">
+
+                <div class="multi-error hidden">
+
+                    <p class="hidden content-error"><?= $translate->_('empty-msg-error'); ?></p>
+                    <p class="hidden receiver-error"><?= $translate->_('no-receiver-error'); ?></p>
+
+                </div>
+
+                <div class="placeholder-container">
+                    
+                        <input class="placeholder-input" maxlength="140" type="text" />
+                        <label class="placeholder-text"><?= $translate->_('alert-desc-js'); ?></label>
+
+                </div>
+
+                <?= $this->partial(PATH2_PARTIALS.'invite-others.phtml', array()); ?>
+
+                <div <? if($is_admin):?>id="admin-post-box-send" <?endif;?><? if($is_community):?>id="community-post-box-send" <?endif;?><? if($is_assignment):?>id="assignment-post-box-send" <?endif;?><? if($is_comment):?>id="commentbox-post-box-send" <?endif;?><? if($is_topic):?>id="topic-post-box-send" <?endif;?>class="post-box-send dd">
+
+                    <? if ($type == 'TEACHER') { ?><i class="search"></i><? } ?>
+
+                    <div class="postbox-send-input-container placeholder-container">
+
+                        <input id="postbox-alert-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+                        <? if($type == 'STUDENT'):?>
+
+                            <div class="dropdown-arrow"></div>
+                            <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                        <? else:?>
+
+                            <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                        <? endif;?>
+
+                    </div>
+
+                    <? if(!$is_community && !$is_assignment && !$is_comment && $type != 'PUBLISHER'):?>
+
+                            <div class="suggestion-container">
+
+                                <p class="selected prompt"><? echo $type != 'ADMINISTRATOR' ? $translate->_('type-peer-js') : $translate->_('type-admin-peer-js'); ?></p>
+                                <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+                                <ul>
+                                    <div class="primary_connections"></div>
+                                    <div class="secondary_connections"></div>
+                                </ul>
+
+                                <div class="stage2-search-indicator">
+                                    <img src="/images_v2/loading.gif" width="16" height="16" />
+                                    <span><?= $translate->_('searching-extended-network'); ?></span>
+                                </div>
+
+                            </div>
+
+                    <? endif;?>
+
+                </div>
+
+                <div class="postbox-bottom-content">
+
+                    <div class="postbox-send-options pull-right">
+
+                        <a href="javascript:;" class="postbox-close"><?= $translate->_('cancel'); ?></a>
+                        <span class="subtext postbox-send-or"><?= $translate->_('or'); ?></span>
+                        <a href="javascript:;" <? if($is_community):?>id="community-send-btn" <? endif; ?><? if($is_assignment):?>id="assignment-send-btn" <?endif;?><? if($is_comment):?>id="comment-send-btn" <? endif; ?><? if($is_topic):?>id="topic-send-btn" <? endif; ?>class="postbox-send btn blue-btn"><?
+
+                        if($is_assignment){
+
+                            echo $translate->_('turn-in-assignment-js');
+
+                        }else if($is_comment){
+
+                            echo $translate->_('add-comment-js');
+
+                        }else{
+
+                            echo $translate->_('send');
+
+                        }?></a>
+
+                    </div>
+
+                    <? if($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment || $type == 'PUBLISHER'):?>
+
+                        <ul class="postbox-attach pull-left clearfix">
+
+                            <li><a href="javascript:;" title="<?= $translate->_('schedule-message'); ?>" class="postbox-schedule-message"></a></li>
+                            <li class="scheduled-time subtext"></li>                   
+ 
+                        </ul>
+
+                    <? endif;?>
+
+                </div>
+
+			</div>
+
+			<div type="assignment" id="postbox-assignment-content" class="pb-content <? if($context != 'assignments'):?>hidden<?endif;?> clearfix short">
+
+                <div class="multi-error hidden">
+
+                    <p class="hidden ass-title-error"><?= $translate->_('ass-title-err-js'); ?></p>
+                    <p class="hidden ass-date-error"><?= $translate->_('due-date-err-js'); ?></p>
+                    <p class="hidden ass-past-date-error"><?= $translate->_('due-date-past-err-js'); ?></p>
+                    <p class="hidden content-error"><?= $translate->_('empty-desc-error'); ?></p>
+                    <p class="hidden receiver-error"><?= $translate->_('no-receiver-error'); ?></p>
+
+                </div>
+
+                <div class="multi-warning hidden">
+
+                    <p class="hidden warning wait-for-uploads"><?= $translate->_('wait-for-uploads'); ?></p>
+
+                </div>
+
+                <div class="placeholder-container postbox-assignment-title pull-left">
+
+                    <input type="text" class="placeholder-input assignment-title-input" value="" maxlength="300"/>
+                    <label class="placeholder-text"><?= $translate->_('enter-assignment-js'); ?></label>
+
+                </div>
+
+				<a class="assignment-load btn pull-left text-11 text-center" href="javascript:;"><?= $translate->_('load_assignment-js'); ?></a>
+ 
+                <div class="placeholder-container postbox-assignment-due due-date pull-left">
+
+                    <input type="text" class="placeholder-input assignment-due-date" value=""/>
+                    <label class="placeholder-text"><?= $translate->_('due-date-js'); ?></label>
+
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="placeholder-container postbox-assignment-description">
+
+                    <textarea class="placeholder-input"></textarea>
+                    <label class="placeholder-text"><?= $translate->_('assignment-description-js'); ?></label>
+
+                </div>
+
+                <div class="postbox-assignment-options clearfix">
+
+                    <p class="pull-left"><input class="lock-assignment" type="checkbox" /><?= $translate->_('lock-assignment-after-due'); ?></p>
+
+                </div>
+
+                <?= $this->partial(PATH2_PARTIALS.'invite-others.phtml', array()); ?>
+
+                <div <? if($is_admin):?>id="admin-post-box-send" <?endif;?><? if($is_community):?>id="community-post-box-send" <?endif;?><? if($is_assignment):?>id="assignment-post-box-send" <?endif;?><? if($is_comment):?>id="commentbox-post-box-send" <?endif;?><? if($is_topic):?>id="topic-post-box-send" <?endif;?>class="post-box-send dd">
+
+                    <? if ($type == 'TEACHER') { ?><i class="search"></i><? } ?>
+
+                    <div class="postbox-send-input-container placeholder-container">
+
+                        <input id="postbox-note-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+                        <? if($type == 'STUDENT'):?>
+
+                            <div class="dropdown-arrow"></div>
+                            <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                        <? else:?>
+
+                            <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                        <? endif;?>
+
+                    </div>
+
+                    <? if(!$is_community && !$is_assignment && !$is_comment && $type != 'PUBLISHER'):?>
+
+                        <div class="suggestion-container">
+
+                            <p class="selected prompt"><? echo $type != 'ADMINISTRATOR' ? $translate->_('type-peer-js') : $translate->_('type-admin-peer-js'); ?></p>
+                            <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+                            <ul>
+                                <div class="primary_connections"></div>
+                                <div class="secondary_connections"></div>
+                            </ul>
+
+                            <div class="stage2-search-indicator">
+                                <img src="/images_v2/loading.gif" width="16" height="16" />
+                                <span><?= $translate->_('searching-extended-network'); ?></span>
+                            </div>
+
+                        </div>
+
+                    <? endif;?>
+
+                </div>
+
+                <!--div id="add-assignment-gradebook-container"><input checked name="add-assignment-gradebook-input" id="add-assignment-gradebook-input" type="checkbox" /><label for="add-assignment-gradebook-input"><?= $translate->_('add-quiz-gradebook'); ?></label></div-->
+
+                <ul class="attachments"></ul>
+
+                <form class="postbox-bottom-content" target="upload_iframe" action="<?= $form_url; ?>" enctype="multipart/form-data" method="post" <? if($is_community):?>style="hidden"<? endif; ?>>
+
+                    <div class="postbox-send-options pull-right">
+
+                        <a href="javascript:;" class="postbox-close"><?= $translate->_('cancel'); ?></a>
+                        <span class="subtext postbox-send-or"><?= $translate->_('or'); ?></span>
+
+                        <a href="javascript:;" <? if($is_community):?>id="community-send-btn" <? endif; ?><? if($is_assignment):?>id="assignment-send-btn" <?endif;?><? if($is_comment):?>id="comment-send-btn" <? endif; ?><? if($is_topic):?>id="topic-send-btn" <? endif; ?>class="postbox-send btn blue-btn"><?
+
+                        if($is_assignment){
+
+                            echo $translate->_('turn-in-assignment-js');
+
+                        }else if($is_comment){
+
+                            echo $translate->_('add-comment-js');
+
+                        }else{
+
+                            echo $translate->_('send');
+
+                        }?></a>
+
+                    </div>
+
+                    <? $show_schedule_message_option = ($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment); ?>
+                    <?= $this->partial(PATH2_PARTIALS.'post-box-attach.phtml', array(
+                            'language' => $this->language,
+                            'account_info' => $account_info,
+                            'show_schedule_message' => $show_schedule_message_option,
+                            'include_file_input' => !$is_topic,
+                    )); ?>
+
+			        <input type="hidden" class="scheduled" name="scheduled" value="false" />
+                    <input type="hidden" class="posting_date" name="posting_date" value="" />
+                    <input class="selected-receivers-input" type="hidden" name="all-selected-receivers" value="[]" />
+                    <input class="tag-id-input" type="hidden" name="tag_id" value="0" />
+					<input class="assignment-title-input" type="hidden" name="assignment" value="" />
+                    <input class="assignment-description-input" type="hidden" name="assignment-description" value="" />
+					<input class="assignment-due" type="hidden" name="due-date" value="" />
+                    <input class="lib-items-input" type="hidden" name="lib-items" value="[]" />
+                    <input class="new-links-input" type="hidden" name="new-links" value="[]" />
+                    <input class="message-type-input" type="hidden" name="message-type" value="assignment" />
+
+				</form>
+
+
+			</div>
+
+			<div type="quiz" id="postbox-quiz-content" class="pb-content <? if($context != 'quizzes'):?>hidden<?endif;?> clearfix">
+
+                <div class="multi-error hidden">
+
+                    <p class="hidden quiz-date-error"><?= $translate->_('due-date-err-js'); ?></p>
+                    <p class="hidden quiz-past-date-error"><?= $translate->_('due-date-past-err-js'); ?></p>
+                    <p class="hidden receiver-error"><?= $translate->_('no-receiver-error'); ?></p>                    
+
+                </div>
+
+				<div id="postbox-quiz-container">
+
+					<a id="quiz-btn-link" class="btn blue-btn" href="/home#/quiz"><?= $translate->_('createAquiz-js'); ?></a>&nbsp; <span class="subtext postbox-send-or"><?= $translate->_('or'); ?></span>&nbsp; <a id="quiz-btn-load" href="javascript:;"><?= $translate->_('load_quiz-js'); ?></a>
+
+				</div>
+
+				<div id="loaded-quiz-post-container" class="hidden">
+
+					<div id="loaded-quiz-container" class="sunken border2">
+
+						<p id="loaded-quiz-title"></p>
+
+						<p id="loaded-quiz-description"></p>
+
+						<a id="edit-loaded-quiz" href="javascript:;"><?= $translate->_('edit-js'); ?></a> | <a id="select-different-quiz" href="javascript:;"><?= $translate->_('select_a_diff_quiz-js'); ?></a>
+
+					</div>
+
+                    <div class="postbox-quiz-options clearfix">
+    
+                        <div class="placeholder-container pull-left due-date">
+
+                            <input type="text" value="" class="quiz-due-date" />
+                            <label class="placeholder-text"><?= $translate->_('due-date-js'); ?></label>
+
+                        </div>
+
+                        <span class="pull-left"><input id="add-quiz-gradebook-input" type="checkbox" /><?= $translate->_('add-quiz-gradebook'); ?></span>
+
+                    </div>
+
+                    <?= $this->partial(PATH2_PARTIALS.'invite-others.phtml', array()); ?>
+
+                    <div <? if($is_admin):?>id="admin-post-box-send" <?endif;?><? if($is_community):?>id="community-post-box-send" <?endif;?><? if($is_assignment):?>id="assignment-post-box-send" <?endif;?><? if($is_comment):?>id="commentbox-post-box-send" <?endif;?><? if($is_topic):?>id="topic-post-box-send" <?endif;?>class="post-box-send dd">
+
+                        <? if ($type == 'TEACHER') { ?><i class="search"></i><? } ?>
+
+                        <div class="postbox-send-input-container placeholder-container">
+
+                            <input id="postbox-note-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+                            <label class="placeholder-text"><?= $translate->_('send-to-js'); ?></label>
+
+                        </div>
+
+                        <? if(!$is_community && !$is_assignment && !$is_comment && $type != 'PUBLISHER'):?>
+
+                            <div class="suggestion-container">
+
+                                <p class="selected prompt"><? echo $type != 'ADMINISTRATOR' ? $translate->_('type-peer-js') : $translate->_('type-admin-peer-js'); ?></p>
+                                <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+                                <ul>
+                                    <div class="primary_connections"></div>
+                                    <div class="secondary_connections"></div>
+                                </ul>
+
+                                <div class="stage2-search-indicator">
+                                    <img src="/images_v2/loading.gif" width="16" height="16" />
+                                    <span><?= $translate->_('searching-extended-network'); ?></span>
+                                </div>
+                            </div>
+
+                        <? endif;?>
+
+                    </div>
+
+                    <div class="postbox-bottom-content">
+
+                        <div class="postbox-send-options pull-right">
+
+                            <a href="javascript:;" <? if($is_community):?>id="community-send-btn" <? endif; ?><? if($is_assignment):?>id="assignment-send-btn" <?endif;?><? if($is_comment):?>id="comment-send-btn" <? endif; ?><? if($is_topic):?>id="topic-send-btn" <? endif; ?>class="postbox-send btn blue-btn"><?
+
+                            if($is_assignment){
+
+                                echo $translate->_('turn-in-assignment-js');
+
+                            }else if($is_comment){
+
+                                echo $translate->_('add-comment-js');
+
+                            }else{
+
+                                echo $translate->_('send');
+
+                            }?></a>
+
+                        </div>
+
+                        <ul class="postbox-attach pull-left clearfix">
+
+                            <li><a href="javascript:;" title="<?= $translate->_('schedule-message'); ?>" class="postbox-schedule-message"></a></li>
+                            <li class="scheduled-time subtext"></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+			</div>
+
+			<div type="poll" id="postbox-poll-content" class="pb-content <? if($context != 'polls'):?>hidden<?endif;?> clearfix short">
+
+                <div class="multi-error hidden">
+
+                    <p class="hidden content-error"><?= $translate->_('no-question-err-js'); ?></p>
+                    <p class="hidden poll-answer-error"><?= $translate->_('no-answers-err-js'); ?>.</p>
+                    <p class="hidden receiver-error"><?= $translate->_('no-receiver-error'); ?></p>
+
+                </div>
+    
+                 <div class="placeholder-container">
+
+                    <textarea class="placeholder-input" maxlength="140" resize_override="true"></textarea>
+                    <label class="placeholder-text"><?= $translate->_('question-js'); ?>...</label>
+
+                </div>
+
+				<div id="poll-questions" class="sunken clearfix border2">
+
+                    <div class="placeholder-container poll-answer-container">
+
+                        <textarea class="placeholder-input"></textarea>
+                        <label class="placeholder-text"><?= $translate->_('answer-js'); ?>1</label>
+
+                    </div>
+
+                    <div class="placeholder-container poll-answer-container">
+
+                        <textarea class="placeholder-input"></textarea>
+                        <label class="placeholder-text"><?= $translate->_('answer-js'); ?>2</label>
+
+                    </div>
+
+					<p id="quiz-add-answer-btn" class="btn pull-right"><?= $translate->_('add-answer-js'); ?></p>
+
+				</div>
+
+                <div class="clearfix">
+
+                    <?= $this->partial(PATH2_PARTIALS.'invite-others.phtml', array()); ?>
+
+                    <div <? if($is_admin):?>id="admin-post-box-send" <?endif;?><? if($is_community):?>id="community-post-box-send" <?endif;?><? if($is_assignment):?>id="assignment-post-box-send" <?endif;?><? if($is_comment):?>id="commentbox-post-box-send" <?endif;?><? if($is_topic):?>id="topic-post-box-send" <?endif;?>class="post-box-send dd">
+
+                        <? if ($type == 'TEACHER') { ?><i class="search"></i><? } ?>
+
+                        <? if(!$is_community && !$is_assignment && !$is_comment && $type != 'PUBLISHER'):?>
+
+                            <div class="postbox-send-input-container placeholder-container">
+
+                                <input id="postbox-alert-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+
+                                <label class="placeholder-text">Assign a Group</label>
+
+
+                            </div>
+
+                            <div class="suggestion-container">
+
+                                <p class="selected prompt"><? echo $type != 'ADMINISTRATOR' ? $translate->_('type-peer-js') : $translate->_('type-admin-peer-js'); ?></p>
+                                <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+                                <ul>
+                                    <div class="primary_connections"></div>
+                                    <div class="secondary_connections"></div>
+                                </ul>
+                                <div class="stage2-search-indicator">
+                                    <img src="/images_v2/loading.gif" width="16" height="16" />
+                                    <span><?= $translate->_('searching-extended-network'); ?></span>
+                                </div>
+
+
+                            </div>
+
+                        <? endif;?>
+
+                    </div>
+
+                </div>
+
+                <div class="postbox-bottom-content clearfix">
+
+                    <div class="postbox-send-options pull-right">
+
+                        <a href="javascript:;" class="postbox-close"><?= $translate->_('cancel'); ?></a>
+                        <span class="subtext postbox-send-or"><?= $translate->_('or'); ?></span>
+
+                        <a href="javascript:;" <? if($is_community):?>id="community-send-btn" <? endif; ?><? if($is_assignment):?>id="assignment-send-btn" <?endif;?><? if($is_comment):?>id="comment-send-btn" <? endif; ?><? if($is_topic):?>id="topic-send-btn" <? endif; ?>class="postbox-send btn blue-btn"><?
+
+                        if($is_assignment){
+
+                            echo $translate->_('turn-in-assignment-js');
+
+                        }else if($is_comment){
+
+                            echo $translate->_('add-comment-js');
+
+                        }else{
+
+                            echo $translate->_('send');
+
+                        }?></a>
+
+                    </div>
+
+                    <? if($type == 'TEACHER' && !$is_topic && !$is_community && !$is_assignment && !$is_comment):?>
+
+                        <ul class="postbox-attach pull-left clearfix">
+
+                            <li><a href="javascript:;" title="<?= $translate->_('schedule-message'); ?>" class="postbox-schedule-message"></a></li>
+                            <li class="scheduled-time subtext"></li>
+
+                        </ul>
+
+                    <? endif;?>
+
+                </div>
+
+			</div>
+
+      <div type="snapshot" id="postbox-snapshot-content" class="pb-content <? if($context != 'snapshot'):?>hidden<?endif;?> clearfix">
+          <div class="snapshot-content-input"</div>
+      <div class="post-box-send dd">
+
+          <i class="search"></i>
+
+          <div class="postbox-send-input-container placeholder-container">
+
+
+              <input id="postbox-note-input" class="postbox-send-input placeholder-input" type="text" value="" />
+
+              <label class="placeholder-text"><?= $translate->_('type-peer-js'); ?></label>
+
+          </div>
+
+
+          <div class="suggestion-container snapshot">
+
+              <p class="no-receivers"><?= $translate->_('type-no-suggestions-js'); ?></p>
+              <ul>
+                  <div class="primary_connections"></div>
+                  <div class="secondary_connections"></div>
+              </ul>
+
+              <div class="stage2-search-indicator">
+                  <img src="/images_v2/loading.gif" width="16" height="16" />
+                  <span><?= $translate->_('searching-extended-network'); ?></span>
+              </div>
+
+          </div>
+
+          <? endif;?>
+      </div>
+
+      <div class="suggest-container"></div>
+
+      </div>
+    <div class="snapshot-bottom-content hidden">
+        <input multiple id="selectPretty" class="snapshot-dropdown" type="hidden">
+
+        </input>
+
+
+
+          <div class = "snapshot-container clearfix">
+
+              <div class="placeholder-container snapshot-note pull-left">
+
+                  <textarea class="placeholder-input" maxlength="140" resize_override="true"></textarea>
+                  <label class="placeholder-text">Note (Optional)</label>
+
+
+              </div>
+
+          <div class="snapshot-time-selector pull-left">
+              <select class="time-limit-select" tabindex="31">
+                  <? for ($i = 0; $i < count(SnapshotApiClient::$snapshot_time_limit_options); $i++):?>
+                      <option value=<?=SnapshotApiClient::$snapshot_time_limit_options[$i]?>><?= SnapshotApiClient::$snapshot_time_limit_options[$i]?></option>
+                  <? endfor; ?>
+
+
+              </select>
+
+          </div>
+
+          </div>
+
+
+          <ul class="attachments"></ul>
+          <form class="postbox-bottom-content">
+
+              <a href="javascript:;" class="snapshot-assign btn green-btn pull-right">Assign Now</a>
+
+              <ul class="postbox-attach pull-left clearfix">
+
+                  <li><a href="javascript:;" title="Schedule Snapshot" class="postbox-schedule-snapshot"></a></li>
+                  <li class="scheduled-time subtext"></li>
+
+              </ul>
+          </form>
+          </div>
+  </div>
+
+      </div>
+
+
+
+			<div id="<? if($is_assignment):?>assignment-<?endif;?><? if($is_comment):?>comment-<?endif;?>postbox-sending-container" class="sending-box pb-content hidden">
+
+				<p><?= $translate->_('sending-js'); ?>...</p>
+
+			</div>
+
+			<div id="<? if($is_assignment):?>assignment-<?endif;?><? if($is_comment):?>comment-<?endif;?><? if($is_community):?>community-<?endif;?>postbox-sending-uploads-container" class="sending-box pb-content hidden">
+
+				<p><?= $translate->_('please-wait-file-js'); ?></p>
+
+			</div>
+
+		</div>
+
+		<ul id="postbox-suggestions"></ul>
+
+	<? if(!$is_community):?></div><? endif; ?>
+
+<? if(!$is_community):?></div><? endif; ?>
+
+<? if(!$is_community && !$is_assignment && !$is_topic && !$is_comment):?>
+
+<script>
+
+<? if($show_disabled_mask):?>
+
+$('div.standard-postbox').find('div.disabled-mask').height($('div.standard-postbox').height()).width($('div.standard-postbox').width());
+
+<? endif;?>
+
+<?= TranslationHelper::getTranslatedTextArray(array($translate)); ?>
+
+<?= TemplateHelper::writeJsTemplate('scheduled-posts',  $this->partial( '/templates/tpl-scheduled-posts.phtml', array( 'translator' => $translate) ) ); ?>
+
+<?= TemplateHelper::writeJsTemplate('link-attachments',  $this->partial( '/templates/tpl-link-attachments.phtml', array( 'translator' => $translate) ) ); ?>
+
+<?= TemplateHelper::writeJsTemplate('load-quiz',  $this->partial( '/templates/tpl-load-quiz.phtml', array( 'translator' => $translate) ) ); ?>
+
+<?= TemplateHelper::writeJsTemplate('load-assignments',  $this->partial( '/templates/tpl-load-assignments.phtml', array( 'translator' => $translate) ) ); ?>
+
+<?= TemplateHelper::writeJsTemplate('library',  $this->partial(PATH2_PARTIALS.'library-postbox.phtml', array('translate'=>$translate, 'state'=>LibraryMarkupHelper::ADD_FROM_LIB) )); ?>
+
+modo.system.config.S3_ENABLED_FULL = <?= S3_ENABLED_FULL ? 'true' : 'false'; ?>;
+
+</script>
+    <script type="text/javascript" src="js_v2/libraries/select2.js"></script>
+    <link href="js_v2/libraries/select2.css" rel="stylesheet"/>
+<? endif; ?>
