@@ -55,5 +55,4 @@
 
                             default:
                                 $subject = $contents['subject'];
-
                         }
