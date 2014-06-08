@@ -1,0 +1,568 @@
+#postbox-content {position: relative; border-radius:2px}
+#community-postbox-content{border-radius:2px;}
+/*.pb-content textarea, .postbox-send-input-container input {margin: 0 0 -2px 0;}*/
+.pb-content.short textarea {margin: 0;}
+
+#postbox-content p.hidden.error {position: static; height: 0; padding: 0;}
+#postbox-content p.error {height: 40px; padding: 0 0 5px 0; overflow: hidden;transition-property: height, padding; transition-duration: .15s; -webkit-transition-property: height, padding; -webkit-transition-duration: .15s;}
+#postbox-content .error span {background: none; display: inline; color: #383D48; padding: 0;}
+
+.standard-postbox {position: relative;}
+.standard-postbox .disabled-mask {top: 0; background: white; opacity: .5; filter: alpha(opacity=50); position: absolute; z-index: 9;}
+
+#postbox-options li {float: left; cursor: pointer; padding: 8px 18px; border-right: 1px solid #dfe4e8; height: 24px;}
+body.lang-de #postbox-options li, body.lang-es #postbox-options li, body.lang-pt-br #postbox-options li {padding: 8px 15px;}
+body.lang-el #postbox-options li {padding: 8px 7px;}
+body.lang-fr #postbox-options li {padding: 8px 11px;}
+body.lang-nl #postbox-options li {padding: 8px 13px;}
+body.lang-tr #postbox-options li {padding: 8px 21px;}
+body.lang-zh #postbox-options li {padding: 8px 23px;}
+#postbox-options li.selected {background-color: white; border-bottom: 1px solid white; margin: 0 0 -1px 0;}
+#postbox-options li.selected a, #postbox-options li.selected span.bolded-title {padding: 3px 0 1px 26px; color: #383D48; font-weight: bold;}
+#postbox-options li a { position: relative; top: -24px; }
+#postbox-options li a, #postbox-options li span.bolded-title {display: block; padding: 4px 0 0 26px;}
+#postbox-options li span.bolded-title{ font-weight: bold; visibility: hidden; }
+#postbox-options.disabled li {opacity: .2; filter: alpha(opacity=20); cursor: default;}
+#postbox-options.disabled li a {cursor: default;}
+#postbox-options.disabled li.selected {opacity: 1; filter: alpha(opacity=100); cursor: pointer; border-left: 1px solid #DFE4E8;}
+
+#postbox-note {border-top-left-radius: 2px;}
+#postbox-note a {background-position: 0px -123px;}
+#postbox-alert a {background-position: 0px 5px;}
+#postbox-assignment a {background-position: 0px -27px;}
+#postbox-quiz a {background-position: 0px -155px;}
+#postbox-poll a{background-position: 0px -91px;}
+#postbox-snapshot a{background-position: 0px -1039px;}
+
+#postbox-options li#postbox-note:hover a {background-position: -184px -123px;}
+#postbox-options li#postbox-alert:hover a {background-position: -184px 5px;}
+#postbox-options li#postbox-assignment:hover a {background-position: -184px -27px;}
+#postbox-options li#postbox-quiz:hover a {background-position: -184px -155px;}
+#postbox-options li#postbox-poll:hover a {background-position: -184px -91px;}
+
+.postbox-selected-content {border-top: 1px solid #dfe4e8; clear: both;}
+.postbox-selected-content form {overflow: hidden; padding-top: 0;}
+.postbox-selected-content form .delimiter{
+    color: #D5DBE1;
+    font-size: 24px;
+    font-weight: 100;
+    padding: 3px 6px 0;
+}
+#community-postbox .postbox-selected-content {border-top: 0;}
+
+.pb-content {padding: 20px; background: white; border-bottom-left-radius:2px; border-bottom-right-radius:2px;}
+.pb-content.short * {display: none;}
+.pb-content.short > div.placeholder-container, .pb-content.short > div.placeholder-container * {display: block;}
+.pb-content.short > div.snapshot-content-input, .pb-content.short > div.snapshot-content-input * {display: block;}
+.pb-content.short > div.snapshot-content-input > div.snapshot-dropdown, .pb-content.short > div.snapshot-content-input > div.snapshot-dropdown * {display: block;}
+.pb-content.short > div.snapshot-content-input > div.postbox-snapshot-due, .pb-content.short > div.snapshot-content-input > div.postbox-snapshot-due * {display: table-caption}
+.pb-content.short > div.create-snapshot, .pb-content.short > div.create-snapshot * {display: inline-block;}
+.pb-content.short > div.snapshot-content-input > div.snapshot-post-box-send, .pb-content.short > div.snapshot-content-input > div.snapshot-post-box-send *  {display: block;}
+.pb-content.short > div.snapshot-content-input > div.snapshot-dropdown > div.standards-dropdown, .pb-content.short > div.snapshot-content-input > div.snapshot-dropdown > div.standards-dropdown * {display: none;}
+
+
+
+
+
+
+/* postbox short special cases */
+
+#postbox-assignment-content.pb-content.short > div.placeholder-container.postbox-assignment-description {display: none;}
+#postbox-assignment-content.pb-content.short > a.assignment-load, #postbox-assignment-content.pb-content.short > div.placeholder-container input.assignment-due-date {display: inline-block;}
+#postbox-assignment-content.pb-content.short .postbox-assignment-title {margin-bottom: 0;}
+#postbox-poll-content.pb-content.short > div.placeholder-container {margin-bottom: 0;}
+
+/* ---- */
+
+
+.scheduled-message-count {margin: 6px 5px 0 0; padding: 5px; cursor: pointer; font-size: 11px}
+.scheduled-message-count.flash {background: #FDFCC4;}
+
+.post-box-send { position: relative; margin: 10px 0 0 0; }
+.pb-content .invite-others-feature  {
+    display: none;
+}
+.pb-content .invite-others-feature input[type=text] {
+    padding-left: 5px;
+}
+/**
+ * .has-invite-others: whether the Invite Others feature is enabled
+ * .is-expanded-for-invite-others: whether the view has been expanded
+ */
+.postbox-selected-content.has-invite-others .post-box-send {
+    position: relative;
+    margin-right: 40px;
+}
+.postbox-selected-content .post-box-send i.search {
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    background: transparent url(/images_v2/sprites/sprite-site.png) right -1382px no-repeat;
+    width: 25px;
+    height: 25px;
+    z-index: 101;
+}
+
+.postbox-selected-content.has-invite-others .post-box-send .postbox-send-input-container,
+.postbox-selected-content.has-invite-others .invite-others-feature .placeholder-container {
+    overflow: hidden;
+}
+
+.postbox-selected-content.has-invite-others .invite-others-feature {
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 30px;
+    margin: 10px 2px 0 0;
+}
+.postbox-selected-content.has-invite-others .invite-others-feature .placeholder-text {
+    text-indent: -9999px;
+}
+.postbox-selected-content.has-invite-others .invite-others-feature i.invite-others {
+    position: absolute;
+    top: 5px;
+    right: -1px;
+    background: transparent url(/images_v2/sprites/sprite-site.png) right -1341px no-repeat;
+    width: 25px;
+    height: 25px;
+    z-index: 101;
+}
+.postbox-selected-content.has-invite-others .invite-others-feature:hover {
+    cursor: pointer;
+}
+.postbox-selected-content.has-invite-others .invite-others-feature input {
+    width: 30px;
+    cursor: inherit;
+}
+.postbox-selected-content.is-expanded-for-invite-others .invite-others-feature:hover {
+    cursor: default;
+}
+.postbox-selected-content.is-expanded-for-invite-others .post-box-send,
+.postbox-selected-content.is-expanded-for-invite-others .invite-others-feature {
+    width: 49%;
+}
+.postbox-selected-content.is-expanded-for-invite-others .suggestion-container {
+    width: 100%;
+}
+
+.postbox-selected-content.is-expanded-for-invite-others .suggestion-container {}
+
+.postbox-send-or {margin: 0 5px;}
+
+#community-post-box-send {padding: 10px 0 0 0; text-align: right;}
+#community-post-box-send > a {margin: 0 0 0 5px;}
+
+.postbox-send-input-container.placeholder-container input {width: 90px;}
+.student-send-container {cursor: pointer;}
+.postbox-send-input-container .student-postbox-send-btn {float: right; color: #8890A2; font-size: 16px; margin: 0; padding: 7px; background: #F3F5F7 url(//assets.edmodo.com/images_v2/sprites/sprite-arrows.png) 7px -199px no-repeat; border-left: 1px solid #dfe4e8; height: 16px; width: 15px;}
+
+.student-input-placeholder {height: 30px; padding: 3px; margin: 0 0 -6px 0; display: inline-block;}
+
+.postbox-bottom-content {padding: 10px 0 0 0;}
+
+.pb-content.sending-box {opacity: .7; filter: alpha(opacity=70); position: absolute; top: 0px; width: 696px; overflow: hidden; padding: 0; transition-property: height, padding; transition-duration: .5s; -webkit-transition-property: height, padding; -webkit-transition-duration: .5s;}
+.pb-content.sending-box p {margin: 20px; text-align: center;}
+
+.postbox-disabled-mask{width:100%;height:100%;position:absolute;top:0;left:0;}
+.postbox-disabled-mask>div{margin:22px auto 0;text-align:center;width:600px;}
+.postbox-disabled-mask h2{margin-bottom:8px;}
+.postbox-disabled-mask p{margin-bottom: 6px;}
+
+.postbox-selected-content .due-date {padding: 2px 3px 0 0;}
+.postbox-selected-content .due-date .dp-choose-date {float: right; height: 30px; width: 32px; background-color #e9ecef; border-left: 1px solid #dfe4e8; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) 10px -448px no-repeat;}
+.postbox-selected-content .due-date:hover .dp-choose-date {background-position: -174px -448px;}
+.postbox-selected-content .due-date input {width: 77px; margin: 0; padding: 1px 0px 0px 5px;}
+.postbox-selected-content.faded{opacity:0.25;}
+
+/* alert */
+
+/* attachments */
+
+.attachments {padding: 10px 0 5px 0; clear:both; max-height: 305px; overflow-y: auto}
+.attachments li {padding: 3px;}
+.attachments li img {margin: 0 5px 0 0; position: relative; top: 2px;}
+.attachments li img.delete {top: 3px; cursor: pointer;}
+.attachments li span {position: relative; top: -1px;}
+
+.postbox-file-upload {float: right; opacity: 0; filter: alpha(opacity=0);padding: 0; cursor: pointer; height: 32px}
+.postbox-file-input-container {position: absolute; z-index: 2; left: 15px; overflow: hidden; width: 40px; height: 30px; cursor: pointer}
+.postbox-attach li {float: left; margin: 0 5px 0 0;}
+.postbox-attach li a {display: block; width: 30px; height: 30px; background-image: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png);background-repeat: no-repeat;}
+.postbox-attach li.scheduled-time {font-weight: 600; padding: 6px 0 0 5px}
+
+
+body.ie .postbox-file-input-container {margin-top: 8px;}
+
+.postbox-attach li a.postbox-schedule-message {background: url(//assets.edmodo.com/images_v2/sprites/sprite-site.png) 7px -305px no-repeat;}
+.postbox-attach li a.postbox-schedule-message:hover {background-position: -177px -305px;}
+
+.link-attachment-wrapper {width: 300px;}
+.link-attachment-container {padding: 20px;}
+.link-attachment-container .placeholder-container {margin: 0 0 10px 0;}
+
+/* suggestions */
+
+.standard-postbox .suggestion-container {background: white; width: 656px; border: 1px solid #dfe4e8; margin: 0 0 0 1px; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2); border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}
+.standard-postbox .suggestion-container .search-indicator { display: none; }
+.standard-postbox .suggestion-container.actively-searching ul { margin-bottom: 30px; }
+.standard-postbox .suggestion-container .stage2-search-indicator { display: none; position: absolute; bottom: 0px; height: 30px; width: 100%;  border-top: 1px solid #cacdcf; box-sizing: border-box; background: #f2f4f7; }
+.standard-postbox .suggestion-container .stage2-search-indicator img { position: absolute; top: 6px; left: 7px; }
+.standard-postbox .suggestion-container .stage2-search-indicator span { position: absolute; top: 5px; left: 31px; color: #555; }
+.standard-postbox .suggestion-container.actively-searching .stage2-search-indicator { display: block; }
+.standard-postbox .suggestion-container ul {max-height: 210px; overflow-y: auto; }
+.standard-postbox .suggestion-container ul.loading {height: 100px;}
+.standard-postbox .suggestion-container ul.loading * {display: none;}
+.standard-postbox .suggestion-container li {cursor: pointer; border-top: 1px solid #dfe4e8;}
+.standard-postbox .suggestion-container li:last-child { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; }
+.standard-postbox .suggestion-container li:first-child {border-top: 0;}
+.standard-postbox .suggestion-container li.selected {background: #276BB0;}
+.standard-postbox .suggestion-container li.selected span {color: white;}
+.standard-postbox .suggestion-container li img {margin: 0 10px 0 0;}
+.standard-postbox .suggestion-container li a {display: block; padding: 5px; height: 20px;}
+.standard-postbox .suggestion-container li span {position: relative; top: -6px; color: #383D48;}
+.standard-postbox .suggestion-container li.has-no-avatar {}
+.standard-postbox .suggestion-container li.has-no-avatar a { padding: 3px 0 3px 10px; color: #383D48; font-weight: 700; }
+.standard-postbox .suggestion-container li.has-no-avatar a:hover { color: #fff; }
+.standard-postbox .suggestion-container li.has-no-avatar a span { top: 0;}
+.standard-postbox .suggestion-container .receiver-swatch {height: 20px; width: 20px; border-radius: 3px; display: inline-block; position: static; margin: 0 10px 0 0;}
+.standard-postbox .suggestion-container > p {border-bottom: 1px solid #dfe4e8; padding: 5px; border-bottom-left-radius:2px; border-bottom-right-radius:2px;}
+.suggest-receiver {display: inline-block; margin: 2px; padding: 3px 7px; color: white; border-radius: 2px;}
+.suggest-receiver img {margin: 0 0 0 14px; cursor: pointer;}
+.postbox-send-input-container.has-receivers label {left: -999em;}
+.postbox-send-input-container .student-receiver {display: inline-block; height: 19px; position: relative; top: -5px}
+.postbox-send-input-container .student-receiver img {margin: -1px 5px 0 5px; position: relative; top: 1px;}
+.postbox-send-input-container .student-receiver span {position: relative; top: -5px;}
+.postbox-send-input-container .student-receiver .swatch {display: inline-block; height: 20px; width: 20px; border-radius: 1px; margin: -1px 5px 0 5px; }
+
+/* assignments */
+
+.pb-content .multi-error {margin: 0 0 10px 0;}
+.pb-content .multi-error p {padding: 3px 0; color: white;}
+
+.postbox-assignment-title {width: 356px; margin: 0 10px 0 0;}
+.assignment-load {width: 94px; margin: 2px 10px 0 0;}
+.postbox-assignment-due {width: 134px;}
+body.lang-el .postbox-assignment-due label.placeholder-text {width: 90px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+.postbox-assignment-title {margin: 0 10px 10px 0;}
+.load-assignment-container .assignment-container, .load-quiz-container .quiz-container {height: 300px; overflow-y: auto; width: 580px;}
+.load-assignment-container .load-more-container, .load-quiz-container .load-more-container {padding: 10px 0; cursor: pointer;}
+.load-assignment-container .load-more-container.loading, .load-quiz-container .load-more-container.loading {height: 40px; padding: 0;}
+.load-assignment-container .assignment-list li, .load-quiz-container .quiz-list li {border-top: 1px solid #dfe4e8; overflow: hidden; padding: 5px;}
+.load-assignment-container .assignment-list li:first-child, .load-quiz-container .quiz-list li:first-child {border: 0;}
+.load-assignment-container a.ass-title, .load-quiz-container a.quiz-title {display: inline-block; font-weight: 600; background: url(//assets.edmodo.com/images_v2/sprites/sprite-stream.png) -180px -30px no-repeat; padding: 2px 0 0 25px;}
+.load-assignment-container .ass-info, .load-quiz-container .quiz-info {padding: 0 0 0 25px;}
+.load-assignment-container .ass-info ul.loading, .load-quiz-container .quiz-info ul.loading {height: 50px;}
+.load-assignment-container .ass-info li, .load-quiz-container .quiz-info li {border: 0; padding: 2px 0;}
+
+.postbox-assignment-options {padding: 10px 0 0 0;}
+.lock-assignment {margin: 0 5px 0 0; position: relative; bottom: 1px;}
+/* polls */
+#postbox-poll-content > .placeholder-container {margin: 0 0 10px 0;}
+#poll-questions {padding: 10px;}
+#poll-questions > div {margin: 0 0 10px 0; position: relative}
+#poll-questions.sunken .placeholder-container {background: #fff; width: 592px;}
+#poll-questions.sunken .placeholder-container.error {background: #FDF7F7;}
+.poll-answer-remove {background: url("//assets.edmodo.com/images_v2/sprites/sprite-close.png") no-repeat scroll 0 -86px rgba(0, 0, 0, 0);float: right;height: 20px;margin: 3px 7px 0 0;width: 20px;}
+
+/* quizzes */
+
+.quiz-list .invalid {background: #F3F5F7;}
+.load-quiz-container .quiz-container.loading * {display: none;}
+#loaded-quiz-container {padding: 10px;}
+.postbox-quiz-options {padding: 10px 0 0 0;}
+.postbox-quiz-options .placeholder-container {width: 134px;}
+.postbox-quiz-options span {margin: 6px 0 0 20px;}
+.postbox-quiz-options span input {margin: 0 8px 0 0; position: relative; top: -2px;}
+
+/* scheduled posts */
+
+.schedule-post-container {width: 308px; padding: 20px;}
+.schedule-post-container .choose-day-container {width: 150px; margin: 0 10px 0 0;}
+.schedule-post-container select {padding: 6px 3px;}
+
+/* discover topic postbox */
+
+#facebox p.topic-success {width: 692px; text-align: center; padding: 30px 0;}
+#facebox .postbox-bottom-content {margin:20px -20px -20px;padding:10px 15px;background: #f3f5f7;border-top: 1px solid #dfe4e8;clear:both;}
+#facebox .pb-content ul.attachments {border: 1px solid #dfe4e8;padding: 5px 10px;margin-top: 10px;border-radius: 3px;}
+
+/* Postbox share content injection */
+
+#facebox .sharebox-content-container{
+    padding: 10px;
+    margin: 0px 0 10px 0;
+    border: 1px solid rgb(223, 228, 232);
+    overflow: hidden;
+    background: rgb(243, 245, 246);
+}
+
+#facebox .sharebox-sender{
+    color: rgb(55, 132, 211);
+    margin: 0 0 5px 0;
+}
+
+#facebox .sharebox-content-right{
+    margin: 0 0 0 10px;
+    width: 567px;
+}
+
+#facebox .sharebox-content{
+    padding: 5px;
+    background: rgb(255, 255, 255);
+}
+#facebox .sharebox-img{
+    width: 60px;
+    border-radius: 5px;
+}
+
+#postbox-snapshot-content .search{
+    position: absolute;
+    top: 66px;
+    right: 282px;
+    background: rgba(0, 0, 0, 0) url(/images_v2/sprites/sprite-site.png) right -1382px no-repeat;
+    width: 25px;
+    height: 25px;
+    z-index: 101;
+}
+
+#postbox-snapshot-content .snapshot-content-input.has-receivers .search{right:282px}
+
+#postbox-snapshot-content li a.postbox-schedule-snapshot {
+    background: url(//assets.edmodo.com/images_v2/sprites/sprite-site.png) 7px -305px no-repeat;
+}
+#postbox-snapshot-content .search-placeholder-container{margin: 0 0 10px 0;}
+#postbox-snapshot-content .snapshot-cont{width: 400px}
+#postbox-snapshot-content .snapshot-note{width: 400px}
+#postbox-snapshot-content .snapshot-time-selector{display: inline-block; margin:5px 0 0 50px}
+#postbox-snapshot-content .snapshot-send{margin-top:10px}
+#postbox-snapshot-content .snapshot-dropdown{width:535px;margin: 0px 0; float: left; margin-right:10px}
+.standard-selections{border-top: 1px solid rgb(223, 228, 232);}
+.select2-results .standard-selections{font-weight: 900; padding-top: 5px}
+.select2-results .select2-result-sub .standard-selections{font-weight: normal}
+.select2-results .select2-result-sub .statement {font-weight: bold; float: left}
+.select2-results .select2-result-sub .long-statement {padding-left: 80px}
+
+
+
+#postbox-snapshot-content .btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#postbox-snapshot-content .postbox-assignment-due{width:120px}
+
+
+#postbox-snapshot-content .bootstrap-select.btn-group:not(.input-group-btn),
+#postbox-snapshot-content .bootstrap-select.btn-group[class*="span"] {
+      float: left;
+      margin-bottom: 10px;
+      margin-left: 0
+}
+
+#postbox-snapshot-content .snapshot-post-box-send.has-receivers{float:left}
+
+*#postbox-snapshot-content .snapshot-content-input .btn-group{display:none}*/
+#postbox-snapshot-content .snapshot-content-input.has-receivers .btn-group{display:inline-block; padding-left: 13px}
+
+#postbox-snapshot-content .grades.btn-group {
+    width: 115px;
+}
+
+#postbox-snapshot-content .time-limit.btn-group {
+    width: 160px;
+}
+
+#postbox-snapshot-content .btn-group .btn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#postbox-snapshot-content .snapshot-content-input .snapshot-post-box-send{width: 407px; float: left}
+#postbox-snapshot-content .snapshot-content-input.searching-receivers .snapshot-post-box-send{width: auto; float: inherit}
+#postbox-snapshot-content .snapshot-content-input .snapshot-post-box-send{padding-bottom: 10px}
+
+#postbox-snapshot-content .btn-default{
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+}
+
+#postbox-snapshot-content .btn-group>.btn{
+    position: relative;
+    float: left
+}
+
+#postbox-snapshot-content .bootstrap-select>.selectpicker {
+    width: 100%;
+    padding-right: 25px;
+}
+
+#postbox-snapshot-content .btn-group>.selectpicker:first-child {
+    margin-left: 0;
+    color: rgb(136, 144, 162);
+    font-size: 13px;
+    box-shadow: 0 1px 1px rgba(127, 127, 127, 0.1);
+    border: 1px solid rgb(213, 219, 225);
+}
+
+#postbox-snapshot-content .btn-group .btn-primary{
+    color: rgb(160, 165, 169);
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(133, 134, 135);
+}
+
+#postbox-snapshot-content .btn-group .btn-primary.active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(160, 165, 169);
+    border-color: rgb(133, 134, 135);
+    text-shadow: 0 0 0;
+}
+
+#postbox-snapshot-content .btn-group .btn-primary{
+    border-radius:0;
+}
+
+#postbox-snapshot-content .bootstrap-select.btn-group .selectpicker .filter-option {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+
+#postbox-snapshot-content .bootstrap-select.btn-group .dropdown-menu {
+    min-width: 100%;
+    z-index: 2000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#postbox-snapshot-content .dropup .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+}
+
+#postbox-snapshot-content .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+
+#postbox-snapshot-content .open>.dropdown-menu {
+    display: block;
+}
+
+#postbox-snapshot-content .postbox-selected-content .due-date {padding: 2px 0 0 0}
+
+
+#postbox-snapshot-content .bootstrap-select.btn-group .dropdown-menu.inner {
+     position: static;
+     border: 0;
+     padding: 0;
+     margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#postbox-snapshot-content .dropdown-menu>li>a {
+    display: block;
+    clear: both;
+    font-weight: 400;
+    white-space: nowrap;
+    padding: 13px 20px;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgb(45, 124, 204);
+    background: rgb(255, 255, 255);
+    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(240, 242, 244);
+}
+
+
+#postbox-snapshot-content .bootstrap-select.btn-group .dropdown-menu li>a {
+    cursor: pointer;
+}
+
+#postbox-snapshot-content .glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#postbox-snapshot-content .bootstrap-select.btn-group .dropdown-menu li a i.check-mark {
+    display: none;
+}
+
+#postbox-snapshot-content .caret{
+    display: inline-block;
+    right: 0;
+    padding: 25.5px 15px 5px;
+    top: 0;
+    position: absolute;
+    border-left: 1px solid rgb(213, 219, 225);
+    background-image: url('//assets.edmodo.com/bootstrap/select-dropdown-arrow-retina.png');
+    background-position: 10px 14px;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    border-radius: 4px;
+}
+
+#postbox-snapshot-content .open .dropdown-toggle.btn-default {
+     background-color: rgb(235, 235, 235);
+     border-color: rgb(173, 173, 173);
+ }
+
+#postbox-snapshot-content .open .caret {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+}
+
+#postbox-snapshot-content .assignment-due-date{color: rgb(136, 144, 162);}
+
+#postbox-snapshot-content [data-toggle=buttons]>.btn>input[type=radio], [data-toggle=buttons]>.btn>input[type=checkbox]{display: none}
+
+/*#postbox-snapshot-content .snapshot-post-box-send.dd-visible{display:inline-block}
