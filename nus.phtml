@@ -6,7 +6,6 @@ $translator  = TranslationHelper::getInstance(PATH2_LANGUAGES . 'new-user.tmx', 
 $translator2 = TranslationHelper::getInstance(PATH2_LANGUAGES . 'levels.tmx', $this->language);
 $translator3 = TranslationHelper::getInstance(PATH2_LANGUAGES . 'postbox.tmx', $this->language);
 $countries   = Countries::getInstance()->getCountries();
-
 $this->title = $translator->_('new-user-title');
 $default_avatar = "https://u.ph.edim.co/default-avatars/44.jpg";
 $subject_community_db = SubjectCommunities::getInstance();
