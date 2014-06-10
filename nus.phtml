@@ -1,0 +1,408 @@
+<?
+
+$this->appendCssFile('/views/new-user.css');
+
+$translator  = TranslationHelper::getInstance(PATH2_LANGUAGES . 'new-user.tmx', $this->language);
+$translator2 = TranslationHelper::getInstance(PATH2_LANGUAGES . 'levels.tmx', $this->language);
+$translator3 = TranslationHelper::getInstance(PATH2_LANGUAGES . 'postbox.tmx', $this->language);
+$countries   = Countries::getInstance()->getCountries();
+
+$this->title = $translator->_('new-user-title');
+$default_avatar = "https://u.ph.edim.co/default-avatars/44.jpg";
+$subject_community_db = SubjectCommunities::getInstance();
+$subject_communities = $subject_community_db->getSubjectCommunities();
+$subject_communities_to_skip = array(5, 11, 12, 14);
+
+$user_info      = $this->user_info;
+$step           = $user_info['current_step'];
+$vanity         = isset($user_info['vanity']) ? $user_info['vanity'] : '';
+$avatar         = isset($user_info['avatar']) ? $user_info['avatar'] : 'http://u.ph.edim.co/default-avatars/default_avatar.png';
+$school_name    = isset($user_info['school_name']) ? $user_info['school_name'] : '';
+$school_city    = isset($user_info['school_city']) ? $user_info['school_city'] : '';
+$school_state   = isset($user_info['school_state']) ? $user_info['school_state'] : '';
+$school_zip     = isset($user_info['school_zip']) ? $user_info['school_zip'] : '';
+$has_school     = $user_info['school_id'] !== NULL;
+$address = '';
+$is_alternate_school = isset($user_info['alternate_school']) && $user_info['alternate_school'] ? $user_info['alternate_school'] : false;
+if($is_alternate_school){
+    switch($is_alternate_school){
+        case 'HOME':
+            $school_name = $translator2->_('home-school-js');
+            break;
+
+        case 'HIGHER_ED':
+            $school_name = $translator2->_('higher-education-js');
+            break;
+    }
+}
+
+if ($user_info['school_country'] == 'US') {
+    $address .= $school_city;
+    if(strlen($address) > 0) $address .= ', ';
+    $address .= $school_state.' '.$school_zip;
+} else {
+    $countries = Countries::getInstance()->getCountries();
+    $country_name = $user_info['school_country'];
+    for($i = 0; $i<count($countries); $i++){
+        if($countries[$i]['country_id'] == $user_info['school_country']){
+            $country_name = $countries[$i]['country'];
+            break;
+        }
+    }
+
+    $address .= $school_city;
+    if(strlen($address) > 0) $address .= ', ';
+    $address .= $country_name;
+}
+
+
+$is_subdomain = InstitutionalHandler::isActiveSubdomain();
+$test_signup = $this->test_friction ;
+
+if($step > 3) $step = 1;
+
+if ($is_subdomain) {
+    $step_properties = array(
+        $translator->_('update-teacher-profile'),
+        $translator->_('follow-communities'),
+        $translator->_('connect-with-teachers'));
+}
+elseif(!empty($this->has_suggested_school))
+{
+    $step_properties = array(
+        $translator->_('verify-your-school'),
+        $translator->_('connect-with-teachers'),
+        $translator->_('follow-communities'));
+}
+else{
+    $step_properties = array(
+        $translator->_('find-your-school'),
+        $translator->_('update-teacher-profile'),
+        $translator->_('follow-communities'));
+}
+
+
+$last_step = end($step_properties);
+
+$disable_next_button = !$is_subdomain && !($has_school || $is_alternate_school);
+
+$is_subdomain = false;
+error_log(' is_subdomain: ' . print_r($is_subdomain, true));
+
+
+?>
+
+<div id="new-user-container" class="section">
+
+<div id="nu-step-indicator">
+    <ul>
+        <? foreach($step_properties as $step_property):?>
+            <li <? if ($step_property == $last_step):?>class="last"<? endif; ?>>
+                <div>
+                    <?= $step_property ?>
+                    <div class="dot"></div>
+                </div>
+                <div class="line"></div>
+            </li>
+        <? endforeach; ?>
+    </ul>
+</div>
+
+<div id="nu-step-container">
+
+
+<? /* AVATAR PANE */ ?>
+<? if(empty($this->registered_from_invite) ): //NEW AVATAR PANE WITH NAMES ?>
+
+    <div id="nu-avatar-pane" class="pane">
+        <input id="test_signup" type="hidden" value="<?= $test_signup; ?>"/>
+        <div id="nu-avatar-container" class="nu-container">
+            <p id="nu-section-header" class="section-header"><?= $translator->_('set-up-profile'); ?></p>
+            <div class='names-wrap' style="text-align: left;">
+
+                <? if($test_signup != AbHandler::CONTROL): ?>
+                    <div style='padding-top: 20px;'>
+                        <select name="title" id="title">
+
+                            <option value="NONE"  <?= "NONE" == $user_info['title'] ? 'selected' : ''; ?>  >Title</option>
+                            <option value="MR"  <?= "MR" == $user_info['title'] ? 'selected' : ''; ?>>Mr.</option>
+                            <option value="MRS"  <?= "MRS" == $user_info['title'] ? 'selected' : ''; ?>>Mrs.</option>
+                            <option value="MS"  <?= "MS" == $user_info['title'] ? 'selected' : ''; ?>>Ms.</option>
+                            <option value="DR"  <?= "DR" == $user_info['title'] ? 'selected' : ''; ?>>Dr.</option>
+
+                        </select>
+
+                        <input id="first-name" type="text" placeholder="First Name" value="<?= !empty($user_info['first-name']) ? $user_info['first-name'] : ''; ?>"/>
+                        <input id="last-name" type="text" placeholder="Last Name"  value="<?= !empty($user_info['last-name']) ? $user_info['last-name'] : ''; ?>"/>
+                    </div>
+                <? endif; ?>
+                <p class="title-15"><?= $translator->_('tell-us-what-you-teach'); ?></p>
+                <div class="grades-and-subjects">
+                    <div class="update-grade-range-content">
+                        <div class="grade-row row">
+                            <div class="grade-container">
+                                <select class="grade-select" id="grade-selector" tabindex="31">
+                                    <option value="none"><?= $translator->_('grade'); ?></option>
+                                    <? if(!empty($this->levels)): ?>
+                                        <? foreach($this->levels as $level_id => $level): ?>
+                                            <option value="<?= $level_id; ?>"><?= $level; ?></option>
+                                        <? endforeach; ?>
+                                    <? endif; ?>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="update-subject-content">
+                        <div class="subject-area-row row">
+                            <div class="select-container">
+                                <select class="subjects"  id="subjects-selector" tabindex="34">
+                                    <option value=""><? if ($is_new_group_create): ?><?= $translator->_('subject-area'); ?><? else: ?><?= $translator->_('subject-area'); ?><? endif; ?></option>
+                                    <? if(!empty($this->subjects)): ?>
+                                        <? foreach($this->subjects as $subject_id => $subject) : ?>
+                                            <? if($subject_id != 13):?><option value="<?= $subject_id; ?>"><?= $subject['name']; ?></option><?endif;?>
+                                        <? endforeach; ?>
+                                    <? endif; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="nu-profile-url" class="nu-container">
+                    <p class="title-15"><?= $translator->_('custom-url'); ?></p>
+                    <div id="nu-url-messages" style="display:none">
+                        <p class="info" id="nu-checking"><span><?= ucfirst($translator->_('checking')); ?>...</span></p>
+                        <p class="error" id="nu-taken"><span><?= $translator->_('url-not-available'); ?></span></p>
+                        <p class="success" id="nu-set"><span><?= $translator->_('url-created-successfully'); ?></span></p>
+                    </div>
+                    <div id="nu-select-url">
+                        <p>
+                            <span>http://www.edmodo.com/</span>
+                            <input id="nu-vanity" type="text" a="Vanity url input interacted"  placeholder="<Eg. your first initial and last name>" value="<?= $vanity; ?>"/>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="photo-picker" style="float: right;margin: 0;">
+
+                <iframe name="upload-target" src="" style="display:none"></iframe>
+
+                <div id="current-photo">
+                    <img src="<?= $avatar; ?>" a="User avatar changed">
+                </div>
+
+
+                <div class="file-upload-wrap  file-upload-wrap2">
+                    <?
+                    // A/B test for new avatar upload/resize process
+                    $iframe_target = '/settings/ajax-upload-avatar';
+                    if ( AbHandler::idInTest($this->account_info['user_id'],'new_avatar_uploads') === 'enabled' ){
+                        if ( ClientUserAgentHelper::getInstance()->getBrowser() == 'ie ie8' ){
+                            $iframe_target = '/uploads/avatar';
+                        }
+                        else{
+                            $iframe_target = 'https://'.IMAGE_UPLOADER_SUBDOMAIN.'.'.ENVIROMENT_DOMAIN.'/uploads/avatar';
+                        }
+                    }
+                    ?>
+
+                    <p style="font-size: 10px; text-align: center"><?= $translator->_('upload-a-photo'); ?></p>
+                    <p class="error hidden image-error" style="display:none"></p>
+
+                    <form name="upload-image-form"
+                          id="upload-image-form"
+                          method="post"
+                          enctype="multipart/form-data"
+                          target="upload-target"
+                          action="<?= $iframe_target ?>">
+
+                        <div class="file-upload-button-wrap">
+                            <input id="avatar-input" name="new_photo" type="file" class="file offscreen"  />
+                            <a style="font-size: 11px;width: 105px;" class="btn blue-btn" id="btn-upload-photo"><?= $translator->_('upload-a-new-photo'); ?></a>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+<? endif; //end Avatar ?>
+
+<? /* COMMUNITIES PANE */ ?>
+<div id="nu-communities-pane" class="pane">
+    <div class="nu-communities-header">
+        <p class="section-header communities-section-header"><?= $translator->_('choose-communities'); ?></p>
+    </div>
+    <div id="nu-communities" class="nu-communities-options">
+        <? $index = 0; ?>
+        <? foreach($subject_communities as $subject):?>
+            <? $row_index = $index % 5; ?>
+            <? $f = 'not-checked'; ?>
+            <? if (in_array($subject['subject_community_id'], $subject_communities_to_skip)) continue; ?>
+            <? foreach ($this->user_communities as $com) {
+                if ($com['subject_community_id'] == $subject['subject_community_id']) {
+                    $f = '';
+                    break;
+                }
+            }
+            ?>
+
+            <? if ($row_index == 0): ?>
+                <div class="nu-suggestions-row"><div class="nu-suggestions-row-inner">
+            <? endif; ?>
+
+            <div class="nu-suggestion <?= $f; ?>"
+                 subdomain="<?= $subject['subdomain']; ?>"
+                 com_id="<?= $subject['subject_community_id']?>"
+                 a="Community <?= $subject['subject_community_id']?> interacted">
+
+                <img src="//com.ph.edim.co/<?= $subject['subject_community_id']?>_t.<?= strtolower($subject['avatar_format']); ?>"
+                     alt="<?= $subject['subject_community_name']; ?>"
+                     title="<?= $subject['subject_community_name']; ?>" />
+
+                <p><?= $subject['subject_community_name']; ?></p>
+                <div class="checkbox"><span>&#x2713;</span></div>
+            </div>
+
+            <? if ($row_index == 4 || $subject == end($subject_communities)): ?>
+                </div></div>
+            <? endif; ?>
+            <? $index++; ?>
+        <? endforeach; ?>
+    </div>
+</div>
+
+<? if($is_subdomain || !empty($this->registered_from_invite)): ?>
+
+    <? /* CONNECTIONS PANE */ ?>
+    <div id="nu-connections-pane" class="pane <?= (empty($this->registered_from_invite)) ? 'nu-connections-pane': 'nu-connections-pane-no-height' ?>">
+
+        <div id="nu-teacher-request-loading">
+            <div class="loading"></div>
+            <p class="title-16"><?= $translator->_('finding-connections'); ?></p>
+        </div>
+
+        <div id="nu-teacher-request">
+            <div id="nu-teacher-request-container">
+                <p class="title-18"><?= $translator->_('start-building-network'); ?></p>
+                <? if(empty($this->registered_from_invite)): ?>
+                    <p class="title-16"><?= $translator->_('request-connections-below'); ?></p>
+                <? endif;?>
+            </div>
+            <div class="clear"></div>
+            <div id="nu-ambassador-request-container">
+                <div class="nu-suggestions-row"><div class="nu-suggestions-row-inner">
+                        <p  class="title-16"><?= $translator->_('connect-support-ambassadors'); ?></p>
+                    </div></div>
+            </div>
+        </div>
+
+        <div id="tpl-nu-teacher">
+            <div class="nu-teacher nu-suggestion not-checked  <?=  !empty($this->registered_from_invite) ? 'with-button {IS_SUGGESTION}' :''; ?> "
+                 user_id="{ID}" a="teacher connection {ID} clicked."  >
+                <img class="suggest-avatar" src=<?= $default_avatar ?> a="teacher connection {ID} clicked." />
+                <p class="nu-teacher-name bold" a="teacher connection {ID} clicked.">{NAME}</p>
+                <p class="nu-teacher-school" a="teacher connection {ID} clicked." style="<?=  !empty($this->registered_from_invite) ? 'display:none;' :''; ?>">{SCHOOL}</p>
+
+                <? if(!empty($this->registered_from_invite)): ?>
+                    <button class="btn" data-action="connect-to-suggestion" id="btn-{ID}"
+                            data-suggestion-type="user"
+                            data-suggestion-id="{ID}"
+                            data-suggestion-name="{NAME}">{CONNECT_TEXT}
+                    </button>
+                    <div id="sent-{ID}" style="display:none">Request Sent</div>
+                    <div id="connected-{ID}" style="display:none">Connected</div>
+                <? endif;?>
+
+                <div class="checkbox"><span>&#x2713;</span></div>
+            </div>
+        </div>
+    </div>
+
+<? endif; //end if subdomain ?>
+
+</div> <? // #nu-step-container ?>
+
+<div id="nu-footer" class="footer sunken">
+    <button class="nu-prev btn back-step-1">
+        <span class="step-1" style="display:none"><?= $translator->_('back-step-1'); ?></span>
+        <span class="step-2" style="display:none"><?= $translator->_('back-step-2'); ?></span>
+    </button>
+
+    <button class="nu-next btn blue-btn" style="display:none" <? if($disable_next_button): ?> disabled<? endif; ?>>
+        <?= (empty($this->has_suggested_school) || $step != 1) ? $translator->_('next-step') : $translator->_('confirm') ; ?>
+    </button>
+    <? if ($this->should_redirect_to_getstarted) :?>
+        <button class="nu-home getstarted btn blue-btn" style="display:none"><?= $translator->_('get-started'); ?></button>
+    <? else: ?>
+        <button class="nu-home home btn blue-btn" style="display:none"><?= $translator->_('go-to-homepage'); ?></button>
+    <? endif; ?>
+</div>
+</div>
+
+
+<script>
+    <?= TemplateHelper::writeJsTemplate('invite-teachers-bulk', $this->partial( '/templates/tpl-invite-teachers-bulk.phtml') );?>
+    <?= TemplateHelper::writeJsTemplate('invite-teachers-bulk-row', $this->partial( '/templates/tpl-invite-teachers-bulk.phtml', array('row_only' => true)) );?>
+
+    modo.common.translations['teacher-profile'] = "<?= $translator->_('teacher-profile'); ?>";
+    modo.common.translations['communities']     = "<?= $translator->_('communities'); ?>";
+    modo.common.translations['your-school']     = "<?= $translator->_('your-school'); ?>";
+    modo.common.translations['connect-with-teachers'] = "<?= $translator->_('connect-with-teachers'); ?>";
+    modo.common.translations['attachment-too-large'] = "<?= $translator3->_('attachment-too-large-js'); ?>";
+    modo.common.translations['file-type-not-valid'] = "<?= $translator3->_('file-type-not-valid-js'); ?>";
+    modo.common.translations['connect'] = '<?= $translator->_('connect-js');?>';
+    modo.common.translations['accept'] = '<?= $translator->_('accept-js');?>';
+    modo.common.translations['invitations-sent'] = '<?= $translator->_('invitations-sent-js');?>';
+    modo.common.translations['introduce-others'] = '<?= $translator->_('introduce-others-js');?>';
+    modo.common.translations['want-to-make-it-personal'] = '<?= $translator->_('want-to-make-it-personal-js');?>';
+    modo.common.translations['confirm'] = '<?= $translator->_('confirm');?>';
+    modo.common.translations['next'] = '<?= $translator->_('next-step');?>';
+</script>
+
+<script>
+    modo.common.constants.ENVIROMENT_DOMAIN = "<?= ENVIROMENT_DOMAIN ?>";
+    modo.views.NewUser.initialize(<?= $step ?>, <? if($has_school || $is_alternate_school): ?>true<? else: ?>false<? endif; ?>, <?= ($this->registered_from_invite) ? 'true' : 'false'; ?>);
+</script>
+
+
+<div class="facebox-overlay" id="facebox-overlay"></div>
+
+<div id="facebox" class="dropshadow hidden border2">
+
+    <div class="popup">
+
+        <table>
+
+            <tr>
+
+                <td class="body">
+
+                    <div class="header">
+
+                        <p class="title pull-left"></p>
+                        <a href="#" class="close pull-right"></a>
+
+                    </div>
+
+                    <div class="content"></div>
+                    <div class="clear-div"></div>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
