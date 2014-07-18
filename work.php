@@ -1,5 +1,4 @@
 <?php
-
 //Following constants are the DEBUG levels
 define( 'DEBUG_OFF', 0 );
 define( 'DEBUG_CATCHS', 1 ); //Only messages from try/catch blocks will log
