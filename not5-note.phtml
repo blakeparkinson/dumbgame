@@ -1,0 +1,407 @@
+<?
+$translator  = new Zend_Translate('tmx', PATH2_LANGUAGES . 'email-content.tmx', $this->language);
+$header      = $this->header;
+$banner      = $this->banner;
+$content     = $this->content;
+$footer      = $this->footer;
+$signature   = $this->signature;
+$has_disavow = !empty($this->disavow) ? true : false;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Minty-Multipurpose Responsive Email Template</title>
+      <style type="text/css">
+         /* Client-specific Styles */
+         #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+         body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; background:#f4f4f4;}
+         /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+         .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+         .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+         #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+         img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;}
+         a img {border:none;}
+         .image_fix {display:block;}
+         .sentFromPic {padding: 20px 0px 20px 20px!important;}
+         .attachmentPadding {width:30px!important;}
+         .desktopPrimary {font-size: 12pt!important; line-height: 24px;}
+         .bodyPrimary {font-size:11pt!important; line-height: 24px;}
+         .footerPrimary {font-size: 8pt!important;}
+
+         p {margin: 0px 0px !important;}
+         
+         table td {border-collapse: collapse;}
+         table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+         /*a {color: #e95353;text-decoration: none;text-decoration:none!important;}*/
+         /*STYLES*/
+         table[class=full] { width: 100%; clear: both; }
+         
+         /*################################################*/
+         /*IPAD STYLES*/
+         /*################################################*/
+         @media only screen and (max-width: 640px) {
+         a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: #ffffff; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+         }
+         .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: #ffffff !important;
+         pointer-events: auto;
+         cursor: default;
+         }
+         table[class=devicewidth] {width: 440px!important;}
+         table[class=tab] {width: 100px!important;}
+         table[class=devicewidthinner] {width: 420px!important;}
+         td[class="attachmentPadding"] {width:9px!important;}
+         table[class="sthide"]{display: none!important;}
+         img[class="bigimage"]{width: 420px!important;height:219px!important;}
+         img[class="col2img"]{width: 420px!important;height:258px!important;}
+         img[class="image-banner"]{width: 440px!important;height:106px!important;}
+         td[class="menu"]{text-align:center !important; padding: 0 0 10px 0 !important;}
+         td[class="logo"]{padding:10px 0 5px 0!important;margin: 0 auto !important;}
+         img[class="logo"]{padding:0!important;margin: 0 auto !important;}
+
+         }
+         /*##############################################*/
+         /*IPHONE STYLES*/
+         /*##############################################*/
+         @media only screen and (max-width: 480px) {
+         a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: #ffffff; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+         }
+         .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: #ffffff !important; 
+         pointer-events: auto;
+         cursor: default;
+         }
+
+         .desktopPrimary {
+            font-size: 10pt!important;
+            line-height: 16px;
+         }
+
+         .bodyPrimary {
+            font-size: 9pt!important;
+            line-height: 16px;
+         }
+
+         .footerPrimary {
+            /*font-size: 7pt!important;*/
+            line-height: 16px;
+         }
+
+         table[class=devicewidth] {width: 320px!important;}
+         table[class=tab] {width: 100px!important;}
+         td[class=sentFromPic] {padding:0!important;}
+         table[class=devicewidthinner] {width: 300px!important;}
+         table[class=sthide]{display: none!important;}
+         img{padding:0px!important;}
+         img[class="logo"]{padding:0px 10px 0px 0px!important;}
+         td[class="txtpad"],td[class="menu"]{padding:0px 10px 0px 10px!important;text-align: left!important;}
+         td[class="footer"] {text-align: center!important;}
+         img[class="bigimage"]{width: 260px!important;height:136px!important;}
+         img[class="col2img"]{width: 260px!important;height:160px!important;}
+         img[class="image-banner"]{width: 280px!important;height:68px!important;}
+         }
+
+         a.primaryLink {
+            color: rgb(0, 61, 191);
+            text-decoration: none;
+
+         }
+
+         a.secondaryLink {
+            color: rgb(136, 138, 138);
+            font-weight: 200;
+            text-decoration: none;
+         }
+
+
+      </style>
+   </head>
+<body>
+<div class="block">
+   <!-- Start of preheader -->
+   <table width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="preheader" class="sthide">
+      <tbody>
+         <tr>
+         <!-- <br /> -->
+            <td width="100%">
+               <table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                  <tbody>
+
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="100%" height="15"></td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td align="left" valign="middle" style="text-align:left;font-family: Helvetica, arial, sans-serif; font-size: 12px;color: #2b2e38; line-height: 15px;">
+
+                        </td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="100%" height="5"></td>
+                     </tr>
+                     <!-- Spacing -->
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- End of preheader -->
+</div>
+
+<div class="block">
+   <!-- start of header -->
+   <table width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" st-sortable="header">
+      <tbody>
+         <tr>
+            <td>
+               <table style="border-bottom-width: 1px; /*border-bottom-color: #F4F4F4; border-bottom-style: solid;*/background: #F4F4F4;" width="580" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <!-- TITLE -->
+                           <table width="100" height="40" cellpadding="0" cellspacing="0" border="0" align="left" class="devicewidth tab">
+                              <tbody>
+                                 <tr>
+                                    <td width="100" bgcolor="#FFFFFF" align="center" valign="middle" style="text-align:center; font-family: Helvetica, Arial, sans-serif; color: #2b2e38; line-height: 24px; background: #ffffff; border-top-right-radius: 5px; border-top-left-radius: 5px;" class="menu desktopPrimary" st-content="menu">
+                                       <strong><img src="http://www.gautam.cc/edmodo-mail/img/note-icon-16x16.png" style="vertical-align:middle;"/><span style="vertical-align:middle;">&nbsp;&nbsp;Note</span></strong>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- End of TITLE -->
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of header -->
+</div>
+<div class="block">
+   <!-- start of SENDER BOX -->
+   <table style="border-right-width: 1px; border-right-color: #F4F4F4; border-right-style: solid;border-left-width: 1px; border-left-color: #F4F4F4; border-left-style: solid;" width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" st-sortable="header">
+      <tbody>
+         <tr>
+            <td>
+               <table width="580" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit" style="border-top-right-radius: 5px;">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <table width="580" cellpadding="0" cellspacing="0" border="0" align="left" class="devicewidth">
+                              <tbody>
+                              <tr height="10"></tr>
+                                 <tr>
+                                    <td width="35" align="center" valign="middle" style="text-align: left;font-family: Helvetica, Arial, sans-serif;font-size: 13px; color: #2b2e38;line-height: 24px; padding: 10px 0px 0px 20px;">
+
+                                    <img src="{SENDER_PIC}" alt="{SENDER}" border="0" style="border-radius:3px;display:block; border:none; outline:none;" st-image="edit" class="senderpic" width="74" height="74">
+
+                                    
+                                    </td>
+                                    <td align="left" valign="middle" style="text-align: left;font-family: Helvetica, Arial, sans-serif; color: #2b2e38; padding: 10px 20px 0px 20px; text-decoration: none;" class="desktopPrimary">
+                                    <b style="text-align:left;"><span style="color: rgb(23, 81, 163);"><a href="{SENDER_PROFILE_URL}" style="text-decoration:none;" class="primaryLink">{SENDER}</a></span>{SENT_TO_HTML}</b>
+                                    </td>
+                                 </tr>
+                                 <tr height="5"></tr>
+                              </tbody>
+                           </table>
+
+                        </td>
+                     </tr>
+                     <tr>
+                        <td width="100%" height="15"></td>
+                     </tr>
+                     
+                     <!-- Text -->
+                     <tr>
+                        <td>
+                           <!-- NOTIFICATION -->
+                           <table width="485" cellpadding="0" cellspacing="0" border="0" align="right" class="devicewidth">
+                              <tbody>
+                                 <tr>
+                                    <td width="540" valign="middle" style="text-align: left;font-family: Helvetica, Arial, sans-serif; color: rgb(76, 78, 78); padding: 0px 20px 20px 20px; line-height: 1.5" align="left" class="txtpad bodyPrimary">
+                                       {NOTIFICATION}
+                                    </td>
+                                 </tr>
+                                 <tr height="10"></tr>
+                              </tbody>
+                           </table>
+                           <!-- End of NOTIFICATION -->
+                        </td>
+                     </tr>
+                     <!-- Text -->
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of SENDER BOX -->
+</div>
+<div class="block">
+   <!-- start of LINK BOX -->
+   <table style="border-right-width: 1px; border-right-color: #F4F4F4; border-right-style: solid;border-left-width: 1px; border-left-color: #F4F4F4; border-left-style: solid;" width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" st-sortable="header">
+      <tbody>
+         <tr>
+            <td>
+               <table width="580" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <!-- SENDER PIC -->
+                           {ATTACHMENT_HTML}
+                           <!-- End of SENDER PIC -->
+                        </td>
+                        <!-- <td class="attachmentPadding"></td> -->
+                     </tr>
+                     {ADDITIONAL_ATTACHMENT_HTML}
+                     <!-- Spacing (only for link attachments) -->
+                     <tr>
+                        <td width="80" height="10"></td>
+                     </tr>
+                     <!-- Spacing -->
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of LINK BOX -->
+</div>
+<div class="block">
+   <!-- start of CTA -->
+   <table style="border-right-width: 1px; border-right-color: #F4F4F4; border-right-style: solid;border-left-width: 1px; border-left-color: #F4F4F4; border-left-style: solid;" width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+         <tr>
+            <td>
+               <table width="580" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">
+                  <tbody>
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="80" height="15"></td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td>
+                           <!-- CTA_BUTTON -->
+                           <table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                              <tbody>
+                     <!--             <tr>
+                                   <hr style="background-color:rgb(194, 198, 197); border:0; height: 1px;"/>
+                                 </tr> -->
+                                 <tr height="20"></tr>
+                                 <tr>
+                                    <td width="580" valign="middle" style="text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 16px; color: #2b2e38;line-height: 24px;" align="center">
+                                       
+                            <div style="text-align:center;"><!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.edmodo.com" style="height:40px;v-text-anchor:middle;width:170px;" arcsize="10%" strokecolor="#457a04" fillcolor="#69a229">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">View in Edmodo</center>
+                              </v:roundrect>
+                            <![endif]--><a href="{LINK}" style="background-color:rgb(0, 162, 91);border:0; border-radius:5px;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;line-height:50px;text-align:center;text-decoration:none;width:170px;-webkit-text-size-adjust:none;mso-hide:all;">View in Edmodo</a></div>
+                        
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- End of CTA_BUTTON -->
+                        </td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="80" height="50"></td>
+                     </tr>
+                     <!-- Spacing -->
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of CTA -->
+</div>
+<div class="block">
+   <!-- start of email footer -->
+   <table width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+         <tr>
+            <td>
+               <table style="border-top-width: 1px; border-top-color: #E2E4E3; border-top-style: solid;background: #E2E4E3;" width="580" bgcolor="#E2E4E3" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <!-- FOOTER -->
+                           <table width="580" height="50" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color:rgb(136, 141, 141);">{ATTACHMENT_TEXT}</td>
+                                    <td align="center" style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color:rgb(136, 141, 141);">{SEND_DATE}</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- End of FOOTER -->
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of email footer -->
+</div>
+<div class="block">
+   <!-- Start of footer -->
+   <table width="100%" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" border="0" st-sortable="postfooter">
+      <tbody>
+         <tr>
+            <td width="100%">
+               <table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                  <tbody>
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="100%" height="15"></td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td align="center"><img src="http://www.gautam.cc/edmodo-mail/img/ed-logo-32x32.png" /></td>
+                     </tr>
+                     <tr>
+                        <td align="center" valign="middle" style="padding:4px;text-align:center;font-family: Helvetica, arial, sans-serif; font-size: 9pt; color: #AAB3BF; line-height: 20px;" st-content="preheader" class="txtpad footer footerPrimary">
+                        This email was sent from Edmodo Inc., 1200 Park Place, Suite 400, San Mateo, CA 94403<br />
+                        <a href="#" class="secondaryLink" style="font-family: Helvetica, arial, sans-serif; font-size: 9pt; color: #AAB3BF; text-decoration: none">Update email preferences</a> | <a href="#" class="secondaryLink" style="font-family: Helvetica, arial, sans-serif; font-size: 9pt; color: #AAB3BF; text-decoration: none">Privacy</a> | <a href="#" class="secondaryLink" style="font-family: Helvetica, arial, sans-serif; font-size: 9pt; color: #AAB3BF; text-decoration: none">Support</a>
+                          <img src="https://assets.edmodo.com/images/blank.gif" height="1" width="1" />
+                        </td>
+                     </tr>
+                     <!-- Spacing -->
+                     <tr>
+                        <td width="100%" height="20"></td>
+                     </tr>
+                     <!-- Spacing -->
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- End of footer -->
+</div>
+
+</body>
+</html>
