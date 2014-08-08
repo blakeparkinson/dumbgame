@@ -1,0 +1,1319 @@
+body.landing.large {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-1.jpg) 40% 5% no-repeat;}
+body.landing.medium {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-2.jpg) 40% 5% no-repeat;}
+body.landing.small {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-3.jpg) 40% 5% no-repeat;}
+
+body.mobile.large.landing {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-1.jpg) center 0 no-repeat;}
+body.mobile.medium.landing {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-2.jpg) center 0 no-repeat;}
+body.mobile.small.landing {background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-3.jpg) center 0 no-repeat;}
+
+body.mobile #landing-bg {background: url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-3.jpg) center 0 no-repeat;}
+body.mobile.large #landing-bg{background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-1.jpg) center 0 no-repeat;}
+body.mobile.medium #landing-bg{background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-2.jpg) center 0 no-repeat;}
+body.mobile.small #landing-bg{background: white url(//assets.edmodo.com/images_v2/landing/bg-landing-mobile-3.jpg) center 0 no-repeat;}
+
+body.windows-webview { background: #276BB0 !important; }
+hr#nav-ruler {position: absolute; display: block; top: 80px; margin: 0; size: 1px; width: 100%; border-top: 1px solid #eee; opacity: 0.15;}
+
+.edmodo-logo {height: 101px; width: 94px; display: block; background: url(//assets.edmodo.com/images_v2/landing/landing.png) no-repeat 0 -28px; margin: 0}
+.landing #topbar-content, .landing #content {width: 100%; min-width:960px; max-width: 1000px;}
+
+.landing div#content-container {
+    z-index: 97;
+    width: auto;
+    padding: 0 3% 0 3%;
+}
+
+hr#nav-ruler {
+    border-top: 1px solid #EEEEEE;
+    display: block;
+    margin: 0;
+    opacity: 0.15;
+    position: absolute;
+    size: 1px;
+    top: 80px;
+    width: 100%;
+}
+
+.landing input::-webkit-input-placeholder {color: #8890a2;}
+.landing input:-moz-placeholder {color: #8890a2;}
+.landing input::-moz-placeholder {color: #8890a2;}
+.landing input:-ms-input-placeholder {color: #8890a2;}
+
+.landing #m-footer {width:auto;height:100%; padding: 40px 0 30px 0;}
+.landing #m-footer p {width: 250px;}
+.landing #m-footer p, .landing #m-footer a{
+    font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.landing #site-viewport{height:100%;min-height:930px;}
+.landing #site-viewport > .clear{padding:0;}
+
+body.mobile #footer span {color: #D7D7D7;}
+
+#landing-wrapper {padding: 3% 6% 0 0;}
+
+.landing #content {min-height: 615px; background: none; margin:0 auto;height:73vh;}
+
+#content h2,
+#content h4 {
+    color: #383D48;
+}
+
+#landing-wrapper h4 {font-weight: 500; font-size: 18px; padding-bottom: 10px}
+
+#content input {font-size: 13px; border-radius: 2px;}
+    #content input.error {border: 1px solid red;}
+
+.landing #content .placeholder-container {
+    background: #fff;
+}
+
+#landing-wrapper .placeholder-container {
+    margin: 15px 0 0 0;
+}
+
+
+
+.lp-glow {text-shadow: 0px 1px 1px white;}
+.lp-primary-container {
+    margin-top: 12px;
+}
+
+.lp-secondary {display:block; margin-top: 10px;}
+
+
+#teacher-sign-up-link, #student-sign-up-link {
+    width: 100px;
+    box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+}
+
+/* NOTE(adam): copied from v1 general.css */
+.ico-val {display: none; position: absolute; right: 0; margin: -22px 5px 0 0;}
+div.checking, #content div.checking {height: 16px; width: 16px; background: url(//assets.edmodo.com/images/loading-small.gif) no-repeat center;}
+div.ico-error {
+    width: 12px;
+    height: 14px;
+    background: url(//assets.edmodo.com/images_v2/landing/sprite.png) -6px -54px no-repeat;
+}
+div.ico-valid {width: 20px; height: 20px; background: url(//assets.edmodo.com/images_v2/landing/sprite.png) -20px -54px no-repeat;}
+.ico-valid.ico-val {margin: -24px 5px 0 0;}
+
+body.ie7 div.checking, body.ie7 #content div.checking {margin: 0 0 0 10px;}
+body.ie7 div.ico-error { margin: 3px 0 0 12px;}
+body.ie7 div.ico-valid { margin: 0 0 0 8px;}
+
+.login-btn-container {
+    padding-top: 10px;
+}
+.login-btn-container #password {
+    margin-top: 0;
+}
+
+.lp-error {
+    color: white;
+    position: absolute; z-index: 2; margin: 2px 0 0 290px; color: white; padding: 4px; background: url(//assets.edmodo.com/images/backgrounds/bg-tt.png); border-radius: 4px;
+}
+#landing-flex-container .multi-error {
+    margin-bottom: 5px;
+}
+
+#teacher-sign-up > div > p.admin-info {
+    color: #222; position: static; margin: 0; background: none;
+}
+#teacher-sign-up > div > p.admin-info a {
+    text-decoration: underline; color: #336699;
+}
+
+p.admin-info-note {
+    padding: 5px 0 0 0;
+    margin-top: 5px;
+    font-size: 11px;
+    border-top: 1px solid #CCC;
+}
+
+p.lp-error,
+#landing-wrapper p.error,
+.TOS-error,
+#forgot-password-container .checking,
+p.available {
+    display: none;
+}
+
+#stratus-wrapper span.error {
+    position:absolute;
+    width:200px;
+    background:none;
+}
+
+p.lp-error span, p.available span {
+    position: absolute;
+    height: 10px;
+    width: 5px;
+    background: url(//assets.edmodo.com/images_v2/landing/sprite.png) 0 -54px no-repeat;
+    margin: 5px 0 0 -9px;
+}
+
+.TOS-message {
+    font-size: 12px;
+}
+
+
+.select {border: 1px solid #c4c4c4; cursor: pointer; background: #f1f1f1 url(//assets.edmodo.com/images_v2/landing/sprite.png) 217px -78px no-repeat; float: right; width: 237px; margin: -5px 0 0 0; padding: 5px; border-radius: 3px; }
+body.lang-tr #teacher-sign-up .select {width:227px;background-position: 210px -78px;}
+    .select ul {position: absolute; background: #f1f1f1; z-index: 4; width: 215px; margin: 5px 0 0 -4px; border: 1px solid #c4c4c4; left: -999em; top: -999em;}
+        .select ul li {padding: 3px 5px;}
+            .select ul li:hover {background: #e3eaed;}
+        .select.ddVisible ul {left: auto; top: auto;}
+
+body.lang-el .select {width: 228px; background-position: 210px -78px;}
+    body.lang-el .select ul {width: 208px;}
+
+#landing-message {float: left; margin: 2% 0 0 8%; max-width: 380px;}
+    #landing-message h2 {font-weight: 200; font-size: 40px; margin: 25% 0 35px 0; line-height: 40px}
+    body.lang-tr #landing-message h2 {font-size:28px;}
+    body.windows-webview #landing-message h2 { color: #fff; }
+    body.windows-webview #landing-message p { color: #fff; }
+    body.windows-webview #landing-message .edmodo-logo { background: url(//assets.edmodo.com/images_v2/landing/landing-index-t5.png) no-repeat 0 -542px; height: 70px}
+    #landing-message p {font-size: 18px; max-width: 350px; margin: 0 0 15px 0; line-height: 25px; }
+    body.lang-fr #landing-message p {max-width:380px;}
+    #landing-message a {font-size: 18px; color: #383D48; font-weight: bold;}
+    #landing-message a:hover {text-decoration: none;}
+    #landing-message img {position: relative; top: 4px;}
+    #landing-message.inst-message {margin: 44px 0 0 0;}
+
+.landing-video-txt {float: left; padding: 3px 4px 1px 0;max-width:300px}
+.landing-video-ico {float: left; background: url(//assets.edmodo.com/images_v2/landing/landing.png) 0px 4px no-repeat;width:40px;height:30px}
+
+#landing-iphone-link {width: 147px; height: 51px; background: url(//assets.edmodo.com/images_v2/landing/sprite.png) 0 -108px no-repeat; display: inline-block; margin-top: 10px;}
+#landing-android-link {width: 147px; height: 51px; background: url(//assets.edmodo.com/images_v2/landing/sprite.png) 0 -159px  no-repeat; display: inline-block; margin-top: 10px;}
+#landing-windows-link {width: 153px; height: 55px; background: url(/images_v2/mobile/windows.png) no-repeat; background-size: 96%; display: inline-block;}
+#landing-android-link.en {background-position: 0 -159px;}
+#landing-android-link.es {background-position: 0 -343px;}
+#landing-android-link.pt, #landing-android-link.pt-br {background-position: 0 -395px;}
+#landing-android-link.el {background-position: 0 -447px;}
+#landing-android-link.fr {background-position: 0 -499px;}
+#landing-android-link.de {background-position: 0 -551px;}
+#landing-android-link.nl {background-position: 0 -603px;}
+
+body.windows-webview #landing-iphone-link, body.windows-webview #landing-android-link { display: none; }
+
+#content a.niceBtn {padding: 5px 14px;}
+
+#content a.blueBtn {padding: 5px 14px; color: white;}
+
+#tpl-watch-demo {display: none;}
+
+/* SIGN UP FORMS -------------------------------------------------*/
+
+#landing-flex-container {
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(15, 15, 15, 0.20);
+    background:url(/images_v2/landing/pixel-60fff.png) repeat;
+    float: right;
+    width: 360px;
+    min-height: 200px;
+    margin: 18% 4% 0 2%;
+}
+
+body.ie8 #landing-flex-container, body.ie7 #landing-flex-container {background: url(//assets.edmodo.com/images_v2/backgrounds/bg-white-60.png);}
+
+#landing-flex-content {
+    min-height: 250px;
+    padding: 30px 40px 30px 40px;
+}
+
+body.ipad .redirect-wrapper #landing-flex-container{margin:0 auto}
+body.ipad #landing-flex-container {margin: 0 58px 0 0;}
+
+.stratus #landing-flex-content {min-height: 180px;}
+
+#teacher-sign-up, #student-sign-up, #parent-sign-up {display: none;}
+#teacher-sign-up .button-row a {padding: 5px 25px; margin: 0 5px 0 0;}
+#parent-sign-up {margin-top: 10px;}
+
+#teacher-sign-up.loading, #student-sign-up.loading, #parent-sign-up.loading {background: url(//assets.edmodo.com/images/loading.gif) no-repeat center;}
+    #teacher-sign-up.loading *, #student-sign-up.loading *, #parent-sign-up.loading * {display: none;}
+
+.title-list li.sel {background: #e3eaed;}
+
+
+/* LOGIN */
+
+#inst-container {padding: 5px 0; margin: 0 0 7px 0; border-bottom: 1px solid #BBB;}
+    #inst-container > h4 {margin: 0; padding: 0 0 9px 0;}
+
+#sign-up-inputs {overflow: hidden; padding: 0 0 15px 0; border-bottom: 1px solid #BBB;}
+
+.stratus #sign-up-inputs {border-bottom: 0;}
+body.mobile .redirect-wrapper #sign-up-inputs{border-bottom:0}
+body.mobile #sign-up-inputs {border-bottom: 1px solid #999;}
+
+#landing-wrapper #password {width: 200px;float: left;}
+body.lang-sv #landing-wrapper #password,
+body.lang-fr #landing-wrapper #password {width: 185px;}
+
+
+
+.landing #content input#login-btn {float: right; padding: 6px 11px 5px 11px;}
+.landing #m-footer .container{padding:0;}
+
+body.landing{background-color:#e9ecef;}
+
+body.chrome.landing #content input#login-btn, body.safari #content input#login-btn {padding: 5px 14px 5px 14px}
+body.ie.landing #content input#login-btn{padding: 5px 13px 5px 13px;}
+
+body.lang-el.landing #password,
+body.lang-sv.landing #password {width: 185px;}
+body.lang-fr.landing #password {width: 170px;}
+
+#sign-up-now {padding: 15px 0 0 0; text-align: center; border-top: 1px solid white;}
+    #sign-up-now a.blueBtn {padding: 5px 20px;}
+    body.lang-tr #sign-up-now a.blueBtn {padding: 5px 11px;}
+        #sign-up-now a.blueBtn:first-child {margin: 0 2px 0 0;}
+    #sign-up-now h4 {text-align: left; font-weight:300;}
+    #sign-up-now b {font-weight: bold;}
+
+
+body.ipad #sign-up-now a.blueBtn, body.android #sign-up-now a.blueBtn, body.mobile #sign-up-now a.blueBtn {padding: 5px 20px;}
+
+body.mobile #sign-up-now {border-top: 1px solid #BBB;}
+
+body.ie #sign-up-now a.blueBtn {padding: 5px 29px;}
+
+body.lang-es #sign-up-now a.blueBtn {padding: 5px 40px;}
+body.lang-fr #sign-up-now a.blueBtn {padding: 5px 25px;}
+body.lang-pt-br #sign-up-now a.blueBtn {padding: 5px 39px;}
+body.lang-de #sign-up-now a.blueBtn {padding: 5px 18px;}
+body.lang-el #sign-up-now a.blueBtn {padding: 5px 21px;}
+body.lang-nl #sign-up-now a.blueBtn {padding: 5px 16px;}
+
+body.lang-en.ie #sign-up-now a.blueBtn {padding: 5px 29px;}
+body.ie.lang-de #sign-up-now a.blueBtn {padding: 5px 17px;}
+body.lang-el #sign-up-now a.blueBtn {padding: 5px 19px;}
+
+#parent-sign-up-link, #sd-link {display: inline-block; margin: 10px 0 0 0;}
+
+#sign-up-now > div > span {padding: 0 5px;}
+
+#tpl-forgot-password {display: none;}
+
+#forgot-password-container {display: none;}
+    #forgot-password-container p {text-align: left; padding: 5px 0;}
+    #forgot-password-container .forgot-password-form > div {text-align: left; padding: 0 0 27px 0; }
+    #forgot-password-container p.forgot-password-short {width: 215px; margin: 0 0 14px 0;}
+    #forgot-password-container p.forgot-password-student {padding: 10px 0 10px 0;}
+    #forgot-password-container .placeholder-container {
+        float: left;
+        margin: 1px 5px 0 0;
+        width: 200px;
+    }
+    body.ie7 #forgot-password-container .placeholder-container {
+        margin: 0 2px 0 0;
+    }
+
+body.lang-tr #forgot-password-container input {width:192px;}
+body.lang-es #forgot-password-container input,
+body.lang-pt-br #forgot-password-container input {width: 198px;}
+body.lang-de #forgot-password-container input {width: 190px;}
+body.lang-el #forgot-password-container input {width: 175px;}
+body.lang-fr #forgot-password-container input {width: 188px;}
+body.lang-nl #forgot-password-container input {width: 173px;}
+
+a.forget-password-btn {position: relative; top: 1px;}
+
+body.firefox #content a.forget-password-btn, body.chrome #content a.forget-password-btn, body.safari #content a.forget-password-btn {padding: 5px 14px;}
+body.ie #content a.forget-password-btn {padding: 5px 14px 4px 14px;}
+body.ie7 #content a.forget-password-btn {padding: 5px 14px;}
+
+input.error {border: 1px solid red;}
+
+#forgot-password-container .forgot-password-success {display: none; padding: 20px 0 0 0;}
+    #forgot-password-container .forgot-password-success p {font-size: 14px; padding-bottom:10px}
+    #forgot-password-container .forgot-password-success p.pass {padding: 5px 0 20px 0;}
+
+/* SIGN UP */
+
+#content .terms-row {font-size:13px; padding:10px 3px;}
+/*
+#content .terms-row a {text-decoration: underline; color: #383D48;}
+#content .terms-row p {color: #5B5B5B;}
+*/
+
+.sign-up-form {overflow: hidden; min-height: 260px;}
+    .sign-up-form > h4 {font-weight: 500; font-size: 16px;}
+    .sign-up-form > div.button-row {padding:5px 0 5px 2px}
+    .sign-up-form > div.button-row a:focus {outline:rgb(94, 158, 214) auto 5px}
+        .sign-up-form > div input {width: 240px}
+            .sign-up-form > div input[type=checkbox] {width: auto;position: relative;bottom: 1px;margin: 0 5px 0 0}
+                .sign-up-form > div input[type=checkbox]:focus {outline:rgb(94, 158, 214) auto 5px}
+    .sign-up-form > div.dd-row {padding: 15px 0 0 0}
+
+#parent-sign-up .select {width: 214px; background-position: 196px -78px;}
+    #parent-sign-up .select ul {width: 194px;}
+
+body.lang-de #parent-sign-up .select {width: 180px; background-position: 162px -78px;}
+    body.lang-de #parent-sign-up .select ul {width: 160px;}
+
+body.lang-el #parent-sign-up .select {width: 230px; background-position: 210px -78px;}
+    body.lang-el #parent-sign-up .select ul {width: 208px;}
+
+#parent-other-row {display: none;}
+
+/* SUBDOMAIN SCHOOL CODE POPUP */
+
+#tpl-verify-school-code {display: none;}
+
+.school-code-verify-container {text-align: center; width: 300px; padding: 10px;}
+    .school-code-verify-container .placeholder-container {float: left; margin-right: 6px;}
+    .school-code-verify-container .niceBtn {float: left;}
+    .school-code-verify-container input {width: 198px;}
+    .school-code-verify-container div.contact {padding: 11px 0 0 0; clear: both; text-align: left;}
+    
+
+#tpl-verify-group-code {display: none;}
+
+.group-code-verify-container {width: 300px; overflow: hidden; padding: 10px; text-align: left;}
+    .group-code-verify-container .placeholder-container {float: left; width: 210px; margin: 0 5px 0 0;}
+        .group-code-verify-container .placeholder-container input{padding: 6px 5px; width: 192px;}
+    .group-code-verify-container p.error {color: red; border: 0; padding: 5px 0;}
+
+/* STRATUS */
+#stratus-wrapper {display: none; width: 420px; margin: 70px auto 0 auto; padding: 30px 30px 30px 30px; border-radius: 30px; border: 1px solid #aaaaad; background: url(//assets.edmodo.com/images/landing-v2/bg-landing-white.png);}
+#stratus-wrapper h3 {font-size: 18px; font-weight: bold; margin: 0 0 15px 0; text-shadow: 0 1px 1px white;}
+#stratus-wrapper > div > p {font-size: 14px; line-height: 18px; margin: 0 0 20px 0;}
+#stratus-wrapper > div > div {overflow: hidden;}
+#stratus-wrapper .username-container {max-width: 101px;}
+#stratus-wrapper .username-container, #stratus-wrapper .cred-form {border: 1px solid #CCC; background: #EEE; padding: 20px; border-radius: 20px;}
+#stratus-wrapper .username-container, #stratus-wrapper .cred-form2 {border: 1px solid #CCC; background: #EEE; padding: 20px; border-radius: 20px;}
+#stratus-wrapper .username-container, #sso-new-account-container {border: 1px solid #CCC; background: #EEE; padding: 20px; border-radius: 20px;}
+#stratus-wrapper .username-container p {background: url(//assets.edmodo.com/images/v2/icons.png) 0 -519px no-repeat; padding: 0 0 0 20px;}
+#stratus-wrapper .submit-container p.large {text-align: center; width: 230px; margin-top: -10px; font-size: 16px; padding: 0 0 5px 0;}
+#stratus-wrapper .form-row {overflow: hidden; text-align: center; padding: 3px 0;}
+#stratus-wrapper .form-row input {float: right; margin: 0 0 0 5px;}
+#stratus-wrapper .form-row label {position: relative; top: 3px; float: left;}
+#stratus-wrapper .cred-contents {padding: 0 0 10px 0;display:inline;}
+#stratus-wrapper p.error {color: red; padding: 0 0 5px 0; font-size: 12px;}
+#stratus-wrapper .ldap-new-account-link {padding-top: 25px}
+
+
+
+body.ie7 #ldap-cred-container form.cred-form {max-width: 219px;}
+body.ie7 #ldap-cred-container input {width: 144px;}
+
+#stratus-wrapper > div.loading {background: url(//assets.edmodo.com/images/loading.gif) no-repeat center; height: 300px;}
+#stratus-wrapper > div.loading * {display: none;}
+
+#ldap-cred-submit {margin: 5px 0 0 75px;}
+
+.ico-merge {float: left; width: 67px; height: 30px; background: url(//assets.edmodo.com/images/landing-v2/ico-merge-arrow.png) no-repeat; margin: 30px 10px;}
+.stratus-school-contact {padding: 5px 0;}
+
+#ldap-new-account-container {overflow: hidden; padding: 0 0 20px 0;}
+#stratus-wrapper #ldap-new-account-container > p {margin: 10px 0;}
+#ldap-new-account-container span {position: relative; top: 3px; left: 5px;}
+#ldap-new-account-container > div {margin: 10px 0 0 0;}
+#stratus-wrapper > div#ldap-new-account-container.loading {height: 130px;}
+#ldap-link-new-account {margin-left: 125px;}
+
+
+a.agree-have-account {float: left; margin: 10px 0;}
+
+#ed-cred-container .username-container {float: left;}
+#ldap-cred-container {height: 400px;}
+#ldap-cred-container .username-container {float: right;}
+
+#ed-cred-container .cred-form {
+    height: 120px;
+    margin: 0 0 0 50px;
+    width:290px
+}
+
+#ldap-cred-container .cred-form {
+    height: 250px;
+    width: 250px;
+    height: 120px;
+    margin: 0 0 0 65px
+}
+
+#sso-new-account-container {
+    float: left;
+    height:120px;
+}
+
+#sso-new-account-container .h5 {
+    margin-top: -10px;
+    text-align:center;
+}
+
+#ldap-cred-container .cred-form .h5 {
+    margin-top: -10px;
+    text-align:center;
+}
+#ldap-cred-container .cred-form2 {
+    float: right;
+    height:120px;
+}
+
+#ldap-cred-container .cred-form2 .h5 {
+    margin-top: -10px;
+    text-align:center;
+}
+#ed-cred-container .submit-container {text-align: right; padding-top: 20px;}
+#ed-cred-container .btn-submit-container {margin: 5px 0 0 150px;}
+
+#ldap-cred-container .submit-container {text-align: left;float:right;display:inline-block;}
+
+#ed-cred-container .submit-container span {float: left;}
+#ldap-cred-container .submit-container span {float: right; margin: 11px 0 0 0;}
+
+#ldap-cred-container, #ed-cred-container, #ldap-new-account-container {display: none;}
+
+.select-school-form {width: 250px; padding: 10px; overflow: hidden;}
+.select-school-form p {padding: 5px 0; text-align: left;}
+.select-school-form > a {float: right; margin: 5px 0 0 0;}
+.select-school-form > select {width: 244px;}
+
+#tpl-video {display: none;}
+.login-join-text {margin-top: 0px;}
+#join-group-title {width: 390px;}
+
+#tpl-video {display: none;}
+
+/* LANDING PAGE - REDIRECT DIFFS */
+
+.redirect-wrapper .logo img {margin: 19px 0 0 69px;}
+.redirect-wrapper .sign-in {margin: 0 118px 0 0;}
+
+.redirect-wrapper #content {background: none;}
+
+.redirect-wrapper #redirect-message {text-align: center;}
+
+.redirect-wrapper #redirect-message p {padding: 3px 0 0 0;}
+
+.redirect-wrapper #login-btn {text-decoration: none; float: right; }
+
+.redirect-wrapper #teacher-sign-up,
+.redirect-wrapper #student-sign-up,
+.redirect-wrapper #parent-sign-up,
+.redirect-wrapper #landing-message,
+.redirect-wrapper #sign-up-now {display: none;}
+
+.redirect-wrapper#landing-wrapper {padding:0}
+
+.redirect-wrapper #landing-flex-container {width: 425px; margin: 0 auto;float:none;border-radius:0;box-shadow:none;background:none;min-height:0}
+.redirect-wrapper #landing-flex-content {min-height:0;padding:0}
+
+.redirect-container {padding: 10px 20px 15px 20px; border: 1px solid #dfe4e8; border-radius: 2px; background: #FFF; margin: 0 0 20px 0; box-shadow: -2px 2px 4px rgba(0,0,0,.05);}
+#landing-wrapper .redirect-container h4 {margin: 5px 0 10px 0; font-size: 21px; color: #383d48; padding: 3px 5px; font-weight: 300;}
+.redirect-container h4.glow {border: 0;}
+.redirect-container a {color: #666; font-weight:bold;}
+.redirect-container a.niceBtn {text-decoration: none;}
+.redirect-container .redirect-sign-up {color: #666; float: right;}
+
+.redirect-wrapper p.error {display: none;}
+.redirect-wrapper p.checking {display: none;}
+
+.redirect-container .lp-secondary{display:inline;margin-top:0}
+
+.redirect-container .placeholder-container {position: relative; box-shadow:none;}
+.redirect-container .placeholder-container label {top: 6px; left: 11px; cursor: text; position: absolute; color: #999;}
+.redirect-container .placeholder-container.focused label {color: #ccc;}
+.redirect-container .placeholder-container.active label {z-index: -1;}
+
+.redirect-wrapper #sign-up-inputs {overflow: hidden; padding-top: 10px;padding-bottom:0;border-bottom:0}
+.redirect-wrapper #sign-up-inputs > div {clear: both;margin-top:0}
+.redirect-wrapper #sign-up-inputs > div.login-btn-container {padding: 15px 0;}
+
+#landing-wrapper.redirect-wrapper #password {width: 290px; float: left;}
+
+.redirect-wrapper #forgot-password-container {display: none;}
+.redirect-wrapper #forgot-password-container p.forgot-password-student,
+.redirect-wrapper #forgot-password-container p.forgot-password-short {text-align: left; padding: 10px 0;}
+.redirect-wrapper #forgot-password-container .forgot-password-form > div {text-align: left; }
+.redirect-wrapper #forgot-password-container input { width: 203px;}
+.redirect-wrapper #forgot-password-container h4 {font-size: 21px; font-weight: 300; margin: 0; padding: 10px 0;}
+.redirect-wrapper #forgot-password-container p.forgot-password-student {padding: 10px 0 10px 0;}
+.redirect-wrapper #forgot-password-container .placeholder-container {float: left; margin: 0 5px 0 0;}
+
+.redirect-wrapper #forgot-password-container .forgot-password-success {display: none; text-align: center;}
+.redirect-wrapper #forgot-password-container .forgot-password-success p {font-size: 14px; text-align: center;}
+.redirect-wrapper #forgot-password-container .forgot-password-success p.pass {padding: 5px 0 20px 0;}
+
+/* SUBDOMAIN SCHOOL CODE POPUP - REDIRECT DIFFS */
+
+.redirect-wrapper .school-code-verify-container input {width: 219px; padding: 5px 3px;}
+.redirect-wrapper .school-code-verify-container p.contact {padding: 11px 0 0 0;}
+
+/* STRATUS - REDIRECT DIFFS */
+
+.redirect-wrapper #stratus-wrapper {display: none; width: 500px; margin: 70px auto 0 auto; padding: 30px 30px 10px 30px; border-radius: 30px; border: 1px solid #aaaaad; background: url(/images/landing-v2/bg-landing-white.png);}
+.redirect-wrapper #stratus-wrapper > div > div {overflow: hidden; clear: both;}
+.redirect-wrapper #stratus-wrapper .username-container p {background: url(/images/v2/icons.png) 0 -519px no-repeat; padding: 0 0 0 20px;}
+.redirect-wrapper #stratus-wrapper .submit-container {padding: 10px;}
+.redirect-wrapper #stratus-wrapper .form-row {overflow: hidden; text-align: left; padding: 3px 0;}
+.redirect-wrapper #stratus-wrapper .cred-contents {padding: 0 0 10px 0;}
+
+.redirect-wrapper #ed-cred-container .cred-form {float: right;}
+.redirect-wrapper #ldap-cred-container .cred-form {
+    float: left;
+    margin-left: 80px
+}
+
+.redirect-wrapper #ldap-cred-container .submit-container {text-align: left;}
+
+.redirect-wrapper #ldap-cred-container, #ed-cred-container, #ldap-new-account-container {display: none; height:auto;}
+
+.expand-width{ max-width: 440px !important;}
+.reduce-font{font-size: 26pt !important;}
+
+
+/***
+
+START - LANDING PAGE A/B TEST 5 + 4
+Landing A/B testing - (GROW-69) (GROW-87)
+
+ ***/
+
+#landing-index-t5 .row {margin-left:0;margin-right:0;}
+#landing-index-t5 {font: 13px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, Helvetica, sans-serif;color: #383d48;margin: 0 auto;padding: 0;line-height: 20px;}
+#landing-index-t5 a {text-decoration: none;text-shadow: none;}
+#landing-index-t5 a.code-btn {
+  width: 85px;
+  height: 48px;
+  padding: 0;
+  margin: 15px 0 0 10px;
+  text-align: center;
+  display: inline-block;
+}
+#landing-index-t5 h1, #landing-index-t5 h2, #landing-index-t5 h3, #landing-index-t5 h4 {margin-top:0; height:50px; line-height: 32px; color: #383d48; font-size: 18px; font-weight: 400;}
+
+body.landing-t5 #footer, body.landing-t4 #footer {display:none;}
+body .btn.btn-edmodo {
+    color: #fff;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    padding: 0 40px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height:50px;
+    background: #3784d3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3784d3', endColorstr='#3784d3');
+    box-shadow: 0 2px 0 #276bb0;
+    text-decoration: none;
+    border-radius: 4px;
+    border:0;
+    text-shadow: none;
+}
+#landing-index-t5 .signupModal-btn {width:400px;}
+
+#landing-index-t5 .login-error, #landing-index-t4 .login-error, #landing-index-t5 .invalid-login-error {
+    color: #fff;
+    background-color: #D93F44;
+    width: 220px;
+    position: absolute;
+    right: 40px;
+    top: 56px;
+    margin: 0;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+body .btn.btn-edmodo:hover {text-decoration: none;background: #2d7bcc;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d7bcc', endColorstr='#2d7bcc');}
+#landing-index-t5 #panel1 {text-align:center;position:relative;}
+#landing-index-t5 .bkPanel1 {
+  background:url('//assets.edmodo.com/images_v2/landing/bk_panel1_1400x700.jpg') 95% center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 760px;
+  height: 75vH;
+}
+#landing-index-t5 #panel1 div.left-content {text-align:left;}
+#landing-index-t5 #panel1 div.right-content .panel-content {border-radius: 3px; width: 400px;}
+
+#landing-index-t5 #panel1 #header .logo  {height:50px; padding-top: 15px;margin-bottom:160px;text-align: left;}
+#landing-index-t5 #panel1 #header .smaller-logo  {margin-bottom:100px;}
+#landing-index-t5 #panel1 #header img#white-logo {
+    height: 50px;
+}
+#landing-index-t5 #panel1 #header .signin  {padding: 34px 32px 0 0; margin-bottom:77px;text-align: right;}
+#landing-index-t5 #panel1 h1.title {font-size:42px;line-height: 30px;margin-bottom:20px;color:#fff;font-weight:200;}
+#landing-index-t5 #panel1 p.subtitle {color:#E6E3DE;width:40%;margin: 0 auto;line-height:26px;font-size: 16px;}
+#landing-index-t5 #panel1 div.left-content p.subtitle {margin:0;width:99%;margin-bottom: 30px;}
+#landing-index-t5 #panel1 a#icon-player {padding: 16px 35px 16px 35px;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') -295px -336px no-repeat;}
+#landing-index-t5 #panel1 div.left-content a#icon-player {color:#fff;font-size: 16px;padding: 16px 48px 16px 0;}
+#landing-index-t5 .grey-text{color:#e6e3de !important;}
+#landing-index-t5 #panel1 a#signin {color:#fff;padding: 12px 46px 12px 0;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 30px -499px no-repeat;border: 0;
+
+box-shadow: none;
+text-shadow: none;
+font-weight: 200;
+font-size: 14px;}
+#landing-index-t5 #panel1 .row#panelsub1 {margin-top:36px;}
+#landing-index-t5 #panel1 .row#panelsub2 {margin:40px auto 0 auto;}
+#landing-index-t5 #panel1 .row#panelsub3 {margin-top:100px;}
+
+body .modal .modal-header, body div .panel-header {background-color: #EFF0F2;color:#383D48;height: 60px;}
+body div .main-landing-header {background-color: #EFF0F2;color:#383D48}
+body .modal .modal-content, body div .panel-content {border-radius: 0px;}
+body #videoModal .modal-dialog {width:633px;height:413px;}
+body #videoModal .modal-body {padding:0;height: 356px;}
+body .modal-body .btn-switcher {
+  width: 100%;
+  border: 1px solid rgba(162, 138, 138, 0.21);
+  border-radius: 2px;
+}
+body .modal-body .btn.active {
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.125);
+}
+body .modal .footer-links, body div .footer-links {text-align: center;color:#555;padding: 10px 15px 20px 15px; line-height: 10px;}
+
+body .modal .footer-links a {color:#383D48;text-decoration: underline;}
+#student-parents {padding-bottom:20px;}
+body .modal p {padding:10px;margin:0;}
+body .modal p.used-edmodo {
+  padding: 10px 35px 20px;
+  margin: 0px;
+  text-align: center;
+  line-height: 17px;
+}
+body .modal #parent-sign-up p.used-edmodo {padding: 10px 31px 20px;}
+
+body .modal .modal-body .form-group.error p.error,
+body div .panel-body .form-group.error p.error,
+body .modal .modal-body p.error,
+body div .panel-body p.error,
+body .modal .modal-body .form-group.error p.info,
+body div .panel-body .form-group.error p.info {display:block;margin: 0 0 5px 0;padding:0;}
+body .modal .modal-body .form-group p.error,
+body .modal .modal-body p.error,
+body div .panel-body p.error,
+body .modal .modal-body .form-group p.info,
+body div .panel-body .form-group p.info {display:none;background-image:none;margin: 0;padding:0;}
+body .modal .modal-body .form-group p.error span,
+body div .panel-body .form-group p.error span,
+body .modal .modal-body p.error span,
+body div .panel-body p.error span,
+body .modal .modal-body .form-group p.info span,
+body div .panel-body .form-group p.info span  {border-radius: 0; line-height:15px;}
+body .modal a.btn-edmodo, body a.btn-edmodo {margin: 0 12px; width: 94%; font-size: 20px;}
+
+body.ie8.landing-t4 #signinModal label.placeholder-text {display:none;}
+
+body #signinModal .modal-dialog {width:380px;}
+body #invalidSigninModal .modal-dialog {width:380px;}
+body #invalidSigninModal .modal-dialog .boom-errors{background: rgb(217, 63, 68); border-radius:2px;}
+body #invalidSigninModal .modal-dialog .boom-errors .error span{background: none;}
+body #invalidSigninModal .modal-dialog .modal-body.login .modal-field.errors input{border: 1px solid rgb(217, 63, 68); margin-top: 15px;}
+
+
+body #signinModal .modal-body {padding:0;}
+body #signinModal .modal-body.login #login-container {display:block;}
+body #signinModal .modal-body.login #forgot-password-container {display:none;}
+body #signinModal .modal-body .form-group {margin: 0;border-bottom: 1px solid #E7E8EC;}
+body #signinModal .modal-body .form-group.error {background-image:none;padding:0;}
+body #signinModal .modal-body .form-group .form-control {border-radius: 0px;border:0;box-shadow: 0 0 0; height:50px;}
+body #signinModal .modal-body #forgot-password-container p {padding:0;}
+body #signinModal .modal-body #forgot-password-container .forgot-password-form {margin-top: 10px;}
+body #signinModal .modal-body #forgot-password-container .forgot-password-form p.text {padding: 10px;}
+body #signinModal .modal-body #forgot-password-container .forgot-password-form > div { padding: 0 0 15px 0;}
+body #signinModal .modal-body #forgot-password-container .forgot-password-form a.forget-password-btn {padding: 0;  margin-top: 12px;}
+body #signinModal .modal-body #forgot-password-container .forgot-password-success {padding: 20px 10px;}
+body #signinModal .modal-body #forgot-password-container .form-group {border-top: 1px solid #E7E8EC;}
+
+body div.right-content .panel-body {padding:0;}
+body div.right-content .panel-body.login #login-container {display:block;}
+body div.right-content .panel-body.login #forgot-password-container {display:none;}
+body div.right-content .panel-body .form-group {margin: 0;border-bottom: 1px solid #E7E8EC;}
+body div.right-content .panel-body .form-group.error {background-image:none;padding:0;}
+body div.right-content .panel-body .form-group .form-control {border-radius: 0px;border:0;box-shadow: 0 0 0;}
+
+body #signupModal .tooltip-inner{min-width: 200px}
+body #signupModal .modal-dialog {width:380px;}
+body #signupModal .modal-body {padding:0;}
+body #signupModal .modal-body .form-group {margin: 0;border-bottom: 1px solid #E7E8EC;}
+body #signupModal .modal-body .form-group.error {background-image:none;padding:0;}
+body #signupModal .modal-body .form-group .form-control {border-radius: 0px;border:0;box-shadow: 0 0 0;}
+body #signupModal .modal-body #tab-cont-stu-par .row {margin-left:0;margin-right:0;margin-top: 1px;}
+body #signupModal .modal-content #student-or-parent-t5,
+body #signupModal .footer-links #teacher-btn-t5 {display:none;}
+body #signupModal .modal-body .placeholder-container textarea{line-height: 20px;}
+
+
+body #signupModal .modal-content #student-or-parent-t5 button.btn-tab {font-weight: bold;border: 1px solid #359342;}
+body #signupModal .modal-body button.btn-tab.active {background: #42b853;color: #fff;text-shadow: 0 0 0; border-radius: 2px; filter: none !important;}
+
+body #signupModal #student-sign-up .col-lg-6, body #signupModal #parent-sign-up .col-lg-6 {padding:0;}
+body #signupModal .modal-body .form-group.legends {padding: 7px 12px;}
+body #signupModal .modal-body .form-group.lft-border {border-left: 1px solid #e7e8ec;}
+body #signupModal .modal-body select#parent-relation {color: #8890a2;width:100%;box-shadow: 0 0 0;background-color: #fff;font-weight: normal;height: 32px; padding-top: 6px;}
+
+body #signupModal .modal-body .sign-up-form > div input {width:100%;}
+body #signupModal .modal-body .sign-up-form > div {padding:0 10px;}
+body #signupModal .modal-body .sign-up-form > div.button-row {padding:5px 10px 5px 10px;}
+body #signupModal .modal-body .sign-up-form > div .placeholder-container {box-shadow: none; line-height: 100%}
+body #signupModal .modal-body .sign-up-form > div .placeholder-container.error {box-shadow: 0 0 1px rgb(255, 0, 0);}
+body #signupModal .modal-body .sign-up-form > div .placeholder-container input {background-color: #fff;}
+body #signupModal .modal-body .sign-up-form > div .placeholder-container label {font-weight: normal;}
+body #signupModal .modal-body #tab-btn-stu-par {width: 95%;margin: 10px auto;}
+
+#privacy
+
+
+#landing-index-t5 #panel2 {text-align:center;position:relative;background:url('//assets.edmodo.com/images_v2/landing/bk_panel2_1400x486.png') bottom center no-repeat fixed;}
+#landing-index-t5 #panel2 .bkPanel2 {padding-bottom:120px;}
+#landing-index-t5 #panel2 h2.title {padding-top:80px;margin-bottom:28px;font-size:30px;color:#3783D3;}
+#landing-index-t5 #panel2 p.subtitle {width: 650px;margin: 0 auto 40px auto;line-height:200%;font-size: 16px;}
+#landing-index-t5 #panel2 .tab .btn-group button.btn-tab {box-shadow: 0 0 0;padding:13px 36px 13px 36px;border:1px solid #E9ECEF;background:#fff;color:#8890A2;}
+#landing-index-t5 #panel2 .tab .btn-group button.btn-tab.active,
+#landing-index-t5 #panel2 .tab .btn-group button.btn-tab:hover {background: #E9ECEF;color:#383D48;}
+#landing-index-t5 #panel2 .tab-content {height:279px;}
+#landing-index-t5 #panel2 .tab-content .col-lg-4 .tabcolumn {width:200px;margin:0 auto;}
+#landing-index-t5 #panel2 .tab-content .col-lg-4.last {margin-bottom: 120px;}
+#landing-index-t5 #panel2 .tab-content h2 {color:#383D48;font-size:16px;font-weight: bold;}
+#landing-index-t5 #panel2 .tab-content p.icon {background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 0 0 no-repeat;width:58px;padding:25px;margin:20px auto;}
+#landing-index-t5 #panel2 .tab-content p.icon.activate {background-position: 0 -166px;}
+#landing-index-t5 #panel2 .tab-content p.icon.network {background-position: 0 -225px;}
+#landing-index-t5 #panel2 .tab-content p.icon.goals {background-position: 0 -283px;}
+#landing-index-t5 #panel2 .tab-content p.icon.lock {background-position: 0 -624px;}
+#landing-index-t5 #panel2 .tab-content p {color:#8890A2;font-size:16px;}
+
+#landing-index-t5 #panel3 {min-height:432px;text-align:center;position:relative;}
+#landing-index-t5 #panel3 .bkPanel3 {
+background:url('//assets.edmodo.com/images_v2/landing/bk_panel3_1400x432.jpg') center center no-repeat fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-height:432px;
+}
+#landing-index-t5 #panel3 h3 {padding-top:108px;margin-bottom:28px;font-size:30px;color:#fff;}
+#landing-index-t5 #panel3 p {color:#fff;margin-bottom:80px;font-size: 16px}
+
+#landing-index-t5 #panel4 {min-height:432px;text-align:center;position:relative;}
+#landing-index-t5 #panel4 .bkPanel4 {
+background:url('//assets.edmodo.com/images_v2/landing/bk_panel4_repeatpatern.png') bottom center repeat-x;
+min-height:432px;
+}
+#landing-index-t5 #panel4 h4 {padding-top:125px;margin-bottom:28px;font-size:30px;color:#3783D3;}
+#landing-index-t5 #panel4 p {margin-bottom:80px;font-size: 16px}
+#landing-index-t5 #panel4 a.btn {font-size: 16px}
+
+
+
+#landing-index-t5 #footer-t5 a {color:#8890A3;}
+#landing-index-t5 #footer-t5 a:hover {color:#999;}
+#landing-index-t5 .underline-class a:hover {text-decoration: underline;}
+#landing-index-t5 .white-hover a:hover {color:#FFFFFF;}
+#landing-index-t5 #footer-t5 p {margin:0; color:#8890a3;}
+#landing-index-t5 #footer-t5 .b1 {margin-top:34px;}
+#landing-index-t5 #footer-t5 .b1 img {margin-bottom:30px;}
+#landing-index-t5 #footer-t5 .b1 p {margin-bottom:20px;}
+#landing-index-t5 #footer-t5 .b2 {margin-top:100px;}
+#landing-index-t5 #footer-t5 .b2 ul {margin-top:0;}
+#landing-index-t5 #footer-t5 ul {list-style-type: none;}
+#landing-index-t5 #footer-t5 ul li {list-style-type: none; padding-bottom:3px;}
+#landing-index-t5 #footer-t5 .b2.social ul li {padding-bottom: 10px;}
+#landing-index-t5 #footer-t5 .b2.social a.eb {padding: 3px 35px 3px 35px;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 0 -133px no-repeat;}
+#landing-index-t5 #footer-t5 .b2.social a.fb {padding: 3px 35px 3px 35px;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 0 -53px no-repeat;}
+#landing-index-t5 #footer-t5 .b2.social a.tw {padding: 3px 35px 3px 35px;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 0 -79px no-repeat;}
+#landing-index-t5 #footer-t5 .b2.social a.gp {padding: 3px 35px 3px 35px;background:url('//assets.edmodo.com/images_v2/landing/landing-index-t5.png') 0 -106px no-repeat;}
+
+#landing-index-t5 #footer-t5 .languages-panel {
+    top: -314px;
+    left: -49px;
+    border-radius: 0;
+    margin:0;
+    padding:0;
+    width: 150px;}
+
+#landing-index-t5 #footer-t5 .languages-panel #sub-languages li {padding: 5px 10px;cursor: pointer;}
+#landing-index-t5 #footer-t5 .languages-panel #sub-languages li:hover {background-color:#fafafa;}
+#landing-index-t5 #footer-t5 .languages-panel .inner-panel .panelarrow {position: absolute;bottom: 9px;left: -15px;}
+#landing-index-t5 #footer-t5 .languages-panel .inner-panel .panelarrow div {
+width: 0;
+height: 0;
+border-top:7px solid transparent;
+border-bottom:7px solid transparent;
+border-right:7px solid #fafafa;
+}
+
+
+@media (max-width: 991px) {
+  #landing-index-t5 #footer-t5 .b2 {margin-top:0px;}
+}
+
+@media (max-width: 460px) {
+  #landing-index-t5 #panel1 h1.title {line-height: 100%;}
+  #landing-index-t5 #panel1 div.left-content p.subtitle {line-height: 200%;}
+  #landing-index-t5 #panel1 div.right-content .panel-content {width:auto;}
+  body #videoModal .modal-dialog {width:95%;height: auto;}
+  body #signinModal .modal-dialog {width: 95%;}
+  body #videoModal .modal-body {height: 150px;}
+  body #videoModal .modal-dialog .modal-body > iframe {width:100%;}
+  body.landing-t4 #site-viewport {overflow:hidden;}
+}
+
+#teacher-terms input.TOS-agree {
+    margin: 0px;
+    height: 15px;
+    }
+
+#content #teacher-sign-up-t5 input
+{
+    height: 50px;
+    padding: 6px 20px;
+}
+
+#content #teacher-sign-up-t5 input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+body #teacher-sign-up-t5 a.btn-edmodo {
+    font-size: 20px;
+    margin: 25px 10px 10px;
+    width: 92%;
+}
+
+body .panel-body .iam-parent-student
+{
+    padding-bottom: 20px;
+    padding-top: 0;
+}
+#landing-index-t5 #footer-t5 p {
+    color: #8890A3;
+    margin: 0;
+}
+#loading-div{height: 30px;}
+.white-link{color: #ffffff;}
+.code-input{
+    margin-top: 15px;
+    float: left;
+    margin-bottom: 20px;
+    width: 370px;
+    text-align: center;
+    height: 50px !important;
+    border-color: #3784d3 !important;
+    color: #3784d3 !important;
+    font-size: 17px !important;
+}
+#student-parent-code::-moz-placeholder
+{
+    color: #3784d3;
+}
+#student-parent-code::-webkit-input-placeholder
+{
+    color: #3784d3;
+}
+#student-parent-code::-ms-input-placeholder
+{
+    color: #3784d3;
+}
+.small-btn
+{
+    width: 70px;
+    height: 48px;
+    padding-left: 10px;
+    margin: 15px 0 0;
+}
+
+body #signupModal .table-cell
+{
+    float: left;
+    margin: 0 15px 10px 0;
+    width: 220px;
+}
+
+body #signupModal .table-cell-right
+{
+    float: left;
+    margin-bottom: 10px;
+    width: 220px;
+}
+
+body #signupModal .table-row
+{
+    height: 50px;
+}
+
+body #signupModal .bigger-dialog {
+    width: 480px;
+}
+
+body #signupModal .cell-text {
+    padding-top: 5px;
+}
+
+body #signupModal .thin-div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 470px;
+}
+.new-login
+{
+    float: left;
+    width: 145px;
+}
+.new-login-right
+{
+    margin-right: 10px;
+}
+.new-login-button
+{
+    float: left;
+    margin: 0 0 0 10px !important;
+    padding-left: 5px !important;
+    font-size: 15px !important;
+    height: 32px;
+    min-width: 90px;
+    line-height: 18px !important;
+
+}
+.new-login-button .lock{
+    margin-left: -55px;
+    margin-top: -5px;
+}
+.new-login-pane
+{
+    margin: 0 !important;
+    padding: 0 !important;
+    right: -505px;
+    width: 490px !important;
+    top: -130px;
+}
+.new-forget-pass
+{
+    float: right;
+    margin-right: 195px;
+    margin-top: 3px;
+    color: #E6E3DE;
+}
+.no-padding-top{padding-top: 0px;}
+.short-error-position
+{
+    right: -20px !important;
+    top: 36px !important;
+    width: 200px !important;
+}
+.login-error-position
+{
+    right: -44px !important;
+    text-align: left;
+    top: 36px !important;
+    width: 225px !important;
+}
+body .btn.btn-edmodo#teacher-sign-up-btn-t5
+{
+    background-color: #42b853;
+    box-shadow: 0 2px 0 #359342;
+}
+.margin-top-ten
+{
+    margin-top: 10px;
+}
+
+/* END - LANDING PAGE A/B TEST 5 */
+.landing-t6 #site-viewport{overflow-y:auto;}
+.landing-t6 #facebox-overlay{background-color:#383d48;opacity:0.85 !important;}
+
+@media (min-width:768px)  {
+  .landing-t6 .container{padding:0;}
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('/fonts/lato.eot');
+  src: local('☺'), url('/fonts/lato.woff') format('woff'), url('/fonts/lato.ttf') format('truetype'), url('/fonts/lato.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.lato {
+  font-family:'lato', Helvetica, Arial, Sans-Serif;
+}
+
+.landing-t6 #site-viewport #content-container{width:100%;padding:0;}
+
+.landing-t6 .head-container{
+    background: rgb(55,107,176); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(55,107,176,1) 0%, rgba(83,149,200,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(55,107,176,1)), color-stop(100%,rgba(83,149,200,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(55,107,176,1) 0%,rgba(83,149,200,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(55,107,176,1) 0%,rgba(83,149,200,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(55,107,176,1) 0%,rgba(83,149,200,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(55,107,176,1) 0%,rgba(83,149,200,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#376bb0', endColorstr='#5395c8',GradientType=0 ); /* IE6-9 */
+}
+
+.landing-t6 .topbar{border-bottom:1px solid #5581bc;}
+.landing-t6 nav{font-family: 'LatoLight';}
+
+@media screen and (min-width:768px) and (max-width:991px) and (max-device-width:991px) and (min-device-width:768px) {
+  .landing-t6 .topbar nav{padding-left:0;}
+  .landing-t6 .topbar ul{float:none;}
+}
+
+@media screen and (max-device-width:991px), screen and (max-width:991px) {
+  .landing-t6 .main-content .tooltip.bottom.in{position:relative;top:0 !important;}
+}
+
+@media screen and (min-width:991px) and  (min-device-width:991px){
+  .landing-t6 .topbar nav{padding-left:0;float:left;}
+  .landing-t6 .topbar ul.nav>li>a{padding-top:28px;padding-bottom:30px;}
+  .landing-t6 .topbar ul.nav>li:first-child>a{padding-left:0;}
+}
+
+.landing-t6 .topbar ul.nav>li>a{color:#c2d8f1;text-transform:uppercase;}
+.landing-t6 .topbar ul.nav>li>a:hover{color:#fff}
+.landing-t6 .topbar .login-form{float:right;padding-top:22px;width:367px;position:relative;}
+.landing-t6 .topbar .login-form .input-container{float:left;outline:none;}
+.landing-t6 .topbar .login-form input:focus{background-color:#fbfbdb;}
+.landing-t6 .topbar .login-form input{transition:background-color .25s;-moz-transition:background-color .25s;-webkit-transition:background-color .25s;width:130px;margin-right:8px;min-height:30px;}
+.landing-t6 .topbar .login-form input,.login-form .ie-placeholder{padding:4px 9px;}
+.landing-t6 .topbar .login-form #login-btn{float:left;background-color:#5395d9;color:#fff;padding:5px 9px;border-radius:2px;text-decoration:none;}
+.landing-t6 .topbar .login-form #login-btn:hover{background-color:#458cd6;}
+.landing-t6 .topbar .login-form #login-btn span{width:18px;height:18px;display:inline-block;background: url(/images_v2/sprites/sprite-landing-page.png);background-position: -158px -7px;vertical-align:middle;}
+.landing-t6 .topbar .login-form #forgot-btn{margin-left: 148px;margin-top: 2px;display: block;float: left;color: #c2d8f1;}
+.landing-t6 .topbar .login-form #forgot-btn:hover{color:#fff;text-decoration:none;}
+
+@media screen and (max-device-width:768px), screen and (max-width:768px) {
+  .landing-t6 .topbar .login-form {
+    padding-top: 11px;
+  }
+}
+
+@media screen and (min-width: 768px), screen and (min-device-width:768px){
+  .landing-t6 nav li ul{
+    display: block;
+    opacity: 0;
+    background: white;
+    z-index: 5;
+    position: absolute;
+    top: 45px;
+    margin-top: -999em;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.15);
+    -webkit-transition: opacity .2s, top .2s;
+    transition: opacity .2s, top .2s;
+    text-transform:uppercase;
+  }
+
+  .landing-t6 nav li:hover ul {
+    margin-top: 0;
+    display: block;
+    opacity: 1;
+    top: 51px;
+    -webkit-transition: opacity .4s, top .4s;
+    transition: opacity .4s, top .4s;
+  }
+
+  .landing-t6 nav li.active ul a, .landing-t6 nav li ul a {
+    color: #7e879b;
+    line-height: 47px;
+    padding: 0 15px;
+    display: block;
+    width: 120px;
+  }
+
+  .landing-t6 nav li :before {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 11px;
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    background-image: url('/images_v2/marketing/triangle.png');
+    background-position: center top;
+  }
+
+  .landing-t6 nav li ul a:hover {
+    background: #f3f5f6;
+    color: #4e5565;
+    text-decoration:none;
+  }
+
+  .landing-t6 nav li ul li:first-child a:hover {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  .landing-t6 nav li ul li:last-child a:hover {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+}
+
+@media screen and (max-device-width:767px), screen and (max-width:767px) {
+  .landing-t6 .navbar-nav a {padding:10px 15px;display:block;color:#c2d8f1;}
+  .landing-t6 .navbar-nav a:hover{color:#c2d8f1;text-decoration:none;}
+  .landing-t6 .navbar-collapse{max-height:none;}
+}
+
+.landing-t6 .navbar-toggle .icon-bar{background-color:#ffffff;}
+.landing-t6 .nav>li>a:hover, .landing-t6 .nav>li>a:focus{background-color:transparent;}
+.landing-t6 .middle{max-width:970px;margin:0 auto;}
+
+.landing-t6 .left-side{padding-top:58px;}
+@media screen and (min-width:767px), screen and (min-device-width:767px) { .landing-t6 .left-side.col-md-6{width:430x;padding-left:0;padding-right:0;float:left;} }
+.landing-t6 .logo{height:80px;width:80px;background-image: url(/images_v2/sprites/sprite-landing-page.png);background-position:-3px 0;}
+.landing-t6 .head-container .description{padding-top:38px;font-size:21px;line-height:36px;color:#c2d8f1;}
+
+.landing-t6 .right-side{padding-top:40px;padding-bottom:73px;}
+@media screen and (min-width: 992px), screen and (min-device-width:992px)  { .right-side.col-md-6{width:367px;padding-left:0;padding-right:0;float:right;} }
+.landing-t6 .right-side .heading{margin-bottom:27px;}
+.landing-t6 .right-side h1{font-weight:normal;font-size:30px;color:#ffffff;font-size:29px;font-weight:100;}
+.landing-t6 ul.account-type{margin-bottom:20px;}
+.landing-t6 ul.account-type li a{text-transform: uppercase;padding:11px 0 9px;float:left;width:33.33%;box-sizing:border-box;text-align:center;color:#c2d8f1;border-radius:2px;outline:none;text-decoration:none;}
+.landing-t6 ul.account-type li a:hover{color:#fff;text-decoration:none;}
+.landing-t6 ul.account-type li a.selected {background-color:rgba(255,255,255,.15);color:#ffffff;position:relative;}
+.landing-t6 ul.account-type li a.selected:after {top: 100%;left: 50%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none;border-top-color: rgba(255, 255, 255, 0.15);border-width: 6px;margin-left: -6px;}
+
+.landing-t6 .form-view{border-radius:2px;margin-bottom:20px;background-color:#ffffff;box-shadow:inset 0 1px 2px rgba(0,0,0,0.3);}
+.landing-t6 #content .form-view>div:first-child input{border-top-left-radius: 2px;border-top-right-radius: 2px;border-top:0;}
+.landing-t6 #content .form-view>div:last-child input{border-bottom-left-radius: 2px;border-bottom-right-radius: 2px;}
+.landing-t6 #content .form-view input, .landing-t6 .btn-group>.btn:first-child{border-radius:0;background-color:transparent;border:0;border-top: 1px solid #e4e6eb;width:100%;box-sizing:border-box;box-shadow:none;transition:background-color 0.25s;-moz-transition:background-color 0.25s;-webkit-transition:background-color 0.25s;text-shadow:none;}
+.landing-t6 #content .form-view input, .landing-t6 .main-content .btn-group>.btn:first-child, .form-view .input-container .ie-placeholder{padding:16px;font-size:16px;line-height:20px;}
+.landing-t6 #content .form-view input:focus{background-color:#fbfbdb}
+.input-container .indicator{position:absolute;top:13px;right:12px;width:65px;height:26px;display:none;}
+.input-container .indicator .bar-container{background-color:#ccc;height:6px;border-radius:2px;overflow:hidden;position:absolute;bottom:0;left:0;width:100%;}
+.input-container .indicator .bar{width:0px;height:inherit;background-color:#da1515;}
+.input-container .indicator[data-type='red']{color:#e25655;}
+.input-container .indicator[data-type='red'] .bar{background-color:#e25655;}
+.input-container .indicator[data-type='orange']{color:orange;}
+.input-container .indicator[data-type='orange'] .bar{background-color:orange;}
+.input-container .indicator[data-type='green']{color:green;}
+.input-container .indicator[data-type='green'] .bar{background-color:green;}
+.input-container .ajax-icons{position:absolute;top:16px;right:16px;}
+.input-container .ajax-icons .success{display:none;background:url(//assets.edmodo.com/images_v2/landing/sprite.png) -20px -54px no-repeat;height: 20px;width: 20px;}
+.input-container .ajax-icons .checking{display:none;background:url(//assets.edmodo.com/images/loading-small.gif) no-repeat center;height:20px;width:20px;}
+.input-container .ie-placeholder{position:absolute;top:0;left:0;border-top:1px solid transparent;color:#999;pointer-events:none;}
+.landing-t6 #content .form-view input.input-error,.landing-t6 #content .topbar .login-form input.input-error,.landing-t6 .btn-group>.btn.input-error{background-color:#fae1e0;border-top-color:#f4c0c0;}
+.landing-t6 #sign-up-button{outline:none;display:block;background-color:#76b764;color:#ffffff;margin-bottom:16px;padding:17px;font-size:18px;text-align:center;border-radius:2px;text-decoration:none;}
+.landing-t6 #sign-up-button:hover{background-color:#6cb258;}
+.landing-t6 #sign-up-button:active{-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}
+.landing-t6 .agreement{color:#c2d8f1;text-align:center;}
+.landing-t6 .agreement a{color:#c2d8f1;}
+
+.landing-t6 div, .landing-t6 p, .landing-t6 form{font-family:'LatoLight';}
+.landing-t6 .main-container{background-color:#ffffff;padding-top:80px;}
+.landing-t6 .main-content .col-md-6{padding-left:0;padding-right:0;}
+.landing-t6 .product-container {margin-bottom: 40px;}
+.landing-t6 .product-container .image-container{height: 150px;width: 244px;margin: 0 auto 32px;}
+.landing-t6 .product-container .image {height:inherit;width:inherit;}
+.landing-t6 .product-container.snapshot .image{background-position: -8px -99px;margin-left:13px;}
+.landing-t6 .product-container.mobile .image{background-size: 242px;background-repeat: no-repeat;background-position: 0 28px;margin:10px auto 0;padding-left:6px;}
+.landing-t6 .product-container .title {color: #ec8814;font-size: 18px;text-align: center;margin-bottom: 12px;}
+.landing-t6 .product-container .description {margin: 0 30px 15px;font-size: 15px;text-align: center;line-height: 22px;}
+.landing-t6 .product-container a {display: block;text-align: center;font-size: 15px;}
+
+/* bootstrap tooltip */
+.input-container,.select-container{position:relative;}
+.landing-t6 .login-form .tooltip-inner{white-space:nowrap;max-width:none;}
+.landing-t6 .tooltip-inner{font-family:'LatoLight';background-color:#e25655;font-weight:200;font-size:14px;padding:7px 8px 8px;line-height:18px;box-shadow:0 1px 4px rgba(0,0,0,0.3);text-align:left;}
+.landing-t6 .tooltip.left{margin-left:-15px;margin-top:0;transition: margin-left .3s;-moz-transition: margin-left .3s; -webkit-transition: margin-left .3s;}
+.landing-t6 .tooltip.left .tooltip-arrow {border-left-color: #e25655;right:-1px;border-width:6px 0 6px 6px;}
+.input-container:hover .tooltip.left,
+.select-container:hover .tooltip.left{margin-left:-5px;}
+
+.landing-t6 .tooltip.suggestions .tooltip-arrow {border-left-color: #383d48;}
+.landing-t6 .tooltip.suggestions .tooltip-inner{background-color:#383d48;font-size:12px;max-width:400px;width:303px;line-height:29px;padding:12px 20px 5px;}
+.landing-t6 .tooltip.suggestions li:before{content: "• ";color:#969dac;}
+.landing-t6 .tooltip.suggestions li span{padding-left:5px;}
+
+.landing-t6 .login-form .tooltip {left: 0 !important;top: 46px !important;}
+.landing-t6 .tooltip{z-index:1;}
+.landing-t6 .main-content .tooltip.bottom{top:48px !important;left:0 !important;}
+.landing-t6 .tooltip.bottom .tooltip-arrow{left:20px !important;border-bottom-color:#e25655;}
+.landing-t6 .forgot-password .tooltip {top: 40px !important;left: 0 !important;}
+
+.landing-t6 .select-container{width:100%;float:left;transition:width 1s;-moz-transition:width 1s;-webkit-transition:width 1s;}
+.landing-t6 .btn-group.bootstrap-select{width:100%;}
+.landing-t6 .select-wrapper.in-transition{height:53px;overflow:hidden;}
+.landing-t6 .select-wrapper.other .select-container{width:50%;}
+.landing-t6 .select-wrapper .input-container{width:0%;float:left;border-left:1px solid #e4e6eb;transition:width 1s;-moz-transition:width 1s;-webkit-transition:width 1s;}
+.landing-t6 .select-wrapper.other .input-container{width:50%;}
+.landing-t6 .btn-group>.btn:first-child{width:100%;color:#aaa;}
+.landing-t6 .btn-group>.btn:first-child:focus{background-color:#fbfbdb;}
+.landing-t6 .btn-group>.btn:first-child.changed{color:#383d48;}
+.landing-t6 .btn-group>.btn:first-child:hover {background: none;}
+.landing-t6 .head-container .caret{transition:all .3s;-webkit-transition:all .3s;-moz-transition:all .3s; transform:rotate(0deg);border:0;float:right;top:17px;right:17px;position:absolute;background: url(/images_v2/sprites/sprite-landing-page.png);height: 20px;width: 20px;display: block;border:0;background-position:-110px -38px;border-bottom:0;}
+.landing-t6 .other .caret{transform:rotate(-90deg);}
+.landing-t6 ul.dropdown-menu{font-family:'LatoLight'; padding:0;position:relative;border:0;box-shadow:0 0 0;width:100%;border-radius:0;margin-top:0;}
+.landing-t6 ul.dropdown-menu i{display:none;}
+.landing-t6 .dropdown-menu>li>a{padding:3px 15px;outline:none;}
+
+.landing-t6 .forgot-password-container{width:440px;}
+.landing-t6 .forgot-password .main{border-bottom:1px solid #e9ecef;padding:20px 30px 32px;}
+.landing-t6 .forgot-password .main h4{margin-bottom:22px;line-height:19px;font-size:20px;font-family:'LatoBold';}
+.landing-t6 .forgot-password .main p{margin-bottom:25px;}
+.landing-t6 .forgot-password .main .form-container{float:left;}
+.landing-t6 .forgot-password .main input{float: left;padding: 9px;width:237px;font-family: 'LatoLight';font-size: 15px;margin-right: 11px;}
+.landing-t6 .forgot-password .main .btn{background: #76b764;text-shadow: none;color: #fff;border: 0;box-shadow: 0 0 0;padding: 10px 14px;width: 125px;height:40px;position:relative;}
+.landing-t6 .forgot-password .main .btn:active{-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125);}
+.landing-t6 .forgot-password .main .btn span { position: absolute; top: 10px; left: 0; right: 0; margin: auto }
+.landing-t6 .forgot-password .main .btn:hover{background-color:#6cb258}
+.landing-t6 .forgot-password .desc{padding:26px 30px 13px;}
+.landing-t6 .forgot-password .desc p{line-height:24px;color:#7e879b;}
+.landing-t6 .forgot-password .desc strong{font-family: 'LatoBold';color:#383d48;}
+.landing-t6 .forgot-password p{font-family:'LatoLight';font-size:14px;}
+.landing-t6 .forgot-password a{color:#3784d3;text-decoration:none;}
+.landing-t6 .forgot-password .close,.landing-t6 .on-forgot-password .close{width: 20px;height: 20px;top: 15px;right: 15px;position: absolute;background: url(/images_v2/sprites/sprite-landing-page.png);background-position: -88px -38px;opacity:1;}
+.landing-t6 .on-forgot-password{padding:20px 30px;}
+
+/* to overrule bootstrap's display:none for hidden */
+.landing-t6 #facebox.hidden{display:block !important;}
+
+.landing-t6 #m-footer{width:100%;}
+
+@media (max-height:600px) {
+    .landing-t6 #first-name{width:50%;display:inline-block;border-right:1px solid #e4e6eb;}
+    .landing-t6 #last-name{width:50%;display:inline-block;}
+}
+
+@media screen and (max-device-width:991px), screen and (max-width:991px) {
+    .landing-t6 .left-side {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-device-width:768px), screen and (max-width:768px) {
+    .landing-t6 .right-side {
+        padding-top: 15px;
+    }
+    .landing-t6 .logo {
+        float: left;
+    }
+    .landing-t6 .head-container .description {
+        padding-top: 0px;
+        margin-left: 95px;
+    }
+}
+
+@media screen and (max-device-width:427px), screen and (max-width:427px) {
+    .landing-t6 .topbar .login-form {
+        width: 180px;
+    }
+
+    .landing-t6 .topbar .login-form .input-container {
+        margin-bottom: 10px;
+    }
+
+    .landing-t6 .topbar .login-form input {
+        width: 100%;
+    }
+
+    .landing-t6 .topbar .login-form #forgot-btn {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-device-width: 400px), screen and (max-width:400px) {
+    .landing-t6 .head-container .description {
+        font-size: 19px;
+        line-height: 27px;
+    }
+}
