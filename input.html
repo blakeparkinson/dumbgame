@@ -1,0 +1,4 @@
+              <form name="items" ng-if="isEditing" ng-submit="handleUpdates(item)">
+                <input type="number" class="update-input" name="count" ng-if="isEditing" ng-model="item.count" ng-pattern="/^[0-9]{1,7}$/" required></input>
+                <span ng-show="items.count.$error.pattern">Not a valid number!</span>
+              </form>
