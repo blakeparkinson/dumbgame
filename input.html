@@ -1,4 +1,16 @@
+<div flex layout-align="start center" layout="row">
+            <div flex="none">Quantity:&nbsp;
+              <span{{item.count}}</span></div>
               <form name="items" ng-if="isEditing" ng-submit="handleUpdates(item)">
                 <input type="number" class="update-input" name="count" ng-if="isEditing" ng-model="item.count" ng-pattern="/^[0-9]{1,7}$/" required></input>
                 <span ng-show="items.count.$error.pattern">Not a valid number!</span>
               </form>
+              <div flex layout="row">
+                <md-button class="md-accent" ng-if="!isEditing">change</md-button>
+                <div ng-if="isEditing">
+                  <md-button class="md-primary flash" ng-click="handleUpdates(item)">Update</md-button>
+                  <md-button class="md-accent" ng-click="item.count = 0; handleUpdates(item)">Delete</md-button>
+                  <span ng-show="items.count.$error.pattern">Not valid number!</span>
+                </div>
+              </div>
+            </div>
